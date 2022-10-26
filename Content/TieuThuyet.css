@@ -1,0 +1,30 @@
+﻿.div-center-Page {
+    width: 65%;
+    height: 1100px;
+    background-color: white;
+    clear: both;
+    position: relative;
+    top: 15px;
+    margin: 0 auto;
+}
+
+    .div-center-Page .div-left-info {
+        width: 22%;
+        height: 97%;
+        background-color: orange;
+        position: relative;
+        float: left;
+        margin: 0 auto;
+        top: 7px;
+        
+    }
+
+    .div-center-Page .div-right-product {
+        width: 76%;
+        height: 97%;
+        background-color: red;
+        position: relative;
+        float: right;
+        margin: 0 auto;
+        top: 7px;
+    }
