@@ -1,4 +1,4 @@
-﻿#div-pro-list {
+#div-pro-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -13,21 +13,20 @@
 .size-img{
     height: 200px;
     width: auto;
-    margin-left: 20px;
+    margin-right: 40px;
     margin-top: 10px;
 }
 
 .box-descritption {
     height: 120px;
     width: auto;
-    margin-left: 20px;
+    margin-right: 40px;
     margin-top: 10px;
 }
 .margin-des {
     margin-left: 10px;
     margin-top: 5px;
     text-align: left;
-    text-align: justify-all;
 }
 
 .PriceBook {
@@ -37,7 +36,4 @@
 .box-pro {
     margin: auto;
     margin-top: 10px;
-}
-.div-center-InfoWeb {
-    top: 120px;
 }

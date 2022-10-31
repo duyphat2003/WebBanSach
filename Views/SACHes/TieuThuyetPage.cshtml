@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebBanSach.Models.SACH>
+@{
+    ViewBag.Title = "Tiểu thuyết";
+    Layout = "~/Views/Shared/TrangChu.cshtml";
+}
+<link rel="stylesheet" href="~/Content/TieuThuyet.css" />
+<link rel="stylesheet" href="~/Content/ProductStylePro.css" />
+<div class="div-center-Page">
+    <div class="div-left-title">
+        <div>
+            <a href="Index">Trang chủ</a>&nbsp;&gt;&nbsp;<span>@ViewBag.Title</span>
+        </div>
+    </div>
+    <div class="div-left-info">
+        <div>GIÁ</div>
+        <ul>
+            <li>
+                <input id="control_01" type="radio" name="select" value="1">
+                <label for="control_01">0₫ - 150,000₫</label>
+            </li>
+
+            <li>
+                <input id="control_02" type="radio" name="select" value="2">
+                <label for="control_02">150,000₫ - 300,000₫</label>
+            </li>
+
+            <li>
+                <input id="control_03" type="radio" name="select" value="3">
+                <label for="control_03">300,000₫ - 500,000₫</label>
+            </li>
+
+            <li>
+                <input id="control_04" type="radio" name="select" value="4">
+                <label for="control_04">500,000₫ - 700,000₫</label>
+            </li>
+
+            <li>
+                <input id="control_05" type="radio" name="select" value="5">
+                <label for="control_05">700,000₫ - Trở lên</label>
+            </li>
+        </ul>
+    </div>
+    <div class="div-right-product">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                if (item.Masach > 10 && item.Masach < 23)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="box-pro">
+                            <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="size-img" />
+                            <div class="box-description">
+                                <p class="margin-des">@Html.DisplayFor(modelItem => item.Tensach)</p>
+                                <p class="margin-des PriceBook">@Html.DisplayFor(modelItem => item.Dongia)0₫</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</div>

@@ -2,20 +2,20 @@
 <html lang="vi">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8" />
     <meta name="keywords" content="BLLP, Bình Long Lượng Phát, BLLP.com, Bình Long Lượng Phát.com" />
     <meta name="author" content="BLLP" />
-    <title> Nhà sách trực tuyến BLLP.com</title>
+    <title>Nhà sách trực tuyến BLLP.com</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/mywebstyle.css" />
 </head>
 <body>
     <div id="wrapper">
         <div id="header" class="clearfix">
-            <div class="frst-Upper">
-                
-                <div class="marquee">
+            <div class="container-fluid frst-Upper">
+
+                <div class="container-fluid marquee">
                     <div class="inner">
                         <span style="margin-inline-end: 50px">Đọc sách có thể không giàu, nhưng không đọc, chắc chắn nghèo!</span>
                         <span style="margin-inline-end: 50px">Bạn cô đơn ư? Đừng lo lắng. Mọi cuốn sách đều sẵn sàng kết thân với bạn!</span>
@@ -23,11 +23,10 @@
                     </div>
                 </div>
             </div>
-            <div class="wp-inner">
-
-                <a href="Home" target="_self" id="logo" class="fl-left">BLLP.com</a>
+            <div class="navbar-collapse wp-inner">
+                <a href="https://localhost:44323/TrangChu/Home" target="_self" class="icon_Bar fl-left" id="logo">BLLP.com</a>
                 <div class="dropdown">
-                    <img id="logoMenu" src="~/Content/Images/menu1.png" alt="Error Logo Menu">
+                    <img  class="icon_Bar bar" id="logoMenu" src="~/Content/Images/Icon_Menu.png" alt="Error Icon_Menu">
                     <div class="dropdown-content">
                         <table height="200">
                             <tr>
@@ -35,40 +34,54 @@
                                     Danh sách thể loại
                                 </td>
                                 <td class="Choice" width="300">
-                                    <a href="TieuThuyetBtn" target="_self" class="ChoiceType">Tiểu thuyết</a>
+                                    <a href="https://localhost:44323/SACHes/TieuThuyetPage" target="_self" class="ChoiceType">Tiểu thuyết</a>
                                 </td>
                             </tr>
 
                             <tr>
                                 <td class="Choice" width="300">
-                                    <a href="Home" target="_self" class="ChoiceType">Truyện tranh</a>
+                                    <a href="https://localhost:44323/TrangChu/Home" target="_self" class="ChoiceType">Truyện tranh</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="Choice" width="300">
-                                    <a href="Home" target="_self" class="ChoiceType">Sách lập trình</a>
+                                    <a href="https://localhost:44323/TrangChu/Home" target="_self" class="ChoiceType">Sách lập trình</a>
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </div>
 
-                <div class="SearchBar"><input id="SearchBar" type="text" name="Search" size="34" maxlength="37" placeholder="Tên sách..."></div>
+                <div class="input-group SearchBar"><input id="SearchBar" type="text" name="Search" size="34" maxlength="37" placeholder="Tên sách..."></div>
 
-                <ul id="main-menu" class="fl-right">
-                    <li><a href="Home" target="_self">Thông báo</a></li>
-                    <li><a href="TaiKhoanBtn" target="_self">Giỏ hàng</a></li>
-                    <li><a href="TaiKhoanBtn" target="_self">Tài khoản</a></li>
+                <ul id="main-menu" class="col-md-7 col-md-8 fl-right">
+                    <li>
+                        <a href="https://localhost:44323/TrangChu/Home" target="_self" >
+                            <img src="~/Content/Images/Icon_Nofi 1.png" alt="Icon_Nofi 1.png bị lỗi" class="icon_Bar" style=" margin-left: 35%;" />
+                            <div>Thông báo</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://localhost:44323/TrangChu/Home" target="_self">
+                            <img src="~/Content/Images/Icon_Shopping.png" alt="Icon_Shopping.png bị lỗi" class="icon_Bar" style=" margin-left: 28%;"/>
+                            <div>Giỏ hàng</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://localhost:44323/User/LoginRegisterPage" target="_self">
+                            <img src="~/Content/Images/Icon_Account 2.png" alt="Icon_Account 2.png bị lỗi" class="icon_Bar" style=" margin-left: 28.7%;"/>
+                            <div>Tài khoản</div>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div>
-        <div class="div-left-title"><a href="Home" style="text-decoration: none; color: black">Trang chủ </a> > @ViewBag.Title</div>
+    <div class="container-fluid">
         @RenderBody()
     </div>
-    <div class="div-center-InfoWeb">
-        <div class="end-page-left" style="border-right: groove 2px">
+    <div class="col-md-6 col-md-offset-3 div-center-InfoWeb">
+        <div class="container end-page-left" style="border-right: groove 2px">
             <a href="Home" id="logo-end">BLLP.com</a>
             <div class="address-info">
                 Lầu 4, 828 Sư Vạn Hạnh Quận 10 TP HCM<br />
@@ -78,7 +91,7 @@
                 KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống BLLP trên toàn quốc.
             </div>
         </div>
-        <div class="end-page-right">
+        <div class="container end-page-right">
             <div class="table-center">
                 <table width="90%" height="80%" class="Serice-table">
                     <tr style=" font-size: 16px; text-align: left; height: 10%;">
@@ -123,11 +136,11 @@
 
                     <tr style=" font-size: 14px; text-align: left; height: 5%">
                         <td>
-                                    
+
                         </td>
 
                         <td>
-                                
+
                         </td>
 
                         <td>
@@ -188,13 +201,9 @@
                 </table>
             </div>
         </div>
-        <div class="end-page-center">
+        <div class="container end-page-center">
             Giấy chứng nhận Đăng ký Kinh doanh số 0304132047 do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp ngày 20/12/2005, đăng ký thay đổi lần thứ 1, ngày 23/10/2022.
         </div>
     </div>
-
-    <script>
-        const 
-    </script>
 </body>
 </html>

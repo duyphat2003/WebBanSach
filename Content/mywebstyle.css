@@ -7,26 +7,9 @@
 body {
     line-height: 22px;
     font-size: 20px;
-    background-color: lightgray;
+    background-color: rgb(234, 234, 235);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-/*LinkConectBar*/
-.div-left-title {
-    width: 65%;
-    height: 30px;
-    background-color: pink;
-    clear: both;
-    display: inline-block;
-    justify-content: center;
-    position: relative;
-    color: black;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    top: 10px;
-    text-align: left;
-}
-
-
 /* Heading Section*/
 
 .fl-left {
@@ -39,7 +22,9 @@ body {
 
 #header {
     font-family: sans-serif;
-    background-color:white;   
+    background-color: white;
+    width: auto;
+    height: 200px;
 }
 
 .clearfix:after {
@@ -57,17 +42,16 @@ body {
     height: 100px;
     padding: 7px 0px;
     color: rgb(189, 33, 36);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 250%;
     font-weight: bolder;
     position: absolute;
     top: 110px;
-    left : 360px;
+    left: 340px;
 }
 
 .SearchBar {
     position: absolute;
-    top: 105px;
+    top: 100px;
     left: 670px;
 }
 
@@ -85,10 +69,10 @@ body {
 
 #logoMenu {
     width: 70px;
-    height: 70px;
+    height: 50px;
     position: absolute;
-    top: 15px;
-    left: 245px;
+    top: 25px;
+    left: 585px;
     border: none;
     cursor: pointer;
 }
@@ -103,7 +87,6 @@ body {
     clear: both;
     margin: 0 auto;
     color: rgb(189, 33, 36);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 120%;
     font-weight: bolder;
     display: flex;
@@ -136,26 +119,38 @@ body {
 }
 
 .wp-inner {
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
 }
 
 #main-menu {
     list-style: none;
+    float: right;
 }
     #main-menu li {
         float: left;
     }
 
         #main-menu li a {
+            width: 180px;
+            height: 70px;
             position: relative;
-            left: 20px;
-            text-decoration: none;
-            color: gray;
-            text-transform: uppercase;
+            left: 490px;
+            top: 10px;
             display: block;
-            padding: 35px 30px;
+            padding: 10px 30px;
+            text-decoration: none;
         }
+            #main-menu li a img {
+                width: 40px;
+                height: 40px;
+                color: gray;
+            }
+            #main-menu li a div {
+                text-transform: uppercase;
+                color: gray;
+                text-align: center;
+            }
 
             #main-menu li a:hover {
                 background-color: indianred;
@@ -165,10 +160,8 @@ td.Choice {
     color: deeppink;
     text-align: left;
     font-size: 110%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: lighter;
     padding-left: 20px;
-
 }
     td.Choice .ChoiceType {
         color: slategray;
@@ -189,11 +182,11 @@ td.Choice {
     display : none;
     position: absolute;
     background-color: aliceblue;
-    min-width: 160px;
+    width: 700px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 10px 16px;
-    top: 80px;
-    left: 170px;
+    top: 70px;
+    left: 350px;
     z-index: 101;
     
 }
@@ -203,10 +196,10 @@ td.Choice {
 }
 /* Body Section*/
 
-.div-center-ADs-1{
+.div-center-ADs-1 {
     width: 65%;
     height: 300px;
-    background-color: lightgray;
+    background-color: rgb(234, 234, 235);
     clear: both;
     position: relative;
     top: 20px;
@@ -215,10 +208,11 @@ td.Choice {
 
 .ADs-col1 {
     width: 61.2%;
+    background-color: red;
     height: 300px;
     position: relative;
     float: left;
-    display: block;
+    display: inline-block;
 }
 
 .ADs-Image {
@@ -318,7 +312,7 @@ td.Choice {
 .div-center-ADs-2 {
     width: 65%;
     height: 200px;
-    background-color: lightgray;
+    background-color: rgb(234, 234, 235);
     clear: both;
     position: relative;
     top: 40px;
@@ -328,6 +322,7 @@ td.Choice {
 .ADs-row {
     color: white;
     display: inline-block;
+   
 }
 
 .ads-2 {
@@ -344,7 +339,7 @@ td.Choice {
     background-color: white;
     clear: both;
     position: relative;
-    top: 100px;
+    top: 80px;
     margin: 0 auto;
 }
 
@@ -354,8 +349,10 @@ td.Choice {
     background-color: white;
     clear: both;
     position: relative;
-    top: 120px;
     margin: 0 auto;
+}
+.div-center-InfoWeb {
+    top: 120px;
 }
     .div-center-InfoWeb .end-page-left {
         width: 40%;
@@ -382,7 +379,6 @@ td.Choice {
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-size: 12px;
         font-weight: bold;
     }
@@ -393,7 +389,6 @@ td.Choice {
     height: 100px;
     padding: 7px 0px;
     color: rgb(189, 33, 36);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 300%;
     font-weight: bolder;
     position: absolute;
@@ -407,7 +402,6 @@ td.Choice {
     top: 100px;
     left: 4px;
     text-align: justify;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 14px;
     font-weight: bold;
     flex-direction: row;
@@ -417,7 +411,6 @@ td.Choice {
 .Serice-table {
     position: absolute;
     text-align: justify;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
     flex-direction: row;
     flex-wrap: wrap;

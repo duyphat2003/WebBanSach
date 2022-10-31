@@ -1,11 +1,12 @@
-﻿
-@{
-    ViewBag.Title = "TaiKhoanBtn";
+﻿@{
+    ViewBag.Title = "LoginRegisterPage";
     Layout = "~/Views/Shared/TrangChu.cshtml";
 }
 
 <link rel="stylesheet" href="~/Content/LoginRegister.css" />
+
 <div class="LoginSection">
+
     <div class="Switch-Section">
         <button class="Size-Btn" id="signUp" style="margin-right: 10px">
             Đăng nhập
@@ -18,36 +19,45 @@
         <div class="container" id="container">
             <div class="form-container sign-up-container">
                 <form action="#">
-                    <div>
-                        <label for="uname" class="form-label">Tài khoản</label>
-                        <input type="text" class="form-control" placeholder="Tên đăng nhập....." name="uname">
-                    </div>
-                    <div>
-                        <label for="pwd" class="form-label">Mật khẩu</label>
-                        <input type="password" class="form-control" placeholder="Mật khẩu....." name="pswd">
-                    </div>
-                    <button type="submit" class="ConfirmBtn">Đăng nhập</button>
+                    @using (Html.BeginForm("Login", "Users"))
+                    {
+                        @Html.ValidationSummary(true)
+                        <div>
+                            <label for="uname" class="form-label">Tài khoản</label>
+                            <input type="text" class="form-control" placeholder="Tên đăng nhập....." name="TenDN">
+                        </div>
+                        <div>
+                            <label for="pwd" class="form-label">Mật khẩu</label>
+                            <input type="password" class="form-control" placeholder="Mật khẩu....." name="Matkhau">
+                        </div>
+                        <button type="submit" class="ConfirmBtn">Đăng nhập</button>
+                    }
                 </form>
             </div>
 
             <div class="form-container sign-in-container">
                 <form action="#">
-                    <div>
-                        <label class="form-label">Tài khoản</label>
-                        <input type="text" class="form-control" placeholder="Tên đăng nhập....." name="uname">
-                    </div>
-                    <div>
-                        <label class="form-label">Mật khẩu</label>
-                        <input type="password" class="form-control" placeholder="Mật khẩu....." name="pswd">
-                    </div>
+                    @using (Html.BeginForm("Register", "Users"))
+                    {
+                        @Html.ValidationSummary(true)
+                        <div>
+                            <label class="form-label">Tài khoản</label>
+                            <input type="text" class="form-control" placeholder="Tên đăng nhập....." name="TenDN">
+                        </div>
+                        <div>
+                            <label class="form-label">Mật khẩu</label>
+                            <input type="password" class="form-control" placeholder="Mật khẩu....." name="Matkhau">
+                        </div>
 
-                    <div>
-                        <label  class="form-label">Xác nhận mật khẩu</label>
-                        <input type="password" class="form-control" placeholder="Mật khẩu....." name="pswd">
-                    </div>
-                    <button type="submit" class="ConfirmBtn">Đăng ký</button>
+                        <div>
+                            <label class="form-label">Xác nhận mật khẩu</label>
+                            <input type="password" class="form-control" placeholder="Mật khẩu....." name="Matkhau">
+                        </div>
+                        <button type="submit" class="ConfirmBtn">Đăng ký</button>
+                    }
                 </form>
             </div>
+
 
             <div class="overlay-container">
                 <div class="overlay">
@@ -62,23 +72,20 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 </div>
+
 
 <script>
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
     const container = document.getElementById('container');
-
     signUpButton.addEventListener('click', () => {
         container.classList.add("right-panel-active");
     });
-
     signInButton.addEventListener('click', () => {
         container.classList.remove("right-panel-active");
     });
 </script>
+
 
