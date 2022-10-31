@@ -1,7 +1,11 @@
-﻿.div-center-Page {
+.div-center-Page {
     width: 65%;
     height: 1500px;
+<<<<<<< HEAD
     background-color: rgb(234, 234, 235);
+=======
+    background-color: white;
+>>>>>>> 6758f346fbb0df41cd5bb0e0891ebe2c80da1536
     clear: both;
     position: relative;
     top: 15px;
@@ -10,6 +14,11 @@
     .div-center-Page .div-left-title {
         width: 100%;
         height: 3%;
+<<<<<<< HEAD
+=======
+        background-color: rgb(234, 234, 235);
+     
+>>>>>>> 6758f346fbb0df41cd5bb0e0891ebe2c80da1536
         position: relative;
         margin: 0 auto;
         display: flex;
@@ -36,6 +45,11 @@
     .div-center-Page .div-left-info {
         width: 22%;
         height: 97%;
+<<<<<<< HEAD
+=======
+        background-color: pink;
+        border-color:orange;
+>>>>>>> 6758f346fbb0df41cd5bb0e0891ebe2c80da1536
         position: relative;
         background-color: white;
         float: left;
@@ -55,12 +69,18 @@
     .div-center-Page .div-right-product {
         width: 76%;
         height: 97%;
+<<<<<<< HEAD
+=======
+        background-color: red;
+        border-color: red;
+>>>>>>> 6758f346fbb0df41cd5bb0e0891ebe2c80da1536
         position: relative;
         background-color: white;
         float: right;
         margin: 0 auto;
     }
 
+<<<<<<< HEAD
 
 /*Phần checkbox Animation*/
 
@@ -82,3 +102,9 @@ input[type='radio'] {
 .div-center-InfoWeb {
         top: 40px;
 }
+=======
+.div-center-InfoWeb {
+    top: 20px;
+}
+
+>>>>>>> 6758f346fbb0df41cd5bb0e0891ebe2c80da1536

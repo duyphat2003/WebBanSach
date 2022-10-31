@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<WebBanSach.Models.SACH>
 @{
-    ViewBag.Title = "Tiểu thuyết";
+    ViewBag.Title = "Sách Lập Trình";
     Layout = "~/Views/Shared/TrangChu.cshtml";
 }
 
@@ -45,7 +45,7 @@
         <div class="row">
             @foreach (var item in Model)
             {
-                if (item.Masach > 10 && item.Masach < 23)
+                if (item.Masach < 5)
                 {
                     <div class="col-lg-4 col-md-6">
                         <div class="box-pro">
@@ -62,3 +62,4 @@
         </div>
     </div>
 </div>
+

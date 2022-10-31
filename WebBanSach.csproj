@@ -128,7 +128,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SACHesController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -337,9 +336,11 @@
     <Content Include="Views\SACHes\Delete.cshtml" />
     <Content Include="Views\SACHes\Details.cshtml" />
     <Content Include="Views\SACHes\Edit.cshtml" />
-    <Content Include="Views\SACHes\TieuThuyetPage.cshtml" />
-    <Content Include="Views\User\LoginRegisterPage.cshtml" />
     <Content Include="Views\TrangChu\Home.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\SACHes\TieuThuyetPage.cshtml" />
+    <Content Include="Views\SACHes\LapTrinhPage.cshtml" />
+    <Content Include="Views\SACHes\TruyenTranhPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

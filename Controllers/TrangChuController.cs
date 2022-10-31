@@ -12,8 +12,6 @@ namespace WebBanSach.Controllers
     public class TrangChuController : Controller
     {
         private QLBANSACHEntities db = new QLBANSACHEntities();
-
-       
         public ActionResult Home()
         {
             var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);

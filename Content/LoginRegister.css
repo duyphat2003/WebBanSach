@@ -1,4 +1,4 @@
-﻿.LoginSection {
+.LoginSection {
 	width: 65%;
 	height: 650px;
 	background-color: white;
@@ -22,7 +22,7 @@
 .Type-Section {
 	position: relative;
 	width: 100%;
-	top: 40px;
+	top: 75px;
 	display: flex;
 	justify-content: center;
 	margin-left: auto;

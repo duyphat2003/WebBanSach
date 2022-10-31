@@ -14,14 +14,19 @@ namespace WebBanSach.Controllers
     {
         private QLBANSACHEntities db = new QLBANSACHEntities();
 
-        // GET: SACHes
-        public ActionResult Home()
+        public ActionResult TieuThuyetPage()
         {
             var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
             return View(sACHes.ToList());
         }
 
-        public ActionResult TieuThuyetPage()
+        public ActionResult LapTrinhPage()
+        {
+            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
+            return View(sACHes.ToList());
+        }
+
+        public ActionResult TruyenTranhPage()
         {
             var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
             return View(sACHes.ToList());
