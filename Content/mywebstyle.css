@@ -46,7 +46,11 @@ body {
     font-weight: bolder;
     position: absolute;
     top: 110px;
+<<<<<<< HEAD
     left: 340px;
+=======
+    left: 360px;
+>>>>>>> 6758f346fbb0df41cd5bb0e0891ebe2c80da1536
 }
 
 .SearchBar {
@@ -423,5 +427,3 @@ td.Choice {
     justify-content: center;
     flex-direction: row;
 }
-
-

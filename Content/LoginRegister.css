@@ -1,4 +1,4 @@
-﻿.LoginSection {
+.LoginSection {
 	width: 65%;
 	height: 650px;
 	background-color: white;
@@ -57,6 +57,12 @@
 .Size-Btn {
 	width: 220px;
 	height: 50px;
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 6758f346fbb0df41cd5bb0e0891ebe2c80da1536
 	background-color: white;
 	font-size: 14px;
 	font-weight: bold;
