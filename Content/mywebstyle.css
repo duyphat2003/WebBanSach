@@ -1,4 +1,4 @@
-﻿* {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -21,6 +21,7 @@ body {
   
 }
 
+
 #header {
     font-family: sans-serif;
     background-color: white;
@@ -39,7 +40,7 @@ body {
 
 #logo {
     text-decoration: none;
-    width: 17%;
+    width: 240px;
     height: 70px;
     padding: 7px 0px;
     color: rgb(189, 33, 36);
@@ -52,7 +53,7 @@ body {
 
 .SearchBar {
     position: absolute;
-    width: 30%;
+    width: 440px;
     top: 100px;
     left: 670px;
 }
@@ -68,7 +69,7 @@ body {
 
 
 #logoMenu {
-    width: 3%;
+    width: 50px;
     height: 50px;
     position: absolute;
     top: 25px;
@@ -132,18 +133,21 @@ body {
     }
 
         #main-menu li a {
-            width: 170px;
-            height: 70px;
+            width: 100px;
             position: relative;
-            left: 490px;
+            left: 512px;
             top: 10px;
             display: block;
-            padding: 10px 30px;
+            padding: 10px 5px;
+            margin-left: 50px;
             text-decoration: none;
+            text-align: center;
         }
             #main-menu li a img {
                 width: 35px;
                 height: 35px;
+                margin-left: 0;
+                margin-right: 70px;
                 align-content: center;
                 color: gray;
             }
@@ -320,15 +324,22 @@ td.Choice {
     top: 40px;
     margin: 0 auto;
 }
+    .div-center-ADs-2 table {
+        text-align: center;
+        width: 100%;
+    }
+        .div-center-ADs-2 table td {
+            height: 200px;
+        }
+            .div-center-ADs-2 table td .ADs-row {
+                width: 0 auto;
+                height: 0 auto;
+                margin: 0 auto;
+            }
 
-.ADs-row {
-    color: white;
-    display: inline-block;
-   
-}
 
 .ads-2 {
-    display: block;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     width: 97%;
