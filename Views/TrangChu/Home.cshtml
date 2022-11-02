@@ -31,12 +31,12 @@
         </div>
     </div>
 
-    <div class="col-md-6 col-md-offset-3 ADs-col-2-row-1">
+    <div class="col-md-6 col-md-offset-3 rounded float-end ADs-col-2-row-1">
         <a href="https://ironhackvietnam.edu.vn/sach-day-lap-trinh-co-ban-hay-nhat/" target="_blank">
             <img src="~/Content/Images/ads3.png" alt="ads3.png bị lỗi" class="ads-1">
         </a>
     </div>
-    <div class="col-md-6 col-md-offset-3 ADs-col-2-row-2">
+    <div class="col-md-6 col-md-offset-3 rounded float-end ADs-col-2-row-2">
         <a href="https://spiderum.com/bai-dang/DevUP-Ban-biet-code-nhung-da-biet-lap-trinh-su-nghiep-cua-minh-wn2" target="_blank">
             <img src="~/Content/Images/ads6.png" alt="ads6.png bị lỗi" class="ads-1">
         </a>
@@ -49,41 +49,40 @@
         <tr>
             <td  class="ADs-row">
                 <a href="https://ioe.vn/chi-tiet/tin-tu-ban-to-chuc/vui-he-thang-6-viet-loi-truyen-tranh-sang-tao-tha-phanh-1-5285" target="_blank">
-                    <img src="~/Content/Images/ads1.png" alt="ads1.png bị lỗi" class="col-md-1 ads-2">
+                    <img src="~/Content/Images/ads1.png" alt="ads1.png bị lỗi" class="ads-2">
                 </a>
             </td>
 
             <td class="ADs-row">
                 <a href="https://vnskills.edu.vn/sach-hoc-lap-trinh-web/" target="_blank">
-                    <img src="~/Content/Images/ads11.png" alt="ads11.png bị lỗi" class="col-md-1 ads-2">
+                    <img src="~/Content/Images/ads11.png" alt="ads11.png bị lỗi" class="ads-2">
                 </a>
             </td>
 
             <td class="ADs-row">
                 <a href="https://newshop.vn/tin-tuc/10-sach-tieu-thuyet-hay-nhat-hien-nay-id618.html" target="_blank">
-                    <img src="~/Content/Images/ads5.png" alt="ads5.png bị lỗi" class="col-md-1 ads-2">
+                    <img src="~/Content/Images/ads5.png" alt="ads5.png bị lỗi" class="ads-2">
                 </a>
             </td>
 
             <td class="ADs-row">
                 <a href="https://www.didau.info/detail/6/manga-festival-2022-8211-le-hoi-truyen-tranh-nhat-ban" target="_blank">
-                    <img src="~/Content/Images/ads10.png" alt="ads10.png bị lỗi" class="col-md-1 ads-2">
+                    <img src="~/Content/Images/ads10.png" alt="ads10.png bị lỗi" class="ads-2">
                 </a>
             </td>
         </tr>
-
     </table>
 </div>
 
-<div class="col-md-6 col-md-offset-3 div-center-Products">
-    <h2 style="text-align: center">Những cuốn sách tiểu biểu</h2>
+<div class="div-center-PopularProducts">
+    <h2 style="text-align: center; color: rgb(255 46 149);">Những cuốn sách tiểu biểu</h2>
     <link rel="stylesheet" href="~/Content/ProductStylePro.css" />
     <div class="row">
         @foreach (var item in Model)
         {
             if (item.Masach < 13)
             {
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="box-pro">
                         <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="size-img" />
                         <div class="box-description">
@@ -96,7 +95,7 @@
         }
     </div>
 </div>
-
+               
 
 <script>
     var slideIndex = 1;

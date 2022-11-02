@@ -18,7 +18,7 @@ body {
 
 .fl-right {
     float: right;
-  
+    margin-left: 560px;
 }
 
 
@@ -203,8 +203,8 @@ td.Choice {
 /* Body Section*/
 
 .div-center-ADs-1 {
-    width: 65%;
-    height: 300px;
+    width: 100%;
+    height: 12%;
     background-color: rgb(234, 234, 235);
     clear: both;
     position: relative;
@@ -316,12 +316,12 @@ td.Choice {
 
 
 .div-center-ADs-2 {
-    width: 65%;
-    height: 200px;
+    width: auto;
+    height: 10%;
     background-color: rgb(234, 234, 235);
     clear: both;
     position: relative;
-    top: 40px;
+    top: 35px;
     margin: 0 auto;
 }
     .div-center-ADs-2 table {
@@ -346,9 +346,18 @@ td.Choice {
     height: 100%;
 }
 
-.div-center-Products {
+.div-center-Page {
     width: 65%;
-    height: 1100px;
+    height: 1798px;
+    background-color: rgb(234, 234, 235);
+    clear: both;
+    position: relative;
+    top: 15px;
+    margin: 0 auto;
+}
+.div-center-PopularProducts {
+    width: 100%;
+    height: 76%;
     background-color: white;
     clear: both;
     position: relative;
@@ -363,9 +372,7 @@ td.Choice {
     clear: both;
     position: relative;
     margin: 0 auto;
-}
-.div-center-InfoWeb {
-    top: 120px;
+    top: 170px;
 }
     .div-center-InfoWeb .end-page-left {
         width: 40%;

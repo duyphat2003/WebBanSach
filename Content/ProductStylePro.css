@@ -4,17 +4,18 @@
     flex-wrap: wrap;
 }
 
-.box-pro{
-    height: 350px;
+.box-pro {
+    height: 300px;
     width: 300px;
     text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .size-img{
     height: 200px;
     width: auto;
-    margin-right: 40px;
-    margin-top: 10px;
 }
 
 .box-descritption {
@@ -31,25 +32,4 @@
 
 .PriceBook {
     color: #C92127
-}
-
-.box-pro {
-    margin: auto;
-    margin-top: 10px;
-}
-
-.dropdown-sort {
-    display: none;
-    position: absolute;
-    background-color: aliceblue;
-    width: 700px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 10px 16px;
-    top: 70px;
-    left: 350px;
-    z-index: 105;
-}
-
-.dropdown:hover .dropdown-sort {
-    display: block;
 }
