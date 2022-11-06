@@ -1,0 +1,30 @@
+﻿@model WebBanSach.Models.SACH
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/TrangChu.cshtml";
+}
+
+<div style="margin: 10px auto; width: 70%;">
+    <h2 style="text-align: center">CHI TIẾT SẢN PHẨM</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <img style="width: 100%;" src="~/Content/Images/@Model.Hinhminhhoa">
+        </div>
+        <div class="col-md-6">
+            <h4>Tên sản phẩm: @Model.Tensach</h4>
+            <p style="text-align: justify">
+                <span style="font-weight: bold">Mô tả:</span> @Model.CHUDE.TenChuDe
+            </p>
+            <p class="price">
+                Giá bán: <span style="color:red; font-size:24px;">
+                    @Model.Dongia VNĐ
+                </span>
+            </p>
+            <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new {id = Model.Masach })">ĐẶT MUA</a>
+        </div>
+    </div>
+</div>
+
+
