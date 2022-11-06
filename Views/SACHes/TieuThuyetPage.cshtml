@@ -44,15 +44,17 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            if (item.Masach > 10 && item.Masach < 23)
+            if (item.MaCD == 12)
             {
-                <div class="col-lg-4 col-md-6">
-                    <div class="box-pro">
-                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="size-img" />
-                        <div class="box-description">
-                            <p class="margin-des">@Html.DisplayFor(modelItem => item.Tensach)</p>
-                            <p class="margin-des PriceBook">@Html.DisplayFor(modelItem => item.Dongia)0₫</p>
-                        </div>
+                <div class="card" style="width: 18rem;">
+                    <a href="#">
+                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
+                    </a>
+                    <div class="card-body">
+                        <a class="card-text" href="#">
+                            @Html.DisplayFor(modelItem => item.Tensach)
+                        </a>
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Dongia)đ</h5>
                     </div>
                 </div>
             }
