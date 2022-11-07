@@ -8,6 +8,7 @@
     <meta name="author" content="BLLP" />
     <title>Nhà sách trực tuyến BLLP.com</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="~/Content/mywebstyle.css" />
 </head>
 <body>
@@ -15,73 +16,81 @@
         <div id="header" class="clearfix">
             <div class="container-fluid frst-Upper">
                 <div class="marquee">
-                    <div class="navbar-text inner">
+                    <div class="inner">
                         <span style="margin-inline-end: 50px">Đọc sách có thể không giàu, nhưng không đọc, chắc chắn nghèo!</span>
                         <span style="margin-inline-end: 50px">Bạn cô đơn ư? Đừng lo lắng. Mọi cuốn sách đều sẵn sàng kết thân với bạn!</span>
                         <span style="margin-inline-end: 50px">Đọc sách cho tâm trí cũng cần như thể dục cho cơ thể.</span>
                     </div>
-                </div>
+                </div>                      
             </div>
-            <div class="container-fluid list-group list-group-horizontal-sm wp-inner">
-                <a href="https://localhost:44323/TrangChu/Home" target="_self" class="list-group list-group-item-light fl-left" id="logo">BLLP.com</a>
-                <div class="dropdown">
-                    <img  class="list-group  list-group-item-light bar" id="logoMenu" src="~/Content/Images/Icon_Menu.png" alt="Error Icon_Menu">
-                    <div class="dropdown-menu dropdown-content">
-                        <table height="200">
-                            <tr>
-                                <td style="border-right: groove" class="align-content-center TitleChoice" rowspan="3" width="220">
-                                    Danh sách thể loại
-                                </td>
-                                <td class="align-content-lg-start Choice" width="300">
-                                    <a href="https://localhost:44323/SACHes/TieuThuyetPage" target="_self" class="ChoiceType">Tiểu thuyết</a>
-                                </td>
-                            </tr>
+            <nav class="navbar navbar-expand-sm wp-inner">
+                <div class="container-fluid container-sm p-2 my-0 bg-warning">
+                    <a href="@Url.Action("Home", "TrangChu")" target="_self" class="navbar-brand" id="logo">BLLP.com</a>
+                    <div class="dropdown" style="top: 2px;">
+                        <img class="navbar-brand" id="logoMenu" src="~/Content/Images/Icon_Menu.png" alt="Error Icon_Menu">
+                        <div class="dropdown-menu dropdown-content">
+                            <table height="200">
+                                <tr>
+                                    <td style="border-right: groove" class="align-content-center TitleChoice" rowspan="3" width="220">
+                                        Danh sách thể loại
+                                    </td>
+                                    <td class="align-content-lg-start Choice" width="300">
+                                        <a href="@Url.Action("TieuThuyetPage", "SACHes")" target="_self" class="ChoiceType">Tiểu thuyết</a>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td class="align-content-lg-start Choice" width="300">
-                                    <a href="https://localhost:44323/SACHes/TruyenTranhPage" target="_self" class="ChoiceType">Truyện tranh</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="align-content-lg-start Choice" width="300">
-                                    <a href="https://localhost:44323/SACHes/LapTrinhPage" target="_self" class="ChoiceType">Sách lập trình</a>
-                                </td>
-                            </tr>
-                        </table>
+                                <tr>
+                                    <td class="align-content-lg-start Choice" width="300">
+                                        <a href="@Url.Action("TruyenTranhPage", "SACHes")" target="_self" class="ChoiceType">Truyện tranh</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="align-content-lg-start Choice" width="300">
+                                        <a href="@Url.Action("LapTrinhPage", "SACHes")" target="_self" class="ChoiceType">Sách lập trình</a>
+                                    </td>
+                                </tr> 
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse"  id="collapsibleNavbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <div><input id="SearchBar" class="col-md-6" type="text" name="Search" size="34" maxlength="37" placeholder="Tên sách..."></div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="nav-link main-menu">
+                                    <a href="https://localhost:44323/TrangChu/Home" target="_self" class="nav-link">
+                                        <img src="~/Content/Images/Icon_Nofi 1.png" alt="Icon_Nofi 1.png bị lỗi" style=" margin-left: 37.5%;" />
+                                        <div>Thông báo</div>
+                                    </a>
+                                    <a href="https://localhost:44323/TrangChu/Home" target="_self" class="nav-link">
+                                        <img src="~/Content/Images/Icon_Shopping.png" alt="Icon_Shopping.png bị lỗi" style=" margin-left: 28%;" />
+                                        <div>Giỏ hàng</div>
+                                    </a>
+
+                                    <a href="https://localhost:44323/User/Login" target="_self" class="nav-link">
+                                        <img src="~/Content/Images/Icon_Account 2.png" alt="Icon_Account 2.png bị lỗi" style=" margin-left: 35%;" />
+                                        <div>Tài khoản</div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </nav>
 
-                <div class="list-group  list-group-item-light SearchBar"><input id="SearchBar" type="text" name="Search" size="34" maxlength="37" placeholder="Tên sách..." ></div>
-
-                <ul id="main-menu" class="list-group list-group-horizontal fl-right">
-                    <li>
-                        <a href="https://localhost:44323/TrangChu/Home" target="_self" >
-                            <img src="~/Content/Images/Icon_Nofi 1.png" alt="Icon_Nofi 1.png bị lỗi" class="icon_Bar" style=" margin-left: 37.5%;" />
-                            <div>Thông báo</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://localhost:44323/TrangChu/Home" target="_self">
-                            <img src="~/Content/Images/Icon_Shopping.png" alt="Icon_Shopping.png bị lỗi" class="icon_Bar" style=" margin-left: 28%;"/>
-                            <div>Giỏ hàng</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://localhost:44323/User/Login" target="_self">
-                            <img src="~/Content/Images/Icon_Account 2.png" alt="Icon_Account 2.png bị lỗi" class="icon_Bar" style=" margin-left: 35%;"/>
-                            <div>Tài khoản</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
     <div class="div-center-Page">
         @RenderBody()
     </div>
     <div class="div-center-InfoWeb">
-        <div class="end-page-left" style="border-right: groove 2px">
-            <a href="Home" id="logo-end">BLLP.com</a>
+        <div class="end-page-left">
+            <a href="@Url.Action("Home", "TrangChu")" id="logo-end">BLLP.com</a>
             <div class="address-info">
                 Lầu 4, 828 Sư Vạn Hạnh Quận 10 TP HCM<br />
                 Công Ty Cổ Phần Phát Hành Sách TP HCM - BLLP
@@ -90,115 +99,111 @@
                 KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống BLLP trên toàn quốc.
             </div>
         </div>
-        <div class="end-page-right">
-            <div class="table-center">
-                <table width="90%" height="80%" class="Serice-table">
-                    <tr style=" font-size: 16px; text-align: left; height: 10%;">
-                        <td>
-                            DỊCH VỤ
-                        </td>
+        <div class="end-page-right" style="border-left: groove 2px;">
+            <table class="Serice-table">
+                <tr style=" font-size: 16px; text-align: left; height: 10%;">
+                    <td>
+                        DỊCH VỤ
+                    </td>
 
-                        <td width="2%">
-                        </td>
+                    <td width="2%">
+                    </td>
 
-                        <td>
-                            HỖ TRỢ
-                        </td>
+                    <td>
+                        HỖ TRỢ
+                    </td>
 
-                        <td width="4%">
-                        </td>
+                    <td width="4%">
+                    </td>
 
-                        <td>
-                            TÀI KHOẢN CỦA TÔI
-                        </td>
-                    </tr>
+                    <td>
+                        TÀI KHOẢN CỦA TÔI
+                    </td>
+                </tr>
 
-                    <tr style=" font-size: 14px; text-align: left; height: 5%">
-                        <td>
-                            Giới thiệu BLLP
-                        </td>
+                <tr style=" font-size: 14px; text-align: left; height: 5%">
+                    <td>
+                        Giới thiệu BLLP
+                    </td>
 
-                        <td>
-                        </td>
+                    <td>
+                    </td>
 
-                        <td>
-                            Chính sách vận chuyển
-                        </td>
+                    <td>
+                        Chính sách vận chuyển
+                    </td>
 
-                        <td>
-                        </td>
+                    <td>
+                    </td>
 
-                        <td>
-                            Đăng nhập/Tạo mới tài khoản
-                        </td>
-                    </tr>
+                    <td>
+                        Đăng nhập/Tạo mới tài khoản
+                    </td>
+                </tr>
 
-                    <tr style=" font-size: 14px; text-align: left; height: 5%">
-                        <td>
+                <tr style=" font-size: 14px; text-align: left; height: 5%">
+                    <td>
+                    </td>
 
-                        </td>
+                    <td>
+                    </td>
 
-                        <td>
+                    <td>
+                        Chính sách bảo hành - bồi hoàn
+                    </td>
+                    <td>
+                    </td>
 
-                        </td>
+                    <td>
+                        Lịch sử mua hàng
+                    </td>
+                </tr>
 
-                        <td>
-                            Chính sách bảo hành - bồi hoàn
-                        </td>
-                        <td>
-                        </td>
+                <tr style=" font-size: 14px; text-align: left; height: 5%">
+                    <td>
+                    </td>
 
-                        <td>
-                            Lịch sử mua hàng
-                        </td>
-                    </tr>
+                    <td>
+                    </td>
 
-                    <tr style=" font-size: 14px; text-align: left; height: 5%">
-                        <td>
-                        </td>
+                    <td>
+                        Chính sách đổi - trả - hoàn tiền
+                    </td>
 
-                        <td>
-                        </td>
+                    <td>
+                    </td>
 
-                        <td>
-                            Chính sách đổi - trả - hoàn tiền
-                        </td>
+                    <td>
+                    </td>
+                </tr>
 
-                        <td>
-                        </td>
+                <tr style=" font-size: 16px; text-align: left; height: 5%;">
+                    <td colspan="4">
+                        LIÊN HỆ
+                    </td>
+                </tr>
 
-                        <td>
-                        </td>
-                    </tr>
+                <tr style=" font-size: 14px; text-align: left; height: 5%">
+                    <td>
+                        Lầu 4, 828 Sư Vạn Hạnh Quận 10 TP HCM<br />
+                        Công Ty Cổ Phần Phát Hành Sách TP HCM - BLLP
+                    </td>
 
-                    <tr style=" font-size: 16px; text-align: left; height: 5%;">
-                        <td colspan="4">
-                            LIÊN HỆ
-                        </td>
-                    </tr>
+                    <td>
+                    </td>
 
-                    <tr style=" font-size: 14px; text-align: left; height: 5%">
-                        <td>
-                            Lầu 4, 828 Sư Vạn Hạnh Quận 10 TP HCM<br />
-                            Công Ty Cổ Phần Phát Hành Sách TP HCM - BLLP
-                        </td>
+                    <td>
+                        cskh@BLLP.com.vn
+                    </td>
 
-                        <td>
-                        </td>
+                    <td>
+                    </td>
 
-                        <td>
-                            cskh@BLLP.com.vn
-                        </td>
-
-                        <td>
-                        </td>
-
-                        <td>
-                            1900636467
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                    <td>
+                        1900636467
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="end-page-center">
             Giấy chứng nhận Đăng ký Kinh doanh số 0304132047 do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp ngày 20/12/2005, đăng ký thay đổi lần thứ 1, ngày 23/10/2022.

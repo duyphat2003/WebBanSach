@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="~/Content/ProductStylePro.css" />
 <div class="div-left-title">
     <div>
-        <a href="Index">Trang chủ</a>&nbsp;&gt;&nbsp;<span>@ViewBag.Title</span>
+        <a href="@Url.Action("Home", "TrangChu")">Trang chủ</a>&nbsp;&gt;&nbsp;<span>@ViewBag.Title</span>
     </div>
 </div>
 <div class="div-left-info">
@@ -41,18 +41,20 @@
     </ul>
 </div>
 <div class="container-fluid div-right-product">
-    <div class="row">
+    <div class="row product">
         @foreach (var item in Model)
         {
-            if (item.Masach < 5)
+            if (item.MaCD == 14)
             {
-                <div class="col-lg-4 col-md-6">
-                    <div class="box-pro">
-                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="size-img" />
-                        <div class="box-description">
-                            <p class="margin-des">@Html.DisplayFor(modelItem => item.Tensach)</p>
-                            <p class="margin-des PriceBook">@Html.DisplayFor(modelItem => item.Dongia)0₫</p>
-                        </div>
+                <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
+                    <a href="#" style="text-decoration: none;">
+                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
+                    </a>
+                    <div class="card-body">
+                        <a class="card-text" href="#" style="text-decoration: none; color: black; font-size: 125%">
+                            @Html.DisplayFor(modelItem => item.Tensach)
+                        </a>
+                        <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
                     </div>
                 </div>
             }

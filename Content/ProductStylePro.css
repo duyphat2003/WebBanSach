@@ -5,8 +5,8 @@
 }
 
 .box-pro {
-    height: 300px;
-    width: 300px;
+    height: auto;
+    width: auto;
     text-align: center;
     margin: 0 auto;
     margin-top: 10px;
@@ -17,6 +17,7 @@
     height: 200px;
     width: auto;
 }
+
 
 .box-descritption {
     height: 120px;

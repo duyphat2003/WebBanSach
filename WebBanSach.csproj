@@ -201,6 +201,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Detail.css" />
     <Content Include="Content\Images\ads.png" />
     <Content Include="Content\Images\ads1.png" />
     <Content Include="Content\Images\ads10.png" />
@@ -341,6 +342,7 @@
     <Content Include="Views\SACHes\TieuThuyetPage.cshtml" />
     <Content Include="Views\SACHes\LapTrinhPage.cshtml" />
     <Content Include="Views\SACHes\TruyenTranhPage.cshtml" />
+    <Content Include="Views\TrangChu\ChiTiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

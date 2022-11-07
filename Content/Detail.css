@@ -1,0 +1,18 @@
+﻿.div-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+    .div-title:hover {
+        color: black;
+    }
+
+.current-title {
+    text-decoration: none;
+    color: orange;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}

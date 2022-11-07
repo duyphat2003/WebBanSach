@@ -1,5 +1,5 @@
 ﻿.div-center-Page {
-	height: 700px;
+	height: auto;
 	background-color: white;
 }
 
@@ -122,7 +122,7 @@ input[type='radio'] {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	top: 50px;
+	top: 20px;
 	clear: both;
 	text-align: center;
 	font-size: 12px;
@@ -137,9 +137,6 @@ input[type='radio'] {
 	font-weight: bold;
 }
 
-.SearchBar {
-	top: 100px;
-}
 
 #logoMenu {
 	top: 25px;

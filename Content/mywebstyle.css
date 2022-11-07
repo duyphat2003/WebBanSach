@@ -1,11 +1,9 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    line-height: 22px;
     font-size: 20px;
     background-color: rgb(234, 234, 235);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -26,10 +24,10 @@ body {
     font-family: sans-serif;
     background-color: white;
     width: auto;
-    height: 200px;
 }
 
 .clearfix:after {
+    color: rgb(189, 33, 36);                    
     content: ".";
     visibility: hidden;
     display: block;
@@ -40,42 +38,28 @@ body {
 
 #logo {
     text-decoration: none;
-    width: 240px;
-    height: 70px;
-    padding: 7px 0px;
     color: rgb(189, 33, 36);
     font-size: 250%;
     font-weight: bolder;
-    position: absolute;
-    top: 110px;
-    left: 340px;
 }
 
-.SearchBar {
-    position: absolute;
-    width: 440px;
-    top: 100px;
-    left: 670px;
-}
 
 #SearchBar {
     border: none;
     background-color: #eee;
     padding: 12px 15px;
     margin: 8px 0;
+    width: auto;
+    flex: 1;
     height: 40px;
+    margin-top: 20px;
     border-radius: 10px;
 }
 
 
 #logoMenu {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 25px;
-    left: 585px;
-    border: none;
-    cursor: pointer;
+    width: 70px;
+    height: 70px;
 }
 
 .frst-Upper {
@@ -120,47 +104,50 @@ body {
 }
 
 .wp-inner {
-    width: 100%;
+    width: auto;
     margin: 0 auto;
 }
 
-#main-menu {
+.main-menu {
     list-style: none;
-    float: right;
 }
-    #main-menu li {
-        float: left;
+    .main-menu a {
+        width: 100px;
+        display: inline-block;
+        margin-left: 50px;
+        text-decoration: none;
+        text-align: center;
     }
 
-        #main-menu li a {
-            width: 100px;
-            position: relative;
-            left: 512px;
-            top: 10px;
-            display: block;
-            padding: 10px 5px;
-            margin-left: 50px;
-            text-decoration: none;
+        .main-menu a img {
+            width: 35px;
+            height: 35px;
+            margin-left: 0;
+            margin-right: 70px;
+            align-content: center;
+            color: gray;
+        }
+
+        .main-menu a div {
+            text-transform: uppercase;
+            font-size: 14px;
+            color: gray;
             text-align: center;
         }
-            #main-menu li a img {
-                width: 35px;
-                height: 35px;
-                margin-left: 0;
-                margin-right: 70px;
-                align-content: center;
-                color: gray;
-            }
-            #main-menu li a div {
-                text-transform: uppercase;
-                font-size: 14px;
-                color: gray;
-                text-align: center;
-            }
 
-            #main-menu li a:hover {
-                background-color: indianred;
-            }
+        .main-menu a:hover {
+            background-color: indianred;
+        }
+
+
+.show {
+
+    position: relative;
+    top: 8px;
+    background-color: rgb(219, 219, 204);
+}
+
+
 
 td.Choice {
     color: deeppink;
@@ -169,20 +156,21 @@ td.Choice {
     font-weight: lighter;
     padding-left: 20px;
 }
+
     td.Choice .ChoiceType {
         color: slategray;
         text-decoration: none;
     }
 
 
-    td.TitleChoice {
-        color: coral;
-        font-size: 110%;
-        text-align: center;
-        font-weight: bold;
-        padding-bottom: 140px;
-        padding-right: 20px;
-    }
+td.TitleChoice {
+    color: coral;
+    font-size: 110%;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 140px;
+    padding-right: 20px;
+}
 
 .dropdown-content {
     display : none;
@@ -191,8 +179,6 @@ td.Choice {
     width: 700px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 10px 16px;
-    top: 70px;
-    left: 350px;
     z-index: 101;
     
 }
@@ -348,7 +334,7 @@ td.Choice {
 
 .div-center-Page {
     width: 65%;
-    height: 1798px;
+    height: auto;
     background-color: rgb(234, 234, 235);
     clear: both;
     position: relative;
@@ -367,7 +353,7 @@ td.Choice {
 
 .div-center-InfoWeb {
     width: 65%;
-    height: 400px;
+    height: auto;
     background-color: white;
     clear: both;
     position: relative;
@@ -376,21 +362,69 @@ td.Choice {
 }
     .div-center-InfoWeb .end-page-left {
         width: 40%;
-        height: 90%;
+        height: auto;
         float: left;
         position: relative;
         margin: 0 auto;
     }
+        .div-center-InfoWeb .end-page-left a {
+            text-decoration: none;
+            width: auto;
+            height: auto;
+            padding: 7px 0px;
+            color: rgb(189, 33, 36);
+            font-size: 300%;
+            font-weight: bolder;
+            padding-left: 30px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            font-size-adjust: initial;
+        }
     .div-center-InfoWeb .end-page-right {
         width: 60%;
-        height: 90%;
+        height: auto;
         float: right;
         position: relative;
-        margin: 0 auto;
+        margin: 0;
     }
+        .div-center-InfoWeb .end-page-right .Serice-table {
+            height: auto;
+            width: auto;
+            position: relative;
+            top: 10px;
+            right: 20px;
+            left: 20px;
+            text-align: justify;
+            font-weight: bold;
+            flex-direction: row;
+            flex-wrap: wrap;
+            -webkit-text-size-adjust: auto;
+        }
+
+.div-center-InfoWeb .end-page-right .Serice-table {
+    height: auto;
+    width: auto;
+    position: relative;
+    top: 10px;
+    right: 20px;
+    left: 20px;
+    text-align: justify;
+    font-weight: bold;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-text-size-adjust: auto;
+}
+    .div-center-InfoWeb .end-page-right .Serice-table tr {
+    }
+
+        .div-center-InfoWeb .end-page-right .Serice-table tr td {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
     .div-center-InfoWeb .end-page-center {
         width: 100%;
-        height: 10%;
+        height: auto;
         position: relative;
         margin: 0 auto;
         text-align: center;
@@ -400,45 +434,19 @@ td.Choice {
         text-align: center;
         font-size: 12px;
         font-weight: bold;
+        padding-top: 20px;
     }
 
-#logo-end {
-    text-decoration: none;
-    width: 220px;
-    height: 100px;
-    padding: 7px 0px;
-    color: rgb(189, 33, 36);
-    font-size: 300%;
-    font-weight: bolder;
-    position: absolute;
-    top: 40px;
-    left: 4px;
-}
+
 
 .address-info {
-    position: absolute;
+    padding-left: 30px;
     padding-right: 70px;
-    top: 100px;
-    left: 4px;
     text-align: justify;
     font-size: 14px;
     font-weight: bold;
     flex-direction: row;
     flex-wrap: wrap;
+    font-size-adjust: initial;
 }
 
-.Serice-table {
-    position: absolute;
-    text-align: justify;
-    font-weight: bold;
-    flex-direction: row;
-    flex-wrap: wrap;
-    word-wrap: break-word;
-}
-.table-center {
-    padding-top: 40px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
