@@ -343,6 +343,9 @@
     <Content Include="Views\SACHes\LapTrinhPage.cshtml" />
     <Content Include="Views\SACHes\TruyenTranhPage.cshtml" />
     <Content Include="Views\TrangChu\ChiTiet.cshtml" />
+    <Content Include="Views\SACHes\ChiTietTieuThuyet.cshtml" />
+    <Content Include="Views\SACHes\ChiTietLapTrinh.cshtml" />
+    <Content Include="Views\SACHes\ChiTietTruyenTranh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

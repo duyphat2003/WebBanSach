@@ -12,33 +12,35 @@
     </div>
 </div>
 <div class="div-left-info">
-    <div>GIÁ</div>
-    <ul>
-        <li>
-            <input id="control_01" type="radio" name="select" value="1">
-            <label for="control_01">0₫ - 150,000₫</label>
-        </li>
+    <div class="Menu-Choice">
+        <div class="Title-Choice">GIÁ</div>
+        <ul>
+            <li>
+                <input id="control_01" type="radio" name="select" value="1">
+                <label for="control_01">0₫ - 150,000₫</label>
+            </li>
 
-        <li>
-            <input id="control_02" type="radio" name="select" value="2">
-            <label for="control_02">150,000₫ - 300,000₫</label>
-        </li>
+            <li>
+                <input id="control_02" type="radio" name="select" value="2">
+                <label for="control_02">150,000₫ - 300,000₫</label>
+            </li>
 
-        <li>
-            <input id="control_03" type="radio" name="select" value="3">
-            <label for="control_03">300,000₫ - 500,000₫</label>
-        </li>
+            <li>
+                <input id="control_03" type="radio" name="select" value="3">
+                <label for="control_03">300,000₫ - 500,000₫</label>
+            </li>
 
-        <li>
-            <input id="control_04" type="radio" name="select" value="4">
-            <label for="control_04">500,000₫ - 700,000₫</label>
-        </li>
+            <li>
+                <input id="control_04" type="radio" name="select" value="4">
+                <label for="control_04">500,000₫ - 700,000₫</label>
+            </li>
 
-        <li>
-            <input id="control_05" type="radio" name="select" value="5">
-            <label for="control_05">700,000₫ - Trở lên</label>
-        </li>
-    </ul>
+            <li>
+                <input id="control_05" type="radio" name="select" value="5">
+                <label for="control_05">700,000₫ - Trở lên</label>
+            </li>
+        </ul>
+    </div>
 </div>
 <div class="container-fluid div-right-product">
     <div class="row product">
@@ -47,11 +49,11 @@
             if (item.MaCD == 14)
             {
                 <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
-                    <a href="#" style="text-decoration: none;">
+                    <a href="@Url.Action("ChiTietLapTrinh", "SACHes", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none;">
                         <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
                     </a>
                     <div class="card-body">
-                        <a class="card-text" href="#" style="text-decoration: none; color: black; font-size: 125%">
+                        <a class="card-text" href="@Url.Action("ChiTietLapTrinh", "SACHes", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: black; font-size: 125%">
                             @Html.DisplayFor(modelItem => item.Tensach)
                         </a>
                         <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>

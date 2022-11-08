@@ -23,45 +23,48 @@
                     </div>
                 </div>                      
             </div>
-            <nav class="navbar navbar-expand-sm wp-inner">
-                <div class="container-fluid container-sm p-2 my-0 bg-warning">
-                    <a href="@Url.Action("Home", "TrangChu")" target="_self" class="navbar-brand" id="logo">BLLP.com</a>
-                    <div class="dropdown" style="top: 2px;">
-                        <img class="navbar-brand" id="logoMenu" src="~/Content/Images/Icon_Menu.png" alt="Error Icon_Menu">
-                        <div class="dropdown-menu dropdown-content">
-                            <table height="200">
-                                <tr>
-                                    <td style="border-right: groove" class="align-content-center TitleChoice" rowspan="3" width="220">
-                                        Danh sách thể loại
-                                    </td>
-                                    <td class="align-content-lg-start Choice" width="300">
-                                        <a href="@Url.Action("TieuThuyetPage", "SACHes")" target="_self" class="ChoiceType">Tiểu thuyết</a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="align-content-lg-start Choice" width="300">
-                                        <a href="@Url.Action("TruyenTranhPage", "SACHes")" target="_self" class="ChoiceType">Truyện tranh</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-content-lg-start Choice" width="300">
-                                        <a href="@Url.Action("LapTrinhPage", "SACHes")" target="_self" class="ChoiceType">Sách lập trình</a>
-                                    </td>
-                                </tr> 
-                            </table>
-                        </div>
-                    </div>
-                    
+            <nav class="navbar navbar-expand-sm wp-inner col-md-12">
+                <div class="container-fluid container-sm p-2 my-0 col-md-12">            
+                    <a href="@Url.Action("Home", "TrangChu")" target="_self" class="col-md-2 navbar-brand" id="logo">BLLP.com</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse"  id="collapsibleNavbar">
+                    <div class="collapse navbar-collapse col-md-12" id="collapsibleNavbar">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <div><input id="SearchBar" class="col-md-6" type="text" name="Search" size="34" maxlength="37" placeholder="Tên sách..."></div>
+                            <li class="col-md-1 offset-md-1">
+                                <div class="dropdown" style="width: auto; height: auto;">
+                                    <img class="navbar-brand" id="logoMenu" src="~/Content/Images/Icon_Menu.png" alt="Error Icon_Menu">
+                                    <div class="dropdown-menu dropdown-content">
+                                        <table height="200">
+                                            <tr>
+                                                <td style="border-right: groove" class="align-content-center TitleChoice" rowspan="3" width="220">
+                                                    Danh sách thể loại
+                                                </td>
+                                                <td class="align-content-lg-start Choice" width="300">
+                                                    <a href="@Url.Action("TieuThuyetPage", "SACHes")" target="_self" class="ChoiceType">Tiểu thuyết</a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="align-content-lg-start Choice" width="300">
+                                                    <a href="@Url.Action("TruyenTranhPage", "SACHes")" target="_self" class="ChoiceType">Truyện tranh</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="align-content-lg-start Choice" width="300">
+                                                    <a href="@Url.Action("LapTrinhPage", "SACHes")" target="_self" class="ChoiceType">Sách lập trình</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                             </li>
-                            <li class="nav-item">
+
+
+                            <li class="col-md-4 offset-md-1 nav-item" style="width: auto; height: auto;">
+                                <div><input id="SearchBar" type="text" name="Search" size="34" maxlength="37" placeholder="Tên sách..."></div>
+                            </li>
+                            <li class="col-md-4 nav-item" style="width: auto; height: auto ">
                                 <div class="nav-link main-menu">
                                     <a href="https://localhost:44323/TrangChu/Home" target="_self" class="nav-link">
                                         <img src="~/Content/Images/Icon_Nofi 1.png" alt="Icon_Nofi 1.png bị lỗi" style=" margin-left: 37.5%;" />
@@ -81,7 +84,7 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
+</nav>
 
         </div>
     </div>

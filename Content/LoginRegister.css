@@ -2,66 +2,11 @@
 	height: auto;
 	background-color: white;
 }
-
-.div-center-Page .div-left-title {
-	width: 100%;
-	height: 3%;
-	background-color: rgb(234, 234, 235);
-	position: relative;
-	margin: 0 auto;
-	display: flex;
-}
-
-	.div-center-Page .div-left-title div {
-		margin-top: auto;
-		margin-bottom: auto;
-		text-align: left;
-		color: black;
-		font-size: 14px;
-		text-transform: uppercase;
-		font-weight: bold;
+	.div-center-Page .Size-Form {
+		width: auto;
+		height: 700px;
+		border-radius: 8px;
 	}
-
-		.div-center-Page .div-left-title div span {
-			color: orange;
-		}
-
-		.div-center-Page .div-left-title div a {
-			text-decoration: none;
-			color: black;
-		}
-
-.div-center-Page .div-left-info {
-	width: 22%;
-	height: 97%;
-	background-color: pink;
-	border-color: orange;
-	position: relative;
-	background-color: white;
-	float: left;
-	margin: 0 auto;
-}
-
-	.div-center-Page .div-left-info div {
-		font-size: 18px;
-		text-align: left;
-	}
-
-	.div-center-Page .div-left-info li {
-		font-size: 16px;
-		list-style: none;
-	}
-
-.div-center-Page .div-right-product {
-	width: 76%;
-	height: 97%;
-	background-color: red;
-	border-color: red;
-	position: relative;
-	background-color: white;
-	float: right;
-	margin: 0 auto;
-}
 
 .div-center-InfoWeb {
 	top: 40px;
@@ -180,6 +125,10 @@ input {
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: auto;
 }
 
 

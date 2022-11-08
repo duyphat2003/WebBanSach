@@ -34,12 +34,14 @@
     .div-center-Page .div-left-info {
         width: 22%;
         height: auto;
+        border-radius: 8px;
         background-color: pink;
         border-color: orange;
         position: relative;
         background-color: white;
         float: left;
         margin: 0 auto;
+        margin-top: 20px;
     }
         .div-center-Page .div-left-info .Menu-Choice {
             width: auto;
@@ -61,12 +63,14 @@
     .div-center-Page .div-right-product {
         width: 76%;
         height: auto;
+        border-radius: 8px;
         background-color: red;
         border-color: red;
         position: relative;
         background-color: white;
         float: right;
         margin: 0 auto;
+        margin-top: 20px;
     }
         .div-center-Page .div-right-product .row .product {
             width: 100%;
@@ -78,7 +82,7 @@
         }
 
 .div-center-InfoWeb {
-    top: 60px;
+    top: 50px;
 }
 
 /*Phần checkbox Animation*/

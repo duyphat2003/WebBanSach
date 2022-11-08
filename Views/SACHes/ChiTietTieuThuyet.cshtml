@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" href="~/Content/Detail.css" />
 <div>
-    <a href="@Url.Action("Home", "TrangChu")" class="div-title">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="" id="links" onclick="links()" class="div-title" style="display: inline-block">@Model.CHUDE.TenChuDe</a>&nbsp;&gt;&nbsp;<span class="current-title">@ViewBag.Title</span>
+    <a href="@Url.Action("Home", "TrangChu")" class="div-title">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="@Url.Action("TieuThuyetPage", "SACHes")" class="div-title">@Model.CHUDE.TenChuDe</a>&nbsp;&gt;&nbsp;<span class="current-title">@ViewBag.Title</span>
 </div>
 <div class="Describe-Box">
     <div class="row">
@@ -27,24 +27,3 @@
         </div>
     </div>
 </div>
-
-
-<script type="text/javascript">
-    links();
-    function links() {
-        const link = document.getElementById("links");
-
-        if (@Model.MaCD == 12)
-        {
-            link.href = "@Url.Action("TieuThuyetPage", "SACHes")";
-        }
-        if (@Model.MaCD == 13)
-        {
-            link.href = "@Url.Action("TruyenTranhPage", "SACHes")";
-        }
-        if (@Model.MaCD == 14)
-        {
-            link.href = "@Url.Action("LapTrinhPage", "SACHes")";
-        }
-    }
-</script>

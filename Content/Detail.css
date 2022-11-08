@@ -16,3 +16,16 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.Describe-Box {
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.div-center-InfoWeb {
+    top: 40px;
+}
+

@@ -20,16 +20,59 @@ namespace WebBanSach.Controllers
             return View(sACHes.ToList());
         }
 
+        public ActionResult ChiTietTieuThuyet(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SACH product = db.SACHes.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+
         public ActionResult LapTrinhPage()
         {
             var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
             return View(sACHes.ToList());
         }
 
+        public ActionResult ChiTietLapTrinh(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SACH product = db.SACHes.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+
         public ActionResult TruyenTranhPage()
         {
             var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
             return View(sACHes.ToList());
+        }
+
+
+        public ActionResult ChiTietTruyenTranh(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SACH product = db.SACHes.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
         }
 
         // GET: SACHes/Details/5
