@@ -27,7 +27,7 @@ body {
 }
 
 .clearfix:after {
-    color: rgb(189, 33, 36);                    
+    color: rgb(189, 33, 36);
     content: ".";
     visibility: hidden;
     display: block;
@@ -64,6 +64,7 @@ body {
 .frst-Upper {
     background-color: hotpink;
 }
+
 .marquee {
     width: 100%;
     height: 80px;
@@ -110,6 +111,7 @@ body {
 .main-menu {
     list-style: none;
 }
+
     .main-menu a {
         width: 100px;
         border-radius: 8px;
@@ -141,7 +143,6 @@ body {
 
 
 .show {
-
     position: relative;
     top: 8px;
     background-color: rgb(219, 219, 204);
@@ -217,6 +218,7 @@ td.TitleChoice {
     animation-duration: 4s;
     animation-iteration-count: infinite;
 }
+
 @keyframes RightToLeft {
     100% {
         right: 0px;
@@ -238,6 +240,7 @@ td.TitleChoice {
     top: calc(50% - 25px);
     opacity: 0.5;
 }
+
     .image-button-arrow:hover {
         color: #000;
         background-color: orangered;
@@ -251,6 +254,7 @@ td.TitleChoice {
     word-spacing: 12px;
     background-color: transparent;
 }
+
 .badge-white {
     color: red !important;
     background-color: red !important
@@ -312,13 +316,16 @@ td.TitleChoice {
     top: 35px;
     margin: 0 auto;
 }
+
     .div-center-ADs-2 table {
         text-align: center;
         width: 100%;
     }
+
         .div-center-ADs-2 table td {
             height: 200px;
         }
+
             .div-center-ADs-2 table td .ADs-row {
                 width: 0 auto;
                 height: 0 auto;
@@ -345,6 +352,7 @@ td.TitleChoice {
     top: 15px;
     margin: 0 auto;
 }
+
 .div-center-PopularProducts {
     width: 100%;
     height: 76%;
@@ -352,7 +360,7 @@ td.TitleChoice {
     background-color: white;
     clear: both;
     position: relative;
-    top: 80px;
+    top: 50px;
     margin: 0 auto;
 }
 
@@ -366,6 +374,7 @@ td.TitleChoice {
     margin: 0 auto;
     top: 120px;
 }
+
     .div-center-InfoWeb .end-page-left {
         width: 40%;
         height: auto;
@@ -373,6 +382,7 @@ td.TitleChoice {
         position: relative;
         margin: 0 auto;
     }
+
         .div-center-InfoWeb .end-page-left a {
             text-decoration: none;
             width: auto;
@@ -386,6 +396,7 @@ td.TitleChoice {
             flex-wrap: wrap;
             font-size-adjust: initial;
         }
+
     .div-center-InfoWeb .end-page-right {
         width: 60%;
         height: auto;
@@ -393,6 +404,7 @@ td.TitleChoice {
         position: relative;
         margin: 0;
     }
+
         .div-center-InfoWeb .end-page-right .Serice-table {
             height: auto;
             width: auto;
@@ -407,26 +419,27 @@ td.TitleChoice {
             -webkit-text-size-adjust: auto;
         }
 
-.div-center-InfoWeb .end-page-right .Serice-table {
-    height: auto;
-    width: auto;
-    position: relative;
-    top: 10px;
-    right: 20px;
-    left: 20px;
-    text-align: justify;
-    font-weight: bold;
-    flex-direction: row;
-    flex-wrap: wrap;
-    -webkit-text-size-adjust: auto;
-}
-    .div-center-InfoWeb .end-page-right .Serice-table tr {
-    }
-
-        .div-center-InfoWeb .end-page-right .Serice-table tr td {
-            padding-left: 10px;
-            padding-right: 10px;
+        .div-center-InfoWeb .end-page-right .Serice-table {
+            height: auto;
+            width: auto;
+            position: relative;
+            top: 10px;
+            right: 20px;
+            left: 20px;
+            text-align: justify;
+            font-weight: bold;
+            flex-direction: row;
+            flex-wrap: wrap;
+            -webkit-text-size-adjust: auto;
         }
+
+            .div-center-InfoWeb .end-page-right .Serice-table tr {
+            }
+
+                .div-center-InfoWeb .end-page-right .Serice-table tr td {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
 
     .div-center-InfoWeb .end-page-center {
         width: 100%;
@@ -455,4 +468,3 @@ td.TitleChoice {
     flex-wrap: wrap;
     font-size-adjust: initial;
 }
-

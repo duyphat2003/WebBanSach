@@ -1,10 +1,11 @@
-﻿.div-title {
+.div-title {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: bold;
     text-decoration: none;
     color: black;
 }
+
     .div-title:hover {
         color: black;
     }
@@ -19,13 +20,26 @@
 
 .Describe-Box {
     margin-top: 20px;
-    width: auto;
+    width: 100%;
     height: auto;
-    background-color: white;
-    border-radius: 8px;
 }
+    .Describe-Box .div-product-detail {
+        width: 50%;
+        margin-bottom: 10px;
+        float: left;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        background-color: white;
+    }
+    .Describe-Box .div-product-content {
+        width: 50%;
+        margin-bottom: 10px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        float: right;
+        background-color: red;
+    }
 
-.div-center-InfoWeb {
-    top: 40px;
-}
-
+ .div-center-InfoWeb {
+        top: 40px;
+ }

@@ -261,6 +261,7 @@
     <Content Include="Content\Images\menu.png" />
     <Content Include="Content\Images\menu1.png" />
     <Content Include="Content\LoginRegister.css" />
+    <Content Include="Content\mystyle.css" />
     <Content Include="Content\mywebstyle.css" />
     <Content Include="Content\ProductStylePro.css" />
     <Content Include="Content\TieuThuyet.css" />
@@ -334,15 +335,19 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\TrangChu.cshtml" />
+    <Content Include="Views\TrangChu\Home.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\SACHes\ChiTietLapTrinh.cshtml" />
+    <Content Include="Views\SACHes\ChiTietTieuThuyet.cshtml" />
+    <Content Include="Views\SACHes\ChiTietTruyenTranh.cshtml" />
     <Content Include="Views\SACHes\Create.cshtml" />
     <Content Include="Views\SACHes\Delete.cshtml" />
     <Content Include="Views\SACHes\Details.cshtml" />
     <Content Include="Views\SACHes\Edit.cshtml" />
-    <Content Include="Views\TrangChu\Home.cshtml" />
-    <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\SACHes\TieuThuyetPage.cshtml" />
     <Content Include="Views\SACHes\LapTrinhPage.cshtml" />
+    <Content Include="Views\SACHes\TieuThuyetPage.cshtml" />
     <Content Include="Views\SACHes\TruyenTranhPage.cshtml" />
+    <Content Include="Views\TrangChu\ChiTiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

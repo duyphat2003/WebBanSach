@@ -9,23 +9,30 @@
     <a href="@Url.Action("Home", "TrangChu")" class="div-title">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="" id="links" onclick="links()" class="div-title" style="display: inline-block">@Model.CHUDE.TenChuDe</a>&nbsp;&gt;&nbsp;<span class="current-title">@ViewBag.Title</span>
 </div>
 <div class="Describe-Box">
-    <div class="row">
-        <div class="col-md-4">
-            <img style="width: 80%; height: auto; margin: 20px; border-radius: 8px;" src="~/Content/Images/@Model.Hinhminhhoa">
-        </div>
-        <div class="col-md-8" style="margin-top: 20px;">
-            <h4>@Model.Tensach</h4>
-            <p style="text-align: justify">
-                <span style="font-weight: bold">Thể loại:</span> @Model.CHUDE.TenChuDe
-            </p>
-            <p class="price">
-                <span style="color:red; font-size:24px;">
-                    @Html.DisplayFor(modelItem => @Model.Dongia)0đ
-                </span>
-            </p>
-            <a class="btn btn-primary" style="background-color: rgb(189, 33, 36); width: 25%; border-radius: 8px; border: none; " href="@Url.Action("AddToCart", "Cart", new {id = Model.Masach })">ĐẶT MUA</a>
+    <div class="div-product-detail">
+        <div class="row">
+            <div class="col-md-4">
+                <img style="width: 80%; height: auto; margin: 20px; border-radius: 8px;" src="~/Content/Images/@Model.Hinhminhhoa">
+            </div>
+            <div class="col-md-8" style="margin-top: 20px;">
+                <h4>@Model.Tensach</h4>
+                <p style="text-align: justify">
+                    <span style="font-weight: bold">Thể loại:</span> @Model.CHUDE.TenChuDe
+                </p>
+                <p class="price">
+                    <span style="color:red; font-size:24px;">
+                        @Html.DisplayFor(modelItem => @Model.Dongia)0đ
+                    </span>
+                </p>
+                <a class="btn btn-primary" style="background-color: rgb(189, 33, 36); width: 25%; border-radius: 8px; border: none" href="@Url.Action("AddToCart", "Cart", new {id = Model.Masach })">ĐẶT MUA</a>
+            </div>
         </div>
     </div>
+    <div class="div-product-content">
+        <div><h2>Thông tin sản phẩm</h2></div>
+
+    </div>
+
 </div>
 
 
