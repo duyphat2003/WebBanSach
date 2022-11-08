@@ -3,6 +3,7 @@
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Shared/TrangChu.cshtml";
 }
+<link href="~/Content/TieuThuyet.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/Content/ProductStylePro.css" />
 <div class="col-md-6 col-md-offset-3 div-center-ADs-1">
     <div class="col-md-6 col-md-offset-3 ADs-col1">
@@ -82,15 +83,13 @@
         {
             if (item.Masach < 13)
             {
-                <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
-                    <a href="@Url.Action("ChiTiet", "TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none;">
-                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
-                    </a>
-                    <div class="card-body">
-                        <a class="card-text" href="@Url.Action("ChiTiet", "TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: black;">
-                            @Html.DisplayFor(modelItem => item.Tensach)
-                        </a>
-                        <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
+                <div class="col-lg-4 col-md-6">
+                    <div class="box-pro">
+                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="size-img" />
+                        <div class="box-description">
+                            <p class="margin-des">@Html.DisplayFor(modelItem => item.Tensach)</p>
+                            <p class="margin-des PriceBook">@Html.DisplayFor(modelItem => item.Dongia)0₫</p>
+                        </div>
                     </div>
                 </div>
             }

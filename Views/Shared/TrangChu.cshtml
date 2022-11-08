@@ -23,42 +23,34 @@
                     </div>
                 </div>                      
             </div>
-            <nav class="navbar navbar-expand-sm wp-inner col-md-12">
-                <div class="container-fluid container-sm p-2 my-0 col-md-12">            
-                    <a href="@Url.Action("Home", "TrangChu")" target="_self" class="col-md-2 navbar-brand" id="logo">BLLP.com</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse col-md-12" id="collapsibleNavbar">
-                        <ul class="navbar-nav">
-                            <li class="col-md-1 offset-md-1">
-                                <div class="dropdown" style="width: auto; height: auto;">
-                                    <img class="navbar-brand" id="logoMenu" src="~/Content/Images/Icon_Menu.png" alt="Error Icon_Menu">
-                                    <div class="dropdown-menu dropdown-content">
-                                        <table height="200">
-                                            <tr>
-                                                <td style="border-right: groove" class="align-content-center TitleChoice" rowspan="3" width="220">
-                                                    Danh sách thể loại
-                                                </td>
-                                                <td class="align-content-lg-start Choice" width="300">
-                                                    <a href="@Url.Action("TieuThuyetPage", "SACHes")" target="_self" class="ChoiceType">Tiểu thuyết</a>
-                                                </td>
-                                            </tr>
+            <div class="container-fluid list-group list-group-horizontal-sm wp-inner">
+                <a href="https://localhost:44323/TrangChu/Home" target="_self" class="list-group list-group-item-light fl-left" id="logo">BLLP.com</a>
+                <div class="dropdown">
+                    <img  class="list-group  list-group-item-light bar" id="logoMenu" src="~/Content/Images/Icon_Menu.png" alt="Error Icon_Menu">
+                    <div class="dropdown-menu dropdown-content">
+                        <table height="200">
+                            <tr>
+                                <td style="border-right: groove" class="align-content-center TitleChoice" rowspan="3" width="220">
+                                    Danh sách thể loại
+                                </td>
+                                <td class="align-content-lg-start Choice" width="300">
+                                    <a href="https://localhost:44323/SACHes/TieuThuyetPage" target="_self" class="ChoiceType">Tiểu thuyết</a>
+                                </td>
+                            </tr>
 
-                                            <tr>
-                                                <td class="align-content-lg-start Choice" width="300">
-                                                    <a href="@Url.Action("TruyenTranhPage", "SACHes")" target="_self" class="ChoiceType">Truyện tranh</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="align-content-lg-start Choice" width="300">
-                                                    <a href="@Url.Action("LapTrinhPage", "SACHes")" target="_self" class="ChoiceType">Sách lập trình</a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </li>
+                            <tr>
+                                <td class="align-content-lg-start Choice" width="300">
+                                    <a href="https://localhost:44323/SACHes/TruyenTranhPage" target="_self" class="ChoiceType">Truyện tranh</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-content-lg-start Choice" width="300">
+                                    <a href="https://localhost:44323/SACHes/LapTrinhPage" target="_self" class="ChoiceType">Sách lập trình</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
 
 
                             <li class="col-md-4 offset-md-1 nav-item" style="width: auto; height: auto;">
