@@ -23,7 +23,32 @@
                     @Html.DisplayFor(modelItem => @Model.Dongia)0đ
                 </span>
             </p>
-            <a class="btn btn-primary" style="background-color: rgb(189, 33, 36); width: 25%; border-radius: 8px; border: none; " href="@Url.Action("AddToCart", "Cart", new {id = Model.Masach })">ĐẶT MUA</a>
+            <a class="btn btn-primary" style="background-color: rgb(189, 33, 36); width: 25%; border-radius: 8px; border: none" href="@Url.Action("AddToCart", "Cart", new {id = Model.Masach })">ĐẶT MUA</a>
         </div>
+    </div>
+</div>
+<div class="Content-Box">
+    <div class="col-md-12" style="text-align: center">
+        <h4 style="-webkit-text-size-adjust: auto">
+            Thông tin sản phẩm
+        </h4>
+    </div>
+    <div class="col-md-12" style="text-align: left">
+        <p style="font-size: medium; -webkit-text-size-adjust:auto">
+            Tên tác giả: <b>@Model.TACGIA.TenTG</b>
+        </p>
+    </div>
+    <div class="col-md-12" style="text-align: left">
+        <p style="font-size: medium; -webkit-text-size-adjust:auto">
+            Nhà xuất bản: <b>@Model.NHAXUATBAN.TenNXB</b>
+        </p>
+    </div>
+    <div class="col-md-12" style="text-align: left">
+        <p style="font-size: large; -webkit-text-size-adjust: auto">
+            <b>Nội dung sách:</b>
+        </p>
+        <p style="margin-left: 25px; margin-right: 30px; font-size: medium; text-align: justify; -webkit-text-size-adjust: auto">
+            @Model.Mota
+        </p>
     </div>
 </div>

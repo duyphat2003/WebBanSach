@@ -22,23 +22,18 @@
     margin-top: 20px;
     width: 100%;
     height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: white;
 }
-    .Describe-Box .div-product-detail {
-        width: 50%;
-        margin-bottom: 10px;
-        float: left;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
-        background-color: white;
-    }
-    .Describe-Box .div-product-content {
-        width: 50%;
-        margin-bottom: 10px;
-        border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px;
-        float: right;
-        background-color: red;
-    }
+.Content-Box {
+    width: 100%;
+    margin-top: 20px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: white;
+}
 
  .div-center-InfoWeb {
         top: 40px;

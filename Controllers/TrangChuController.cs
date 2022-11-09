@@ -25,12 +25,16 @@ namespace WebBanSach.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             SACH product = db.SACHes.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
+
             return View(product);
         }
+
+
     }
 }

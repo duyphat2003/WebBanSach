@@ -24,6 +24,8 @@
         <AssociationConnector Association="QLBANSACHModel.FK_Sach_NhaXuatBan" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANSACHModel.FK_VietSach_Sach" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANSACHModel.FK_VietSach_TacGia" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLBANSACHModel.sysdiagram" Width="1.5" PointX="5.375" PointY="9.75" />
+        <AssociationConnector Association="QLBANSACHModel.FKMaTG" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

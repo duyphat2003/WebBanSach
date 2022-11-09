@@ -32,6 +32,7 @@ namespace WebBanSach.Models
         public Nullable<System.DateTime> Ngaycapnhat { get; set; }
         public Nullable<int> Soluongban { get; set; }
         public Nullable<int> solanxem { get; set; }
+        public Nullable<int> MaTG { get; set; }
     
         public virtual CHUDE CHUDE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -39,5 +40,6 @@ namespace WebBanSach.Models
         public virtual NHAXUATBAN NHAXUATBAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VIETSACH> VIETSACHes { get; set; }
+        public virtual TACGIA TACGIA { get; set; }
     }
 }

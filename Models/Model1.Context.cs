@@ -36,5 +36,6 @@ namespace WebBanSach.Models
         public virtual DbSet<TACGIA> TACGIAs { get; set; }
         public virtual DbSet<THAMDO> THAMDOes { get; set; }
         public virtual DbSet<VIETSACH> VIETSACHes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
