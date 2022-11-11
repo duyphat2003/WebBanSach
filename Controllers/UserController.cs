@@ -12,11 +12,6 @@ namespace WebBanSach.Controllers
     {
         private QLBANSACHEntities database = new QLBANSACHEntities();
         // GET: Users
-        [HttpGet]
-        public ActionResult Register()
-        {
-            return View("Login");
-        }
         [HttpPost]
         public ActionResult Register(KHACHHANG khachhang)
         {
@@ -26,10 +21,10 @@ namespace WebBanSach.Controllers
                     ModelState.AddModelError(string.Empty, "Tên đăng nhập không được để trống");
                 if (string.IsNullOrEmpty(khachhang.Matkhau))
                     ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
-                if (string.IsNullOrEmpty(khachhang.Email))
-                    ModelState.AddModelError(string.Empty, "Email không được để trống");
-                if (string.IsNullOrEmpty(khachhang.DienthoaiKH))
-                    ModelState.AddModelError(string.Empty, "Điện thoại không được để trống");
+                //if (string.IsNullOrEmpty(khachhang.Email))
+                //    ModelState.AddModelError(string.Empty, "Email không được để trống");
+                //if (string.IsNullOrEmpty(khachhang.DienthoaiKH))
+                //    ModelState.AddModelError(string.Empty, "Điện thoại không được để trống");
 
                 //Kiểm tra xem có người nào đã đăng kí với tên đăng nhập này hay chưa
                 var _khachhang = database.KHACHHANGs.FirstOrDefault(k => k.TenDN == khachhang.TenDN);
@@ -43,7 +38,7 @@ namespace WebBanSach.Controllers
                 }
                 else
                 {
-                    return View();
+                    return View("Login");
                 }
             }
             return RedirectToAction("Login");
@@ -62,7 +57,7 @@ namespace WebBanSach.Controllers
             if (ModelState.IsValid)
             {
 
-                if (string.IsNullOrEmpty(khachhang.Matkhau))
+                if (string.IsNullOrEmpty(khachhang.TenDN))
                     ModelState.AddModelError(string.Empty, "Tên đăng nhập không được để trống");
 
                 if (string.IsNullOrEmpty(khachhang.Matkhau))

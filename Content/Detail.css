@@ -26,6 +26,15 @@
     margin-bottom: 10px;
     background-color: white;
 }
+    .Describe-Box a {
+        background-color: rgb(189, 33, 36);
+        color: white;
+    }
+        .Describe-Box a:hover {
+            background-color: rgb(255, 211, 0);
+            color: orange;
+            opacity: 0.8;
+        }
 .Content-Box {
     width: 100%;
     margin-top: 20px;
@@ -35,6 +44,46 @@
     background-color: white;
 }
 
- .div-center-InfoWeb {
-        top: 40px;
- }
+    .Content-Box .table-product {
+        border: none;
+        width: 100%;
+        height: auto;
+        font-size: 0.7em;
+        padding-top: 12px;
+        max-width: 100%;
+        padding-left: 0 !important;
+        line-height: 1.6;
+        text-align: left;
+        vertical-align: baseline;
+        color: #777;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+        .Content-Box .table-product tr .NameDetail {
+            width: auto;
+            height: auto;
+            font-weight: 600;
+            -webkit-text-size-adjust: auto;
+            word-wrap: break-word;
+            padding: 4px;
+            padding-left: 17px;
+        }
+
+        .Content-Box .table-product tr .InfoDetail {
+            width: auto;
+            height: auto;
+            font-weight: 300;
+            -webkit-text-size-adjust: auto;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 4px;
+        }
+
+.table-product {
+    margin: 10px 0;
+}
+
+.div-center-InfoWeb {
+    top: 30px;
+}
