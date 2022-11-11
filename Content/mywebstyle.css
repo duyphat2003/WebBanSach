@@ -374,87 +374,52 @@ td.TitleChoice {
     margin: 0 auto;
     top: 120px;
 }
-
-    .div-center-InfoWeb .end-page-left {
-        width: 40%;
-        height: auto;
-        float: left;
-        position: relative;
-        margin: 0 auto;
-    }
-
-        .div-center-InfoWeb .end-page-left a {
-            text-decoration: none;
-            width: auto;
-            height: auto;
-            padding: 7px 0px;
-            color: rgb(189, 33, 36);
-            font-size: 300%;
-            font-weight: bolder;
-            padding-left: 30px;
-            flex-direction: row;
-            flex-wrap: wrap;
-            font-size-adjust: initial;
-        }
-
-    .div-center-InfoWeb .end-page-right {
-        width: 60%;
-        height: auto;
-        float: right;
-        position: relative;
-        margin: 0;
-    }
-
-        .div-center-InfoWeb .end-page-right .Serice-table {
-            height: auto;
-            width: auto;
-            position: relative;
-            top: 10px;
-            right: 20px;
-            left: 20px;
-            text-align: justify;
-            font-weight: bold;
-            flex-direction: row;
-            flex-wrap: wrap;
-            -webkit-text-size-adjust: auto;
-        }
-
-        .div-center-InfoWeb .end-page-right .Serice-table {
-            height: auto;
-            width: auto;
-            position: relative;
-            top: 10px;
-            right: 20px;
-            left: 20px;
-            text-align: justify;
-            font-weight: bold;
-            flex-direction: row;
-            flex-wrap: wrap;
-            -webkit-text-size-adjust: auto;
-        }
-
-            .div-center-InfoWeb .end-page-right .Serice-table tr {
-            }
-
-                .div-center-InfoWeb .end-page-right .Serice-table tr td {
-                    padding-left: 10px;
-                    padding-right: 10px;
-                }
-
-    .div-center-InfoWeb .end-page-center {
+    .div-center-InfoWeb .table-Info_Web {
+        border: none;
         width: 100%;
         height: auto;
-        position: relative;
-        margin: 0 auto;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        font-size: 12px;
-        font-weight: bold;
-        padding-top: 20px;
+        font-size: 0.7em;
+        padding-top: 12px;
+        max-width: 100%;
+        padding-left: 0 !important;
+        line-height: 1.6;
+        text-align: left;
+        vertical-align: baseline;
+        border-spacing: 0;
+        border-collapse: collapse;
     }
+
+        .div-center-InfoWeb .table-Info_Web .title-Info a {
+            text-align: left;
+            text-decoration: none;
+            font-size: 300%;
+            font-weight: bolder;
+            color: rgb(189, 33, 36);
+        }
+
+        .div-center-InfoWeb .table-Info_Web tr td {
+            width: auto;
+            height: auto;
+            -webkit-text-size-adjust: auto;
+            flex-wrap: wrap;
+            padding: 4px;
+            overflow-wrap: break-word;
+        }
+
+        .div-center-InfoWeb .end-page-center {
+            width: 100%;
+            height: auto;
+            position: relative;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            padding-top: 20px;
+        }
 
 
 
@@ -467,4 +432,21 @@ td.TitleChoice {
     flex-direction: row;
     flex-wrap: wrap;
     font-size-adjust: initial;
+}
+
+.card:hover{
+    opacity:0.5;
+}
+.card-img, .card-img-bottom, .card-img-top {
+    width: 100% !important;
+    height: 360px !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .div-center-Page {
+        width: 100%;
+    }
+    .div-center-InfoWeb {
+        width: 100%;
+    }
 }

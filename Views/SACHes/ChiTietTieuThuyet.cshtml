@@ -14,40 +14,75 @@
             <img style="width: 80%; height: auto; margin: 20px; border-radius: 8px;" src="~/Content/Images/@Model.Hinhminhhoa">
         </div>
         <div class="col-md-8" style="margin-top: 20px;">
-            <h4>@Model.Tensach</h4>
-            <p style="text-align: justify">
-                <span style="font-weight: bold">Thể loại:</span> @Model.CHUDE.TenChuDe
-            </p>
-            <p class="price">
-                <span style="color:red; font-size:24px;">
-                    @Html.DisplayFor(modelItem => @Model.Dongia)0đ
-                </span>
-            </p>
-            <a class="btn btn-primary" style="background-color: rgb(189, 33, 36); width: 25%; border-radius: 8px; border: none" href="@Url.Action("AddToCart", "Cart", new {id = Model.Masach })">ĐẶT MUA</a>
+            <div style="width: auto;">
+                <h4>@Model.Tensach</h4>
+                <p class="price">
+                    <span style="color:red; font-size:24px;">
+                        @Html.DisplayFor(modelItem => @Model.Dongia)0đ
+                    </span>
+                </p>
+                <a class="btn btn-primary" style="width: 25%; border-radius: 8px; border: none" href="@Url.Action("AddToCart", "Cart", new {id = Model.Masach })">ĐẶT MUA</a>
+            </div>
         </div>
     </div>
 </div>
 <div class="Content-Box">
-    <div class="col-md-12" style="text-align: center">
-        <h4 style="-webkit-text-size-adjust: auto">
-            Thông tin sản phẩm
-        </h4>
+    <div class="col-md-12" style="text-align: left; font-size: 1.1em; font-weight: 500; margin-left: 17px;">
+        Thông tin sản phẩm
     </div>
-    <div class="col-md-12" style="text-align: left">
-        <p style="font-size: medium; -webkit-text-size-adjust:auto">
-            Tên tác giả: <b>@Model.TACGIA.TenTG</b>
+    <table class="table-product" border="1">
+        <tr>
+            <td class="NameDetail">
+                Mã sách
+            </td>
+            <td class="InfoDetail">
+                ATF @Html.DisplayFor(modelItem => @Model.Masach)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="NameDetail">
+                Thể loại
+            </td>
+            <td class="InfoDetail">
+                @Model.CHUDE.TenChuDe
+            </td>
+        </tr>
+
+        <tr>
+            <td class="NameDetail">
+                Tên tác giả
+            </td>
+            <td class="InfoDetail">
+                @Model.TACGIA.TenTG
+            </td>
+        </tr>
+
+        <tr>
+            <td class="NameDetail">
+                Nhà xuất bản
+            </td>
+            <td class="InfoDetail">
+                @Model.NHAXUATBAN.TenNXB
+            </td>
+        </tr>
+
+        <tr>
+            <td class="NameDetail">
+                Ngày cập nhật
+            </td>
+            <td class="InfoDetail">
+                @Model.Ngaycapnhat.Value.ToLongDateString()
+            </td>
+        </tr>
+    </table>
+
+    <div style="clear: both; border-bottom: groove; margin-top: 20px;"></div>
+    <div class="col-md-12" style="text-align: left; margin-left: 17px; ">
+        <p style="-webkit-text-size-adjust: auto; font-size: 0.9em;">
+            <h5>Nội dung sách:</h5>
         </p>
-    </div>
-    <div class="col-md-12" style="text-align: left">
-        <p style="font-size: medium; -webkit-text-size-adjust:auto">
-            Nhà xuất bản: <b>@Model.NHAXUATBAN.TenNXB</b>
-        </p>
-    </div>
-    <div class="col-md-12" style="text-align: left">
-        <p style="font-size: large; -webkit-text-size-adjust: auto">
-            <b>Nội dung sách:</b>
-        </p>
-        <p style="margin-left: 25px; margin-right: 30px; font-size: medium; text-align: justify; -webkit-text-size-adjust: auto">
+        <p style="margin-right: 30px; font-size: medium; text-align: justify; -webkit-text-size-adjust: auto; font-size: 0.7em;">
             @Model.Mota
         </p>
     </div>

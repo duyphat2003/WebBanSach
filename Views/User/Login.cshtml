@@ -37,21 +37,16 @@
 
             <div class="form-container sign-in-container">
                 <form action="#">
-                    @using (Html.BeginForm("Register", "Users"))
+                    @using (Html.BeginForm("Register", "Users", FormMethod.Get))
                     {
                         @Html.ValidationSummary(true)
                         <div>
                             <label class="form-label">Tài khoản</label>
-                            <input type="text" class="form-control" placeholder="Tên đăng nhập....." name="TenDN">
+                            <input type="text" class="form-control" placeholder="Tên đăng nhập....." name="TenDN" required>
                         </div>
                         <div>
                             <label class="form-label">Mật khẩu</label>
-                            <input type="password" class="form-control" placeholder="Mật khẩu....." name="Matkhau">
-                        </div>
-
-                        <div>
-                            <label class="form-label">Xác nhận mật khẩu</label>
-                            <input type="password" class="form-control" placeholder="Mật khẩu....." name="Matkhau">
+                            <input type="password" class="form-control" placeholder="Mật khẩu....." name="Matkhau" required>
                         </div>
                         <button type="submit" class="ConfirmBtn">Đăng ký</button>
                     }
