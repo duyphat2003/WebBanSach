@@ -25,8 +25,16 @@
 
                 <tr>
                     <td>@sach.MaSach</td>
-                    <td>@sach.TenSach</td>
-                    <td><img src="~/Content/Images/@sach.ImageFile" alt="@sach.ImageFile bị lỗi" /></td>
+                    <td>
+                        <a href="@Url.Action("ChiTiet", "TrangChu", new {id = @sach.MaSach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: rgb(255 0 172);">
+                            @sach.TenSach
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("ChiTiet", "TrangChu", new {id = @sach.MaSach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: rgb(255 0 172)">
+                            <img src="~/Content/Images/@sach.ImageFile" alt="@sach.ImageFile bị lỗi" style="width: 60%" />
+                        </a>
+                    </td>
                     <td>@sach.Number</td>
                     <td>@sach.Price</td>
                     <td>@sach.Total()</td>
