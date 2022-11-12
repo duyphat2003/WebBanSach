@@ -17,14 +17,14 @@ namespace WebBanSach.Models
         {
             return Number * Price;
         }
-        public CartItem(int MaSach, int Amount)
+        public CartItem(int MaSach)
         {
             this.MaSach = MaSach;
             var sachDB = db.SACHes.Single(s => s.Masach == this.MaSach);
             this.TenSach = sachDB.Tensach;
             this.ImageFile = sachDB.Hinhminhhoa;
             this.Price = (decimal)sachDB.Dongia;
-            this.Number = Amount;
+            this.Number = 1;
         }
     }
 }

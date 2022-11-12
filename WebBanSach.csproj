@@ -207,6 +207,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Cart.css" />
     <Content Include="Content\Detail.css" />
     <Content Include="Content\Images\ads.png" />
     <Content Include="Content\Images\ads1.png" />
@@ -354,6 +355,9 @@
     <Content Include="Views\SACHes\TieuThuyetPage.cshtml" />
     <Content Include="Views\SACHes\TruyenTranhPage.cshtml" />
     <Content Include="Views\TrangChu\ChiTiet.cshtml" />
+    <Content Include="Views\Cart\GetCartInfo.cshtml" />
+    <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\TrangChu\SearchPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -361,7 +365,6 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Admin\Views\User\" />
-    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

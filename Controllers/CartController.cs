@@ -11,8 +11,7 @@ namespace WebBanSach.Controllers
     {
         public List<CartItem> GetCart()
         {
-            List<CartItem> myCart = Session["GioHang"] as
-            List<CartItem>;
+            List<CartItem> myCart = Session["GioHang"] as List<CartItem>;
             //Nếu giỏ hàng chưa tồn tại thì tạo mới và đưa vào Session
             if (myCart == null)
             {
@@ -22,14 +21,14 @@ namespace WebBanSach.Controllers
             return myCart;
         }
 
-        public ActionResult AddToCart(int id, int amount)
+        public ActionResult AddToCart(int id)
         {
             //Lấy giỏ hàng hiện tại
             List<CartItem> myCart = GetCart();
             CartItem currentProduct = myCart.FirstOrDefault(p => p.MaSach == id);
             if (currentProduct == null)
             {
-                currentProduct = new CartItem(id, amount);
+                currentProduct = new CartItem(id);
                 myCart.Add(currentProduct);
             }
             else
@@ -65,13 +64,17 @@ namespace WebBanSach.Controllers
         {
             List<CartItem> myCart = GetCart();
             //Nếu giỏ hàng trống thì trả về trang ban đầu
-            if (myCart == null || myCart.Count == 0)
-            {
-                return RedirectToAction("Index", "CustomerProducts");
-            }
             ViewBag.TotalNumber = GetTotalNumber();
             ViewBag.TotalPrice = GetTotalPrice();
             return View(myCart); 
-}
+        }
+
+        public ActionResult CartPartial()
+        {
+            ViewBag.TotalNumber = GetTotalNumber();
+            ViewBag.TotalPrice = GetTotalPrice();
+
+            return PartialView();
+        }
     }
 }
