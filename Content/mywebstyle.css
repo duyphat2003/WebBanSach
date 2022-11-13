@@ -448,11 +448,6 @@ td.TitleChoice {
 .list-group-item:last-child {
     line-height: 2;
 }
-
-.list-group-item:last-child{
-    line-height:2;
-}
-
 @media only screen and (max-width: 1024px) {
     .div-center-Page {
         width: 100%;

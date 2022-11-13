@@ -1,0 +1,11 @@
+﻿@model IEnumerable<WebBanSach.Models.CHUDE>
+@foreach (var chude in Model)
+{
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/mywebstyle.css" />
+    <tr>
+        <td class="align-content-lg-start Choice" width="300">
+            @Html.ActionLink(chude.TenChuDe, "ChonSachQuaIDChuDe", "SACHes", new { id = chude.MaCD }, new { @class = "list-group-item action-link" })
+        </td>
+    </tr>
+}

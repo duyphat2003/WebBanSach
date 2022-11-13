@@ -38,7 +38,7 @@ namespace WebBanSach.Controllers
                 
                 if (ModelState.IsValid)
                 {
-                    database.KHACHHANGs.Add(_khachhang);
+                    database.KHACHHANGs.Add(khachhang);
                     database.SaveChanges();
 
                 }
