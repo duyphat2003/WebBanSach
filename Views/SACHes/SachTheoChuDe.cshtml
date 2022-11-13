@@ -1,6 +1,12 @@
 ﻿@model IEnumerable<WebBanSach.Models.SACH>
 @{
-    ViewBag.Title = "Sách Lập Trình";
+
+    foreach (var item in Model)
+    {
+        ViewBag.Topic = item.CHUDE.TenChuDe;
+        break;
+    }
+    ViewBag.Title = "SachTheoChuDe";
     Layout = "~/Views/Shared/TrangChu.cshtml";
 }
 
@@ -8,7 +14,7 @@
 <link rel="stylesheet" href="~/Content/ProductStylePro.css" />
 <div class="div-left-title">
     <div>
-        <a href="@Url.Action("Home", "TrangChu")">Trang chủ</a>&nbsp;&gt;&nbsp;<span>@ViewBag.Title</span>
+        <a href="@Url.Action("Home", "TrangChu")">Trang chủ</a>&nbsp;&gt;&nbsp;<span>@ViewBag.Topic</span>
     </div>
 </div>
 <div class="div-left-info">
@@ -41,27 +47,23 @@
             </li>
         </ul>
     </div>
+
 </div>
 <div class="container-fluid div-right-product">
     <div class="row product">
         @foreach (var item in Model)
         {
-            if (item.MaCD == 14)
-            {
-                <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
-                    <a href="@Url.Action("ChiTietLapTrinh", "SACHes", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none;">
-                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
+            <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
+                <a href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none;">
+                    <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
+                </a>
+                <div class="card-body">
+                    <a class="card-text" href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: black; font-size: 125%;">
+                        @Html.DisplayFor(modelItem => item.Tensach)
                     </a>
-                    <div class="card-body">
-                        <a class="card-text" href="@Url.Action("ChiTietLapTrinh", "SACHes", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: black; font-size: 125%">
-                            @Html.DisplayFor(modelItem => item.Tensach)
-                        </a>
-                        <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
-                    </div>
+                    <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
                 </div>
-            }
+            </div>
         }
-
     </div>
 </div>
-

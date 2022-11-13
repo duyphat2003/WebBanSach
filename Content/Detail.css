@@ -80,6 +80,13 @@
             padding: 4px;
         }
 
+.LinkType{
+    text-decoration: none;
+}
+    .LinkType:hover {
+        color: rgb(255, 187, 0)
+    }
+
 .table-product {
     margin: 10px 0;
 }

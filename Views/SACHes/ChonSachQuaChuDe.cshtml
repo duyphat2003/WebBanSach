@@ -1,0 +1,16 @@
+﻿@model IEnumerable<WebBanSach.Models.CHUDE>
+<link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+<link rel="stylesheet" href="~/Content/mywebstyle.css" />
+
+<tr>
+    <td style="border-right: groove" class="align-content-center TitleChoice" width="220">
+        Danh sách thể loại
+    </td>
+
+    <td class="align-content-lg-start Choice" width="300">
+        @foreach (var chude in Model)
+        {
+            <div>@Html.ActionLink(chude.TenChuDe, "ChonSachQuaIDChuDe", "SACHes", new { id = chude.MaCD }, new { @class = "list-group-item action-link ChoiceType" })</div>
+        }
+    </td>
+</tr>

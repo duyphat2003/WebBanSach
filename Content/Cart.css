@@ -3,7 +3,23 @@
     width: 100%;
     height: auto;
     background-color: white;
+    border-radius: 8px;
 }
+.Amount-Bar {
+    margin: 10px auto;
+    width: 100%;
+    height: auto;
+}
+.fix-table {
+    text-transform: uppercase;
+    color: rgb(19 211 238);
+    text-align: center;
+    vertical-align: middle;
+}
+    .fix-table th {
+        width: auto;
+    }
+
 .div-center-InfoWeb {
     top: 30px;
 }

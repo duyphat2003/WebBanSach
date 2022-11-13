@@ -11,6 +11,14 @@ namespace WebBanSach.Controllers
     public class UserController : Controller
     {
         private QLBANSACHEntities database = new QLBANSACHEntities();
+
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         // GET: Users
         [HttpPost]
         public ActionResult Register(KHACHHANG khachhang)
@@ -19,17 +27,15 @@ namespace WebBanSach.Controllers
             {
                 if (string.IsNullOrEmpty(khachhang.TenDN))
                     ModelState.AddModelError(string.Empty, "Tên đăng nhập không được để trống");
+                
                 if (string.IsNullOrEmpty(khachhang.Matkhau))
                     ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
-                //if (string.IsNullOrEmpty(khachhang.Email))
-                //    ModelState.AddModelError(string.Empty, "Email không được để trống");
-                //if (string.IsNullOrEmpty(khachhang.DienthoaiKH))
-                //    ModelState.AddModelError(string.Empty, "Điện thoại không được để trống");
 
-                //Kiểm tra xem có người nào đã đăng kí với tên đăng nhập này hay chưa
                 var _khachhang = database.KHACHHANGs.FirstOrDefault(k => k.TenDN == khachhang.TenDN);
+                
                 if (_khachhang != null)
                     ModelState.AddModelError(string.Empty, "Đã có người đăng kí tên này");
+                
                 if (ModelState.IsValid)
                 {
                     database.KHACHHANGs.Add(khachhang);
@@ -38,7 +44,7 @@ namespace WebBanSach.Controllers
                 }
                 else
                 {
-                    return View("Login");
+                    return View();
                 }
             }
             return RedirectToAction("Login");

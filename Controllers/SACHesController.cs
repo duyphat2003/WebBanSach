@@ -7,72 +7,28 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebBanSach.Models;
+using WebGrease.Css.Extensions;
 
 namespace WebBanSach.Controllers
 {
     public class SACHesController : Controller
     {
         private QLBANSACHEntities db = new QLBANSACHEntities();
-
-        public ActionResult TieuThuyetPage()
+        public ActionResult SachTheoChuDe()
         {
-            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-            return View(sACHes.ToList());
+            var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
+            return View(sachs.ToList());
+        }
+        public ActionResult ChonSachQuaChuDe()
+        {
+            var chude = db.CHUDEs.ToList();
+            return PartialView("ChonSachQuaChuDe", chude);
         }
 
-        public ActionResult ChiTietTieuThuyet(int? id)
+        public ActionResult ChonSachQuaIDChuDe(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SACH product = db.SACHes.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product);
-        }
-
-        public ActionResult LapTrinhPage()
-        {
-            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-            return View(sACHes.ToList());
-        }
-
-        public ActionResult ChiTietLapTrinh(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SACH product = db.SACHes.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product);
-        }
-
-        public ActionResult TruyenTranhPage()
-        {
-            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-            return View(sACHes.ToList());
-        }
-
-
-        public ActionResult ChiTietTruyenTranh(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SACH product = db.SACHes.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product);
+            var sachs = db.SACHes.Where(p => p.CHUDE.MaCD == id).ToList();
+            return View("SachTheoChuDe", sachs);
         }
 
         // GET: SACHes/Details/5

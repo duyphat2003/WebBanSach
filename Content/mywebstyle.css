@@ -148,30 +148,36 @@ body {
     background-color: rgb(219, 219, 204);
 }
 
-
-
-td.Choice {
-    color: deeppink;
-    text-align: left;
-    font-size: 110%;
-    font-weight: lighter;
-    padding-left: 20px;
-}
-
-    td.Choice .ChoiceType {
-        color: slategray;
-        text-decoration: none;
-    }
-
-
 td.TitleChoice {
     color: coral;
+    width: auto;
     font-size: 110%;
     text-align: center;
     font-weight: bold;
     padding-bottom: 140px;
     padding-right: 20px;
 }
+
+.Choice {
+    color: deeppink;
+    height: auto;
+    width: auto;
+    text-align: left;
+    font-size: 110%;
+    font-weight: lighter;
+    padding-left: 20px;
+}
+
+    .Choice .ChoiceType {
+        color: slategray;
+        text-decoration: none;
+        margin: 30px;
+    }
+        .Choice .ChoiceType:hover{
+            color: rgb(255, 187, 0)
+        }
+
+
 
 .dropdown-content {
     display: none;
@@ -376,7 +382,7 @@ td.TitleChoice {
 }
     .div-center-InfoWeb .table-Info_Web {
         border: none;
-        width: 100%;
+        width: auto;
         height: auto;
         font-size: 0.7em;
         padding-top: 12px;
@@ -401,9 +407,10 @@ td.TitleChoice {
             width: auto;
             height: auto;
             -webkit-text-size-adjust: auto;
-            flex-wrap: wrap;
             padding: 4px;
-            overflow-wrap: break-word;
+            padding-right: 50px;
+            padding-left: 17px;
+            overflow-wrap: anywhere;
         }
 
         .div-center-InfoWeb .end-page-center {
@@ -437,9 +444,9 @@ td.TitleChoice {
 .card:hover{
     opacity:0.5;
 }
-.card-img, .card-img-bottom, .card-img-top {
-    width: 100% !important;
-    height: 360px !important;
+
+.list-group-item:last-child {
+    line-height: 2;
 }
 
 @media only screen and (max-width: 1024px) {

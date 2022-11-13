@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 using WebBanSach.Models;
 
@@ -20,24 +21,13 @@ namespace WebBanSach.Controllers
             return View(sACHes.ToList());
         }
 
-        public ActionResult SearchPage()
+        public ActionResult SearchPage(string searchQuery)
         {
-            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
+            var sACHes = db.SACHes.Include(s => s.Tensach.ToUpper().Contains(searchQuery.ToUpper()));
+            ViewBag.SearchString = searchQuery;
             return View(sACHes.ToList());
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult SearchPage(string searchQuery)
-        {
-            var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-            if (!string.IsNullOrEmpty(searchQuery))
-            {
-                sachs = sachs.Where(s => s.Tensach.Contains(searchQuery));
-            }
-            return View(sachs.ToList());
-        }
-                                         
         public ActionResult ChiTiet(int? id)
         {
             if (id == null)
