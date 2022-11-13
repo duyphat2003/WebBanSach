@@ -36,25 +36,8 @@
                                     <img class="navbar-brand" id="logoMenu" src="~/Content/Images/Icon_Menu.png" alt="Error Icon_Menu">
                                     <div class="dropdown-menu dropdown-content">
                                         <table height="200">
-                                            <tr>
-                                                <td style="border-right: groove" class="align-content-center TitleChoice" rowspan="3" width="220">
-                                                    Danh sách thể loại
-                                                </td>
-                                                <td class="align-content-lg-start Choice" width="300">
-                                                    <a href="@Url.Action("TieuThuyetPage", "SACHes")" target="_self" class="ChoiceType">Tiểu thuyết</a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="align-content-lg-start Choice" width="300">
-                                                    <a href="@Url.Action("TruyenTranhPage", "SACHes")" target="_self" class="ChoiceType">Truyện tranh</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="align-content-lg-start Choice" width="300">
-                                                    <a href="@Url.Action("LapTrinhPage", "SACHes")" target="_self" class="ChoiceType">Sách lập trình</a>
-                                                </td>
-                                            </tr>
+                                            <h4 style="text-align:center">Thể Loại</h4>
+                                            @Html.Action("ChonSachQuaChuDe", "SACHes")
                                         </table>
                                     </div>
                                 </div>
@@ -71,7 +54,7 @@
                             </li>
                                      }
                             <li class="col-md-5 nav-item" style="width: auto; height: auto;">
-                                <div class="nav-link main-menu">
+                                <div class="nav-link main-menu" style="display:flex">
                                     <a href="https://localhost:44323/TrangChu/Home" target="_self" class="nav-link">
                                         <img src="~/Content/Images/Icon_Nofi 1.png" alt="Icon_Nofi 1.png bị lỗi" style="width: auto; margin-left: 37.5%;" />
                                         <div>Thông báo</div>

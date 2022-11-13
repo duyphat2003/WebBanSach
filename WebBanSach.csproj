@@ -344,20 +344,16 @@
     <Content Include="Views\Shared\TrangChu.cshtml" />
     <Content Include="Views\TrangChu\Home.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\SACHes\ChiTietLapTrinh.cshtml" />
-    <Content Include="Views\SACHes\ChiTietTieuThuyet.cshtml" />
-    <Content Include="Views\SACHes\ChiTietTruyenTranh.cshtml" />
     <Content Include="Views\SACHes\Create.cshtml" />
     <Content Include="Views\SACHes\Delete.cshtml" />
     <Content Include="Views\SACHes\Details.cshtml" />
     <Content Include="Views\SACHes\Edit.cshtml" />
-    <Content Include="Views\SACHes\LapTrinhPage.cshtml" />
-    <Content Include="Views\SACHes\TieuThuyetPage.cshtml" />
-    <Content Include="Views\SACHes\TruyenTranhPage.cshtml" />
     <Content Include="Views\TrangChu\ChiTiet.cshtml" />
     <Content Include="Views\Cart\GetCartInfo.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\TrangChu\SearchPage.cshtml" />
+    <Content Include="Views\Shared\DanhSachTheLoai.cshtml" />
+    <Content Include="Views\SACHes\SachTheoChuDe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

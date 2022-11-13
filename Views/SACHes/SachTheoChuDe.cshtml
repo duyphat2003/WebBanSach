@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebBanSach.Models.SACH>
+@{
+    ViewBag.Title = "SachTheoChuDe";
+    Layout = "~/Views/Shared/TrangChu.cshtml";
+}
+
+<div class="div-center-PopularProducts">
+    <h2 style="text-align: center; color: rgb(255 46 149);">Những cuốn sách tiểu biểu</h2>
+    <link rel="stylesheet" href="~/Content/ProductStylePro.css" />
+    <div class="row product">
+        @foreach (var item in Model)
+        {
+                <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
+                    <a href="@Url.Action("ChiTiet", "TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none;">
+                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
+                    </a>
+                    <div class="card-body">
+                        <div>
+                            <a class="card-text" href="@Url.Action("ChiTiet","TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: black; font-size: 125%">
+                                @Html.DisplayFor(modelItem => item.Tensach)
+                            </a>
+                        </div>
+                        <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
+                    </div>
+                </div>
+        }
+    </div>
+</div>
+

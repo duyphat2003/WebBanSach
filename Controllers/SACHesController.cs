@@ -12,8 +12,23 @@ namespace WebBanSach.Controllers
 {
     public class SACHesController : Controller
     {
-        private QLBANSACHEntities db = new QLBANSACHEntities();
+        public ActionResult SachTheoChuDe()
+        {
+            var sachs = db.SACHes;
+            return View(sachs.ToList());
+        }
+        public ActionResult ChonSachQuaChuDe()
+        {
+            var chude = db.CHUDEs.ToList();
+            return PartialView("DanhSachTheLoai", chude);
+        }
+        public ActionResult ChonSachQuaIDChuDe(int id)
+        {
+            var sachs = db.SACHes.Where(p => p.CHUDE.MaCD == id).ToList();
+            return View("SachTheoChuDe", sachs);
+        }
 
+        private QLBANSACHEntities db = new QLBANSACHEntities();
         public ActionResult TieuThuyetPage()
         {
             var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);

@@ -434,12 +434,16 @@ td.TitleChoice {
     font-size-adjust: initial;
 }
 
-.card:hover{
+.card:hover .card-img-top{
     opacity:0.5;
 }
 .card-img, .card-img-bottom, .card-img-top {
     width: 100% !important;
     height: 360px !important;
+}
+
+.list-group-item:last-child{
+    line-height:2;
 }
 
 @media only screen and (max-width: 1024px) {

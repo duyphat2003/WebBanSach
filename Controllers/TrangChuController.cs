@@ -16,7 +16,7 @@ namespace WebBanSach.Controllers
 
         public ActionResult Home()
         {
-            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
+            var sACHes = db.SACHes;
             return View(sACHes.ToList());
         }
 
@@ -30,7 +30,7 @@ namespace WebBanSach.Controllers
             }
             return View(sachs.ToList());
         }
-                                         
+
         public ActionResult ChiTiet(int? id)
         {
             if (id == null)
