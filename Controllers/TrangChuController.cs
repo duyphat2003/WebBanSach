@@ -20,20 +20,13 @@ namespace WebBanSach.Controllers
             return View(sACHes.ToList());
         }
 
-        public ActionResult SearchPage()
-        {
-            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-            return View(sACHes.ToList());
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult SearchPage(string searchQuery)
+        public ActionResult SearchPage(string SearchString)
         {
             var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-            if (!string.IsNullOrEmpty(searchQuery))
+            if (!string.IsNullOrEmpty(SearchString))
             {
-                sachs = sachs.Where(s => s.Tensach.Contains(searchQuery));
+                sachs = sachs.Where(s => s.Tensach.ToUpper().Contains(SearchString.ToUpper()));
+                ViewBag.SearchString = SearchString;
             }
             return View(sachs.ToList());
         }

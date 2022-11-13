@@ -32,7 +32,7 @@ namespace WebBanSach.Controllers
                     ModelState.AddModelError(string.Empty, "Đã có người đăng kí tên này");
                 if (ModelState.IsValid)
                 {
-                    database.KHACHHANGs.Add(khachhang);
+                    database.KHACHHANGs.Add(_khachhang);
                     database.SaveChanges();
 
                 }
