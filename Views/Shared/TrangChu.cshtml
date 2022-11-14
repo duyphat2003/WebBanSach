@@ -8,6 +8,8 @@
     <meta name="author" content="BLLP" />
     <title>Nhà sách trực tuyến BLLP.com</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="~/Content/mywebstyle.css" />
 </head>
@@ -47,11 +49,11 @@
                                 <div>
                                     @using (Html.BeginForm("SearchPage", "TrangChu"))
                                     {
-                                            <input id="SearchBar" type="text" name="searchQuery" size="34" maxlength="37" placeholder="Tên sách..." style="width: auto" value="@ViewBag.SearchString">
-                                            <input type="submit" value="Search">
+                                        <input id="SearchBar" type="text" name="searchQuery" size="34" maxlength="37" placeholder="Tên sách..." style="width: auto" value="@ViewBag.SearchString">
+                                        <button class="bllp-btn-search" type="submit"><span class="material-symbols-outlined">search</span></button>
 
-                                     }
-                                    </div>
+                                    }
+                                </div>
 
                             </li>
 

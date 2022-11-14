@@ -210,6 +210,8 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Cart.css" />
     <Content Include="Content\Detail.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\ads.png" />
     <Content Include="Content\Images\ads1.png" />
     <Content Include="Content\Images\ads10.png" />
@@ -273,6 +275,7 @@
     <Content Include="Content\ProductStylePro.css" />
     <Content Include="Content\TieuThuyet.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\Model1.Context.tt">
@@ -321,6 +324,11 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
