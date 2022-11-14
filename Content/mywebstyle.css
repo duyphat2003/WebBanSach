@@ -393,6 +393,9 @@ td.TitleChoice {
         vertical-align: baseline;
         border-spacing: 0;
         border-collapse: collapse;
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* flex-wrap: wrap; */
     }
 
         .div-center-InfoWeb .table-Info_Web .title-Info a {
@@ -406,11 +409,16 @@ td.TitleChoice {
         .div-center-InfoWeb .table-Info_Web tr td {
             width: auto;
             height: auto;
-            -webkit-text-size-adjust: auto;
+            /* -webkit-text-size-adjust: auto; */
             padding: 4px;
             padding-right: 50px;
             padding-left: 17px;
             overflow-wrap: anywhere;
+            /* display: flex; */
+            /* flex-direction: column; */
+            /* flex-wrap: wrap; */
+            /* font-size: initial; */
+            text-size-adjust: auto;
         }
 
         .div-center-InfoWeb .end-page-center {

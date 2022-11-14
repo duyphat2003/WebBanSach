@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/TrangChu.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/LoginRegister.css" />
+
+<div class="Size-Form">
+    <div style="text-align: center; font-size:1.2em; display: flex; flex-direction: column; flex-wrap: wrap; vertical-align: middle; color: rgb(255 0 17); font-weight: bolder">@ViewBag.ThongBao</div>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            @using (Html.BeginForm("Register", "User"))
+            {
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+                <div style="text-align: left">
+                    <h1 style="text-align: center">Đăng ký</h1>
+
+                    <label for="name" style="text-align: left">Họ và tên</label>
+                    <input type="text" id="name" name="HoTenKH" placeholder="Họ và tên..." required>
+
+                    <label for="name" style="text-align: left">Địa chỉ</label>
+                    <input type="text" id="name" name="DiachiKH" placeholder="Địa chỉ..." required>
+
+                    <label for="name" style="text-align: left">Số điện thoại</label>
+                    <input type="tel" id="name" name="DienthoaiKH" placeholder="Số điện thoại..." required>
+
+                    <label for="name" style="text-align: left">Tài khoản</label>
+                    <input type="text" id="name" name="TenDN" placeholder="Tài khoản..." required>
+
+                    <label for="pwd" style="text-align: left">Mật khẩu</label>
+                    <input type="password" id="pwd" name="Matkhau" placeholder="Mật khẩu..." required>
+
+                    <input type="submit" value="Go!">
+                </div>
+            }
+        </div>
+
+        <div class="form-container sign-in-container">
+            @using (Html.BeginForm("Login", "User"))
+            {
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+                <div style="text-align: left">
+                    <h1 style="text-align: center">Đăng nhập</h1>
+
+                    <label for="name" style="text-align: left">
+                        Tài khoản
+                    </label>
+                    <input type="text" id="name" name="TenDN" placeholder="Tài khoản...">
+
+                    <label for="pwd" style="text-align: left">Mật khẩu</label>
+                    <input type="password" id="pwd" name="Matkhau" placeholder="Mật khẩu...">
+
+                    <input type="submit" value="Go!">
+                </div>
+
+            }
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Chào mừng trở lại!</h1>
+                    <p>Để mua sách thì đăng nhập nhập nào!</p>
+                    <button class="ghost" id="signIn">Đã có tài khoản! Vào đăng nhập thôi</button>
+                </div>
+
+                <div class="overlay-panel overlay-right">
+                    <h1>Chào người mới!</h1>
+                    <p>Hãy đăng ký để mua sách nào!</p>
+                    <button class="ghost" id="signUp">Chưa có tài khoản! Vào đăng ký thôi</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add('right-panel-active');
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove('right-panel-active');
+    });
+</script>

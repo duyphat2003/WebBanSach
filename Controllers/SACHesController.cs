@@ -17,6 +17,7 @@ namespace WebBanSach.Controllers
         public ActionResult SachTheoChuDe()
         {
             var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
+
             return View(sachs.ToList());
         }
         public ActionResult ChonSachQuaChuDe()

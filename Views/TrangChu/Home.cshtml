@@ -42,12 +42,12 @@
         </a>
     </div>
 
-</div> 
+</div>
 
 <div class="col-md-2 col-md-offset-3 div-center-ADs-2">
     <table class="table table-responsive-sm">
         <tr>
-            <td  class="ADs-row">
+            <td class="ADs-row">
                 <a href="https://ioe.vn/chi-tiet/tin-tu-ban-to-chuc/vui-he-thang-6-viet-loi-truyen-tranh-sang-tao-tha-phanh-1-5285" target="_blank">
                     <img src="~/Content/Images/ads1.png" alt="ads1.png bị lỗi" class="ads-2">
                 </a>
@@ -88,11 +88,11 @@
                     </a>
                     <div class="card-body">
                         <div>
-                        <a class="card-text" href="@Url.Action("ChiTiet","TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: black; font-size: 125%">
-                            @Html.DisplayFor(modelItem => item.Tensach)
-                        </a>
+                            <a class="card-text" href="@Url.Action("ChiTiet","TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: black; font-size: 125%">
+                                @Html.DisplayFor(modelItem => item.Tensach)
+                            </a>
                         </div>
-                            
+
                         <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
         }
     </div>
 </div>
-               
+
 
 <script>
     var slideIndex = 1;

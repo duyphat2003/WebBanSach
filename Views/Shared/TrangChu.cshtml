@@ -45,12 +45,13 @@
 
                             <li class="col-md-4 nav-item" style="width: auto; height: auto; position: relative; bottom: 7px;">
                                 <div>
-                                    @using (Html.BeginForm("SearchPage", "TrangChu", FormMethod.Get))
+                                    @using (Html.BeginForm("SearchPage", "TrangChu"))
                                     {
-                                        <input id="SearchBar" value="@ViewBag.SearchString" type="text" name="Search" size="34" maxlength="37" placeholder="Tên sách..." style="width: auto">
-                                        <input type="submit" value="Search">
-                                    }
-                                </div>
+                                            <input id="SearchBar" type="text" name="searchQuery" size="34" maxlength="37" placeholder="Tên sách..." style="width: auto" value="@ViewBag.SearchString">
+                                            <input type="submit" value="Search">
+
+                                     }
+                                    </div>
 
                             </li>
 
@@ -62,7 +63,7 @@
                                     </a>
                                     @Html.Action("CartPartial", "Cart")
 
-                                    <a href="@Url.Action("Login", "User")" target="_self" class="nav-link">
+                                    <a href="@Url.Action("LoginRegister", "User")" target="_self" class="nav-link">
                                         <img src="~/Content/Images/Icon_Account 2.png" alt="Icon_Account 2.png bị lỗi" style=" width: auto; margin-left: 35%;" />
                                         <div>Tài khoản</div>
                                     </a>

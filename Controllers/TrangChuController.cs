@@ -23,9 +23,14 @@ namespace WebBanSach.Controllers
 
         public ActionResult SearchPage(string searchQuery)
         {
-            var sACHes = db.SACHes.Include(s => s.Tensach.ToUpper().Contains(searchQuery.ToUpper()));
-            ViewBag.SearchString = searchQuery;
-            return View(sACHes.ToList());
+            var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                sachs = sachs.Where(s => s.Tensach.ToUpper().Contains(searchQuery.ToUpper()));
+                ViewBag.SearchString = searchQuery;
+            }
+
+            return View(sachs.ToList());
         }
 
         public ActionResult ChiTiet(int? id)
