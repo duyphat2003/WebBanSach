@@ -456,11 +456,36 @@ td.TitleChoice {
 .list-group-item:last-child {
     line-height: 2;
 }
+
+.material-symbols-outlined {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.bllp-btn-search {
+    border: none;
+    border-radius: 20px;
+    position: absolute;
+    top: 25px;
+    right: 3px;
+    background-color: #ccc;
+}
+
 @media only screen and (max-width: 1024px) {
     .div-center-Page {
         width: 100%;
     }
     .div-center-InfoWeb {
         width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ADs-col-2-row-2, .ADs-col-2-row-1, .div-center-ADs-2{
+        display: none
+    }
+    .ADs-col1{
+        width:100%;
     }
 }
