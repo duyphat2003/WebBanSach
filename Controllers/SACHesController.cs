@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using WebBanSach.Models;
 using WebGrease.Css.Extensions;
 
@@ -17,7 +19,7 @@ namespace WebBanSach.Controllers
         public ActionResult SachTheoChuDe()
         {
             var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-
+            
             return View(sachs.ToList());
         }
         public ActionResult ChonSachQuaChuDe()
@@ -26,9 +28,46 @@ namespace WebBanSach.Controllers
             return PartialView("ChonSachQuaChuDe", chude);
         }
 
-        public ActionResult ChonSachQuaIDChuDe(int id)
+        public ActionResult ChonSachQuaIDChuDe(string num, int id)
         {
-            var sachs = db.SACHes.Where(p => p.CHUDE.MaCD == id).ToList();
+            var sachs = db.SACHes.Where(p => p.CHUDE.MaCD == id);
+            CHUDE cHUDE = db.CHUDEs.Find(id);
+            decimal from = (decimal)0; decimal to = (decimal)int.MaxValue;
+            if (num == "Default")
+            {
+                from = (decimal)0;
+                to = (decimal)int.MaxValue;
+            }
+            else if (num == "0")
+            {
+                from = (decimal)0;
+                to = (decimal)150.0000;
+            }
+            else if (num == "150000")
+            {
+                from = (decimal)150.0000;
+                to = (decimal)300.0000;
+            }
+            else if (num == "300000")
+            {
+                from = (decimal)300.0000;
+                to = (decimal)500.0000;
+            }
+            else if(num == "500000")
+            {
+                from = (decimal)500.0000;
+                to = (decimal)700.0000;
+            }
+            else if(num == "700000")
+            {
+                from = (decimal)700.0000;
+                to = (decimal)int.MaxValue;
+
+            }
+            ViewBag.From = from;
+            ViewBag.To = to;
+            ViewBag.Topic = cHUDE.TenChuDe;
+            ViewBag.maCD = cHUDE.MaCD;
             return View("SachTheoChuDe", sachs);
         }
 

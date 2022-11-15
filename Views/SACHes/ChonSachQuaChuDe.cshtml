@@ -10,7 +10,7 @@
     <td class="align-content-lg-start Choice" width="300">
         @foreach (var chude in Model)
         {
-            <div>@Html.ActionLink(chude.TenChuDe, "ChonSachQuaIDChuDe", "SACHes", new { id = chude.MaCD }, new { @class = "list-group-item action-link ChoiceType" })</div>
+            <div>@Html.ActionLink(chude.TenChuDe, "ChonSachQuaIDChuDe", "SACHes", new { name = "Default", id = chude.MaCD}, new { @class = "list-group-item action-link ChoiceType" })</div>
         }
     </td>
 </tr>

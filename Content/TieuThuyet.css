@@ -32,7 +32,7 @@
             }
 
     .div-center-Page .div-left-info {
-        width: 22%;
+        width: 26%;
         height: auto;
         border-radius: 8px;
         background-color: pink;
@@ -60,13 +60,13 @@
             .div-center-Page .div-left-info .Menu-Choice li {
                 font-size: 16px;
                 list-style: none;
+                width: max-content;
             }
 
     .div-center-Page .div-right-product {
-        width: 76%;
+        width: 72%;
         height: auto;
         border-radius: 8px;
-        background-color: red;
         border-color: red;
         position: relative;
         background-color: white;
@@ -88,8 +88,16 @@
     top: 50px;
 }
 
-/*Phần checkbox Animation*/
+.PriceOption {
+    text-decoration: none;
+    color: rgb(133, 133, 155);
+    font-weight: bold;
+}
+    .PriceOption:hover {
+        color: rgb(255, 187, 0);
+    }
 
+/*Phần checkbox Animation*/
 input[type='radio'] {
     box-sizing: border-box;
     border-radius: 10%;
