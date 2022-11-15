@@ -33,10 +33,12 @@ namespace WebBanSach.Controllers
             var sachs = db.SACHes.Where(p => p.CHUDE.MaCD == id);
             CHUDE cHUDE = db.CHUDEs.Find(id);
             decimal from = (decimal)0; decimal to = (decimal)int.MaxValue;
+            string messageFilter ="";
             if (num == "Default")
             {
                 from = (decimal)0;
                 to = (decimal)int.MaxValue;
+                messageFilter = "Trở lên";
             }
             else if (num == "0")
             {
@@ -62,10 +64,15 @@ namespace WebBanSach.Controllers
             {
                 from = (decimal)700.0000;
                 to = (decimal)int.MaxValue;
+                messageFilter = "Trở lên";
 
             }
             ViewBag.From = from;
             ViewBag.To = to;
+            if(messageFilter == "Trở lên")
+            {
+                ViewBag.To = messageFilter;
+            }
             ViewBag.Topic = cHUDE.TenChuDe;
             ViewBag.maCD = cHUDE.MaCD;
             return View("SachTheoChuDe", sachs);

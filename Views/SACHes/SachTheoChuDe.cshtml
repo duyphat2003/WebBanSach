@@ -2,7 +2,15 @@
 @{
     int cd = ViewBag.maCD;
     decimal from = ViewBag.From;
-    decimal to =  ViewBag.To;
+    decimal to = 0;
+    if (ViewBag.To.ToString() != "Trở lên")
+    {
+        to = ViewBag.To;
+    }
+    else
+    {
+        to = (decimal)int.MaxValue;
+    }
     ViewBag.Title = "SachTheoChuDe";
     Layout = "~/Views/Shared/TrangChu.cshtml";
 }
