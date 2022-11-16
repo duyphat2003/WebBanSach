@@ -56,13 +56,13 @@ namespace WebBanSach.Controllers
                 int MaKH = 1;
                 while (true)
                 {
-                    var id = db.KHACHHANGs.FirstOrDefault(k => k.MaKH == MaKH); 
+                    var id = db.KHACHHANGs.FirstOrDefault(k => k.MaKH == MaKH);
                     if (id != null)
                     {
-                        break; 
+                        MaKH += 1;
                     }
                     else
-                        MaKH += 1;
+                        break;
                 }
                 khachhang.MaKH = MaKH;
 
@@ -70,6 +70,10 @@ namespace WebBanSach.Controllers
                 {
                     db.KHACHHANGs.Add(khachhang);
                     db.SaveChanges();
+                }
+                else
+                {
+                    return View("LoginRegister");
                 }
             }
             return View("LoginRegister");
@@ -102,6 +106,7 @@ namespace WebBanSach.Controllers
                     else
                     {
                         ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                        return View("LoginRegister");
                     }
                        
  
