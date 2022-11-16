@@ -1,12 +1,15 @@
 ﻿@model IEnumerable<WebBanSach.Models.SACH>
 @{
-    int from = 0;
-    int to = int.MaxValue;
-    ViewBag.Price = "Tất cả";
-    foreach (var item in Model)
+    int cd = ViewBag.maCD;
+    decimal from = ViewBag.From;
+    decimal to = 0;
+    if (ViewBag.To.ToString() != "Trở lên")
     {
-        ViewBag.Topic = item.CHUDE.TenChuDe;
-        break;
+        to = ViewBag.To;
+    }
+    else
+    {
+        to = (decimal)int.MaxValue;
     }
     ViewBag.Title = "SachTheoChuDe";
     Layout = "~/Views/Shared/TrangChu.cshtml";
@@ -21,46 +24,36 @@
 </div>
 <div class="div-left-info">
     <div class="Menu-Choice">
-
         <div class="Title-Choice">GIÁ</div>
-        <ul>
-            @using (Html.BeginForm("SachTheoChuDe", "SACHes"))
-            {
-                <li>
-                    <input id="0" type="radio" name="select" value="0" checked="checked" onclick="ChoosePrice()">
-                    <label for="0">Default</label>
-                </li>
-                <li>
-                    <input id="1" type="radio" name="select" value="1" onclick="ChoosePrice()">
-                    <label for="1">0₫ - 150,000₫</label>
-                </li>
+        <ol>
+            <li>
+                <a href="@Url.Action("ChonSachQuaIDChuDe", "SACHes", new { num = "Default", id = cd})" target="_self" class="PriceOption">Default</a>
+            </li>
+            <li>
+                <a href="@Url.Action("ChonSachQuaIDChuDe", "SACHes", new { num = "0", id = cd})" target="_self" class="PriceOption">0₫ - 150,000₫</a>
+            </li>
 
-                <li>
-                    <input id="150001" type="radio" name="select" value="150001" onclick="ChoosePrice()">
-                    <label for="150001">150,000₫ - 300,000₫</label>
-                </li>
+            <li>
+                <a href="@Url.Action("ChonSachQuaIDChuDe", "SACHes", new { num = "150000", id = cd})" target="_self" class="PriceOption">150,000₫ - 300,000₫</a>
+            </li>
 
-                <li>
-                    <input id="300001" type="radio" name="select" value="300001" onclick="ChoosePrice()">
-                    <label for="300001">300,000₫ - 500,000₫</label>
-                </li>
+            <li>
+                <a href="@Url.Action("ChonSachQuaIDChuDe", "SACHes", new { num = "300000", id = cd})" target="_self" class="PriceOption">300,000₫ - 500,000₫</a>
+            </li>
 
-                <li>
-                    <input id="500001" type="radio" name="select" value="500001" onclick="ChoosePrice()">
-                    <label for="500001">500,000₫ - 700,000₫</label>
-                </li>
+            <li>
+                <a href="@Url.Action("ChonSachQuaIDChuDe", "SACHes", new { num = "500000", id = cd})" target="_self" class="PriceOption">500,000₫ - 700,000₫</a>
+            </li>
 
-                <li>
-                    <input id="700001" type="radio" name="select" value="700001" onclick="ChoosePrice()">
-                    <label for="700001">700,000₫ - Trở lên</label>
-                </li>
-            }
-        </ul>
+            <li>
+                <a href="@Url.Action("ChonSachQuaIDChuDe", "SACHes", new { num = "700000", id = cd})" target="_self" class="PriceOption">700,000₫ - Trở lên</a>
+            </li>
+        </ol>
     </div>
 </div>
 <div class="container-fluid div-right-product">
-    <div style=" margin-top: 10px; margin-bottom: 20px;">CHỌN LỌC: @ViewBag.Price</div>
-    <div class="row product">
+    <div style=" margin-top: 10px; margin-bottom: 20px;">CHỌN LỌC: @ViewBag.From - @ViewBag.To</div>
+    <div class="row product" id="list1">
         @foreach (var item in Model)
         {
             if (item.Dongia >= from && item.Dongia <= to)
@@ -77,53 +70,7 @@
                     </div>
                 </div>
             }
+
         }
     </div>
 </div>
-
-<script type="text/javascript">
-     function ChoosePrice() {
-         var checkbox = document.getElementsByName("select");
-         for (var i = 0; i < checkbox.length; i++) {
-             if (checkbox[i].checked === true) {
-                 if (checkbox[i].id == 1) {
-                     @{
-                         from = 0;
-                         to = 150000;
-                         ViewBag.Price = 0 + " - " + 150.000 + "₫";
-                     }
-
-                 }
-                 else if (checkbox[i].id == 150001) {
-                     @{
-                         from = 150000;
-                         to = 300000;
-                         ViewBag.Price = 150.000 + " - " + 300.000 + "₫";
-                     }
-                 }
-                 else if (checkbox[i].id == 300001) {
-                     @{
-                         from = 300000;
-                         to = 500000;
-                         ViewBag.Price = 300.000 + " - " + 500.000 + "₫";
-                     }
-                 }
-                 else if (checkbox[i].id == 500001) {
-                     @{
-                         from = 500000;
-                         to = 700000;
-                         ViewBag.Price = 500.000 + " - " + 700.000 + "₫";
-                     }
-                 }
-                 else if (checkbox[i].id == 700001) {
-                     @{
-                         from = 700000;
-                         to = int.MaxValue;
-                         ViewBag.Price = "700.000₫ trở lên";
-                     }
-                 }
-
-             }
-         }
-     };
-</script>
