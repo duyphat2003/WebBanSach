@@ -26,13 +26,16 @@ namespace WebBanSach.Controllers
             if (ModelState.IsValid)
             {
                 if (string.IsNullOrEmpty(khachhang.HoTenKH))
-                    ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
+                    ModelState.AddModelError(string.Empty, "Họ tên không được để trống");
 
                 if (string.IsNullOrEmpty(khachhang.DiachiKH))
-                    ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
+                    ModelState.AddModelError(string.Empty, "Địa chỉ không được để trống");
 
                 if (string.IsNullOrEmpty(khachhang.DienthoaiKH))
-                    ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
+                    ModelState.AddModelError(string.Empty, "Điện thoại không được để trống");
+
+                if (string.IsNullOrEmpty(khachhang.Email))
+                    ModelState.AddModelError(string.Empty, "Email không được để trống");
 
                 if (string.IsNullOrEmpty(khachhang.TenDN))
                     ModelState.AddModelError(string.Empty, "Tên đăng nhập không được để trống");
@@ -49,13 +52,13 @@ namespace WebBanSach.Controllers
                 int MaKH = 1;
                 while (true)
                 {
-                    var id = db.KHACHHANGs.Find(MaKH);
+                    var id = db.KHACHHANGs.FirstOrDefault(k => k.MaKH == MaKH);
                     if (id != null)
                     {
-                        MaKH += 1;
+                        break; 
                     }
                     else
-                        break;
+                        MaKH += 1;
                 }
                 khachhang.MaKH = MaKH;
 
