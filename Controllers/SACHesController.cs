@@ -68,10 +68,14 @@ namespace WebBanSach.Controllers
 
             }
             ViewBag.From = from;
-            ViewBag.To = to;
+            
             if(messageFilter == "Trở lên")
             {
                 ViewBag.To = messageFilter;
+            }
+            else
+            {
+                ViewBag.To = to;
             }
             ViewBag.Topic = cHUDE.TenChuDe;
             ViewBag.maCD = cHUDE.MaCD;

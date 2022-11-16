@@ -67,12 +67,8 @@ namespace WebBanSach.Controllers
                     db.KHACHHANGs.Add(khachhang);
                     db.SaveChanges();
                 }
-                else
-                {
-                    return View("LoginRegister");
-                }
             }
-            return RedirectToAction("LoginRegister");
+            return View("LoginRegister");
         }
 
         [HttpPost]
@@ -102,7 +98,6 @@ namespace WebBanSach.Controllers
                     else
                     {
                         ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
-                        return View("LoginRegister");
                     }
                        
  

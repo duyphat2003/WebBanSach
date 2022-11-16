@@ -244,3 +244,11 @@ footer {
 		color: #3c97bf;
 		text-decoration: none;
 	}
+@media only screen and (max-width: 1024px) {
+	.div-center-Page .Size-Form{
+		width: 100%;
+	}
+	.fit-content {
+		width: 100%;
+	}
+}
