@@ -40,8 +40,8 @@ namespace WebBanSach.Controllers
                 if (string.IsNullOrEmpty(khachhang.Matkhau))
                     ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
 
+                
                 var _khachhang = db.KHACHHANGs.FirstOrDefault(k => k.TenDN == khachhang.TenDN);
-
 
                 if (_khachhang != null)
                     ModelState.AddModelError(string.Empty, "Đã có người đăng kí tên này");
