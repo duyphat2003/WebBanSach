@@ -1,5 +1,15 @@
 ﻿@model IEnumerable<WebBanSach.Models.SACH>
 @{
+    decimal from = ViewBag.From;
+    decimal to = 0;
+    if (ViewBag.To.ToString() != "Trở lên")
+    {
+        to = ViewBag.To;
+    }
+    else
+    {
+        to = (decimal)int.MaxValue;
+    }
     ViewBag.Title = "SearchPage";
     Layout = "~/Views/Shared/TrangChu.cshtml";
 }
@@ -8,53 +18,53 @@
 <div class="div-left-info">
     <div class="Menu-Choice">
         <div class="Title-Choice">GIÁ</div>
-        <ul>
+        <ol>
             <li>
-                <input id="control_01" type="radio" name="select" value="1">
-                <label for="control_01">0₫ - 150,000₫</label>
+                <a href="@Url.Action("SearchPage", "TrangChu", new { searchQuery = ViewBag.SearchString, num = "Default"})" target="_self" class="PriceOption">Default</a>
+            </li>
+            <li>
+                <a href="@Url.Action("SearchPage", "TrangChu", new { searchQuery = ViewBag.SearchString, num = "0"})" target="_self" class="PriceOption">0₫ - 150,000₫</a>
             </li>
 
             <li>
-                <input id="control_02" type="radio" name="select" value="2">
-                <label for="control_02">150,000₫ - 300,000₫</label>
+                <a href="@Url.Action("SearchPage", "TrangChu", new { searchQuery = ViewBag.SearchString, num = "150000"})" target="_self" class="PriceOption">150,000₫ - 300,000₫</a>
             </li>
 
             <li>
-                <input id="control_03" type="radio" name="select" value="3">
-                <label for="control_03">300,000₫ - 500,000₫</label>
+                <a href="@Url.Action("SearchPage", "TrangChu", new { searchQuery = ViewBag.SearchString, num = "300000"})" target="_self" class="PriceOption">300,000₫ - 500,000₫</a>
             </li>
 
             <li>
-                <input id="control_04" type="radio" name="select" value="4">
-                <label for="control_04">500,000₫ - 700,000₫</label>
+                <a href="@Url.Action("SearchPage", "TrangChu", new { searchQuery = ViewBag.SearchString, num = "500000"})" target="_self" class="PriceOption">500,000₫ - 700,000₫</a>
             </li>
 
             <li>
-                <input id="control_05" type="radio" name="select" value="5">
-                <label for="control_05">700,000₫ - Trở lên</label>
+                <a href="@Url.Action("SearchPage", "TrangChu", new { searchQuery = ViewBag.SearchString, num = "700000"})" target="_self" class="PriceOption">700,000₫ - Trở lên</a>
             </li>
-        </ul>
+        </ol>
     </div>
-
 </div>
 <div class="container-fluid div-right-product">
     <div style="text-align: left; padding-bottom: 50px;">KẾT QUẢ TÌM KIẾM VỚI: @ViewBag.SearchString</div>
-    <div class="row product">
+    <div class="row product" id="list1">
         @foreach (var item in Model)
         {
-            <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
-                <a href="@Url.Action("ChiTiet", "TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none;">
-                    <img src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" class="card-img-top" />
-                </a>
-                <div class="card-body">
-                    <a class="card-text" href="@Url.Action("ChiTiet", "TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: black; font-size: 125%;">
-                        @item.Tensach
+            if (item.Dongia >= from && item.Dongia <= to)
+            {
+                <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
+                    <a href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none;">
+                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
                     </a>
-                    <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
+                    <div class="card-body">
+                        <a class="card-text" href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: black; font-size: 125%;">
+                            @Html.DisplayFor(modelItem => item.Tensach)
+                        </a>
+                        <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
+                    </div>
                 </div>
-            </div>
-        }
+            }
 
+        }
     </div>
 </div>
 

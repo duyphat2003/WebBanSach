@@ -21,12 +21,57 @@ namespace WebBanSach.Controllers
             return View(sACHes.ToList());
         }
 
-        public ActionResult SearchPage(string searchQuery)
+        public ActionResult SearchPage(string searchQuery, string num)
         {
             var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 sachs = sachs.Where(s => s.Tensach.ToUpper().Contains(searchQuery.ToUpper()));
+                decimal from = (decimal)0; decimal to = (decimal)int.MaxValue;
+                string messageFilter = "";
+                if (num == "Default")
+                {
+                    from = (decimal)0;
+                    to = (decimal)int.MaxValue;
+                    messageFilter = "Trở lên";
+                }
+                else if (num == "0")
+                {
+                    from = (decimal)0;
+                    to = (decimal)150.0000;
+                }
+                else if (num == "150000")
+                {
+                    from = (decimal)150.0000;
+                    to = (decimal)300.0000;
+                }
+                else if (num == "300000")
+                {
+                    from = (decimal)300.0000;
+                    to = (decimal)500.0000;
+                }
+                else if (num == "500000")
+                {
+                    from = (decimal)500.0000;
+                    to = (decimal)700.0000;
+                }
+                else if (num == "700000")
+                {
+                    from = (decimal)700.0000;
+                    to = (decimal)int.MaxValue;
+                    messageFilter = "Trở lên";
+
+                }
+                ViewBag.From = from;
+
+                if (messageFilter == "Trở lên")
+                {
+                    ViewBag.To = messageFilter;
+                }
+                else
+                {
+                    ViewBag.To = to;
+                }
                 ViewBag.SearchString = searchQuery;
             }
 

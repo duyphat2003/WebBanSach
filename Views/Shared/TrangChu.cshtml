@@ -47,7 +47,7 @@
 
                             <li class="col-md-4 nav-item" style="width: auto; height: auto; position: relative; bottom: 7px;">
                                 <div>
-                                    @using (Html.BeginForm("SearchPage", "TrangChu"))
+                                    @using (Html.BeginForm("SearchPage", "TrangChu", new {num = "Default"}))
                                     {
                                         <input id="SearchBar" type="text" name="searchQuery" size="34" maxlength="37" placeholder="Tên sách..." style="width: auto" value="@ViewBag.SearchString">
                                         <button class="bllp-btn-search" type="submit"><span class="material-symbols-outlined">search</span></button>
