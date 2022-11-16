@@ -49,10 +49,14 @@ namespace WebBanSach.Controllers
                 if (_khachhang != null)
                     ModelState.AddModelError(string.Empty, "Đã có người đăng kí tên này");
 
+                var mail = db.KHACHHANGs.FirstOrDefault(k => k.Email == khachhang.Email);
+                if (mail != null)
+                    ModelState.AddModelError(string.Empty, "Đã có người đăng kí mail này");
+
                 int MaKH = 1;
                 while (true)
                 {
-                    var id = db.KHACHHANGs.FirstOrDefault(k => k.MaKH == MaKH);
+                    var id = db.KHACHHANGs.FirstOrDefault(k => k.MaKH == MaKH); 
                     if (id != null)
                     {
                         break; 
