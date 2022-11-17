@@ -130,7 +130,7 @@ namespace WebBanSach.Controllers
  
                 }
             }
-            return View("LoginRegister");
+            return RedirectToAction("Home", "TrangChu");
         }
     }
 }
