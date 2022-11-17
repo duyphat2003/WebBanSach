@@ -1,0 +1,61 @@
+.div-center-Page {
+    height: auto;
+    background-color: white;
+}
+
+    .div-center-Page .Size-Form {
+        width: auto;
+        height: 1100px;
+        border-radius: 8px;
+    }
+.div-left-menu {
+    position: relative;
+    width: 28%;
+    height: auto;
+    float: left;
+    background-color: palegreen;
+}
+    .div-left-menu h2 {
+        position: relative;
+        left: 20px;
+        color: rgb(189, 33, 36);
+    }
+    .div-left-menu ol {
+        list-style: none;
+        margin-top: 25px;
+        position: relative;
+        right: 20px;
+    }
+        .div-left-menu ol li {
+            margin-top: 25px;
+        }
+            .div-left-menu ol li a {
+                text-decoration: none;
+                color: rgb(98 98 97);
+            }
+
+
+.div-right-info {
+    position: relative;
+    width: 70%;
+    height: auto;
+    float: right;
+    background-color: sandybrown;
+}
+    .div-right-info li {
+        list-style: none;
+    }
+
+        .div-right-info li span {
+            
+        }
+
+
+
+.div-center-InfoWeb {
+    top: 40px;
+}
+
+#logoMenu {
+    top: 25px;
+}

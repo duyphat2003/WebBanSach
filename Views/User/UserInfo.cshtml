@@ -1,0 +1,62 @@
+﻿@model WebBanSach.Models.KHACHHANG
+@{
+    ViewBag.Title = "UserInfo";
+    Layout = "~/Views/Shared/TrangChu.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/UserInfo.css" />
+<div class="Size-Form">
+    <div class="div-left-menu">
+        <h2>TÀI KHOẢN</h2>
+        <hr />
+        <ol>
+            <li>
+                <a href="#">Thông tin tài khoản</a>
+                <hr />
+            </li>
+
+            <li>
+                <a href="#">Đơn hàng của tôi</a>
+                <hr />
+            </li>
+
+            <li>
+                <a href="#">Thông báo</a>
+                <hr />
+            </li>
+            <li>
+                <a href="@Url.Action("LogOut", "User")" target="_self">Đăng xuất</a>
+                <hr />
+            </li>
+
+        </ol>
+    </div>
+    <div class="div-right-info">
+        <ol>
+            <li>
+                Tên người dùng: <span style="text-transform: uppercase">@ViewBag.UserName</span>
+            </li>
+
+            <li>
+                Địa chỉ: <span>@Model.DiachiKH</span>
+            </li>
+
+            <li>
+                Điện thoại: <span>@Model.DienthoaiKH</span>
+            </li>
+
+            <li>
+                Email: <span>@Model.Email</span>
+            </li>
+
+            <li>
+                Tài khoản: <span>@Model.TenDN</span>
+            </li>
+
+            <li>
+                Mật khẩu: <span>@Model.Matkhau</span>
+            </li>
+        </ol>
+    </div>
+</div>
+

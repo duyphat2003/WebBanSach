@@ -274,6 +274,7 @@
     <Content Include="Content\mywebstyle.css" />
     <Content Include="Content\ProductStylePro.css" />
     <Content Include="Content\TieuThuyet.css" />
+    <Content Include="Content\UserInfo.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -363,6 +364,7 @@
     <Content Include="Views\TrangChu\Home.cshtml" />
     <Content Include="Views\User\LoginRegister.cshtml" />
     <Content Include="Views\SACHes\SachTheoChuDe.cshtml" />
+    <Content Include="Views\User\UserInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

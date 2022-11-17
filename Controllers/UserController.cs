@@ -11,10 +11,28 @@ namespace WebBanSach.Controllers
     public class UserController : Controller
     {
         private QLBANSACHEntities db = new QLBANSACHEntities();
-
         public ActionResult LoginRegister()
         {
+
+            if (Session["Taikhoan"] != null)
+            {
+                return View("UserInfo");
+            }
+
             return View();
+        }
+
+        public ActionResult UserInfo(int id)
+        {
+            KHACHHANG myAccount = db.KHACHHANGs.Find(id);
+            ViewBag.UserName = myAccount.HoTenKH;
+            return View(myAccount);
+        }
+
+        public ActionResult LogOut()
+        {
+            Session["Taikhoan"] = null;
+            return RedirectToAction("Home", "TrangChu");
         }
 
 
@@ -101,7 +119,7 @@ namespace WebBanSach.Controllers
                     {
                         ViewBag.ThongBao = "Chúc mừng đăng nhập thành công"; //Lưu vào session
                         Session["Taikhoan"] = _khachhang;
-                        return RedirectToAction("Home", "TrangChu");
+                        return RedirectToAction("UserInfo", new {id = _khachhang.MaKH});
                     }
                     else
                     {

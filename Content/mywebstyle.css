@@ -59,6 +59,7 @@ body {
 #logoMenu {
     width: 70px;
     height: 70px;
+    margin-left: 30px;
 }
 
 .frst-Upper {
@@ -116,7 +117,7 @@ body {
         width: auto;
         border-radius: 8px;
         display: inline-block;
-        margin-left: 30px;
+        margin-left: 15px;
         text-decoration: none;
         text-align: center;
     }
@@ -166,6 +167,7 @@ td.TitleChoice {
     font-size: 110%;
     font-weight: lighter;
     padding-left: 20px;
+    margin-left: 30px;
 }
 
     .Choice .ChoiceType {
@@ -174,7 +176,7 @@ td.TitleChoice {
         margin: 30px;
     }
         .Choice .ChoiceType:hover{
-            color: rgb(255, 187, 0)
+            color: rgb(255, 187, 0);
         }
 
 
@@ -191,7 +193,8 @@ td.TitleChoice {
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display:block;
+    cursor:pointer;
 }
 
 /* Body Section*/
@@ -472,12 +475,33 @@ td.TitleChoice {
     background-color: #ccc;
 }
 
-@media only screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .div-center-Page {
         width: 100%;
     }
     .div-center-InfoWeb {
         width: 100%;
+    }
+    .item-header{
+        margin-left:0;
+    }
+    #SearchBar{
+        width:347px;
+    }
+    .navbar navbar-expand-sm wp-inner{
+        position:relative;
+    }
+    #logo {
+        position: absolute;
+        left: 0;
+        font-size: 35px;
+    }
+    #logoMenu {
+        width: 50px;
+        height: 50px;
+    }
+    .dropdown{
+        top:20px !important;
     }
 }
 
