@@ -15,7 +15,7 @@ namespace WebBanSach.Controllers
 {
     public class SACHesController : Controller
     {
-        private QLBANSACHEntities db = new QLBANSACHEntities();
+        private QLBANSACHEntities1 db = new QLBANSACHEntities1();
         public ActionResult SachTheoChuDe()
         {
             var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);

@@ -7,7 +7,7 @@ namespace WebBanSach.Models
 {
     public class CartItem
     {
-        QLBANSACHEntities db = new QLBANSACHEntities();
+        QLBANSACHEntities1 db = new QLBANSACHEntities1();
         public int MaSach { get; set; }
         public string TenSach { get; set; }
         public string ImageFile { get; set; }

@@ -12,7 +12,7 @@ namespace WebBanSach.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        QLBANSACHEntities db = new QLBANSACHEntities();
+        QLBANSACHEntities1 db = new QLBANSACHEntities1();
         // GET: Admin/Home
         public ActionResult Index()
         {

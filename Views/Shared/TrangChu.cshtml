@@ -59,16 +59,17 @@
 
                             <li class="col-md-5 nav-item" style="width: auto; height: auto;">
                                 <div class="nav-link main-menu">
-                                    <a href="https://localhost:44323/TrangChu/Home" target="_self" class="nav-link item-header">
+                                    <a href="@Url.Action("Home", "TrangChu")" target="_self" class="nav-link item-header">
                                         <img src="~/Content/Images/Icon_Nofi 1.png" alt="Icon_Nofi 1.png bị lỗi" style="width: auto; margin-left: 37.5%;" />
                                         <div>Thông báo</div>
                                     </a>
                                     @Html.Action("CartPartial", "Cart")
 
-                                    <a href="@Url.Action("LoginRegister", "User")" target="_self" class="nav-link item-header">
-                                        <img src="~/Content/Images/Icon_Account 2.png" alt="Icon_Account 2.png bị lỗi" style=" width: auto; margin-left: 35%;" />
-                                        <div>Tài khoản</div>
-                                    </a>
+                                <a href="@Url.Action("LoginRegister", "User", new {topic = "AcountInfo"})" target="_self" class="nav-link item-header">
+                                    <img src="~/Content/Images/Icon_Account 2.png" alt="Icon_Account 2.png bị lỗi" style=" width: auto; margin-left: 35%;" />
+                                    <div>Tài khoản <span style="position:absolute; font-size: 0.7em">@Html.Action("LoginRegisterPartial", "User")</span></div>
+                                   
+                                </a>
                                 </div>
                             </li>
                         </ul>

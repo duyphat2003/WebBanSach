@@ -4,18 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="178766e005244451a7e890a5444ad76e" Name="Diagram1">
-        <EntityTypeShape EntityType="QLBANSACHModel.CHUDE" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.CTDATHANG" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.CTTHAMDO" Width="1.5" PointX="8" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.DONDATHANG" Width="1.5" PointX="12.875" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.KHACHHANG" Width="1.5" PointX="10.25" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.NHAXUATBAN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.QUANGCAO" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+      <Diagram DiagramId="58926454fb4f4f5290dd8d3b0f4d1e06" Name="Diagram1">
+        <EntityTypeShape EntityType="QLBANSACHModel.CHUDE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.CTDATHANG" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.CTTHAMDO" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.DONDATHANG" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.NHAXUATBAN" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.QUANGCAO" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBANSACHModel.SACH" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.TACGIA" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.THAMDO" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.VIETSACH" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.sysdiagram" Width="1.5" PointX="5.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.TACGIA" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.THAMDO" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.VIETSACH" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="QLBANSACHModel.FK_Sach_ChuDe" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANSACHModel.FK_CTDatHang_DonDatHang" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANSACHModel.FK_CTDatHang_Sach" ManuallyRouted="false" />
@@ -23,9 +24,8 @@
         <AssociationConnector Association="QLBANSACHModel.FK_DonDatHang_KhachHang" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANSACHModel.FK_Sach_NhaXuatBan" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANSACHModel.FK_VietSach_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBANSACHModel.FKMaTG" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANSACHModel.FK_VietSach_TacGia" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="QLBANSACHModel.sysdiagram" Width="1.5" PointX="5.375" PointY="9.75" />
-        <AssociationConnector Association="QLBANSACHModel.FKMaTG" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

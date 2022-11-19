@@ -13,7 +13,7 @@ namespace WebBanSach.Controllers
 {
     public class TrangChuController : Controller
     {
-        private QLBANSACHEntities db = new QLBANSACHEntities();
+        private QLBANSACHEntities1 db = new QLBANSACHEntities1();
 
         public ActionResult Home()
         {

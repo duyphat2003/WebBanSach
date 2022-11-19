@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebBanSach.Models.KHACHHANG>
+@{
+    Layout = "~/Views/Shared/TrangChu.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/UserInfo.css" />
+<div class="Size-Form">
+    <div class="div-left-menu">
+        <h2>TÀI KHOẢN</h2>
+        <hr />
+        <ol>
+            <li>
+                <a href="@Url.Action("LoginRegister", "User", new {topic = "AcountInfo"})">Thông tin tài khoản</a>
+                <hr />
+            </li>
+
+            <li>
+                <a href="@Url.Action("LoginRegister", "User", new {topic = "CartInfo"})">Đơn hàng của tôi</a>
+                <hr />
+            </li>
+
+            <li>
+                <a href="@Url.Action("LoginRegister", "User", new {topic = "NofiContent"})">Thông báo</a>
+                <hr />
+            </li>
+            <li>
+                <a href="@Url.Action("LogOut", "User")" target="_self">Đăng xuất</a>
+                <hr />
+            </li>
+
+        </ol>
+    </div>
+    <div class="div-right-info">
+        <div>@ViewBag.Title</div>
+        <table class="InfoBoard">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                       
+                    </td>
+
+                    <td>
+                     
+                    </td>
+                </tr>
+            }
+        </table>
+        <div style="text-align: center; margin-top: 40px;">
+            <input style="width: 30%; border-radius: 8px; border: none; background-color: #C92127; color: white;" type="submit" value="Lưu thay đổi!">
+        </div>
+
+    </div>
+</div>
+
+

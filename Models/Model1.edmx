@@ -402,12 +402,22 @@
           <Property Name="Ngaycapnhat" Type="DateTime" Precision="0" />
           <Property Name="Soluongban" Type="Int32" />
           <Property Name="solanxem" Type="Int32" />
+          <Property Name="MaTG" Type="Int32" />
           <NavigationProperty Name="CHUDE" Relationship="Self.FK_Sach_ChuDe" FromRole="SACH" ToRole="CHUDE" />
           <NavigationProperty Name="CTDATHANGs" Relationship="Self.FK_CTDatHang_Sach" FromRole="SACH" ToRole="CTDATHANG" />
           <NavigationProperty Name="NHAXUATBAN" Relationship="Self.FK_Sach_NhaXuatBan" FromRole="SACH" ToRole="NHAXUATBAN" />
           <NavigationProperty Name="VIETSACHes" Relationship="Self.FK_VietSach_Sach" FromRole="SACH" ToRole="VIETSACH" />
-          <Property Name="MaTG" Type="Int32" />
-          <NavigationProperty Name="TACGIA" Relationship="QLBANSACHModel.FKMaTG" FromRole="SACH" ToRole="TACGIA" />
+          <NavigationProperty Name="TACGIA" Relationship="Self.FKMaTG" FromRole="SACH" ToRole="TACGIA" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TACGIA">
           <Key>
@@ -417,8 +427,8 @@
           <Property Name="TenTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DiachiTG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DienthoaiTG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SACHes" Relationship="Self.FKMaTG" FromRole="TACGIA" ToRole="SACH" />
           <NavigationProperty Name="VIETSACHes" Relationship="Self.FK_VietSach_TacGia" FromRole="TACGIA" ToRole="VIETSACH" />
-          <NavigationProperty Name="SACHes" Relationship="QLBANSACHModel.FKMaTG" FromRole="TACGIA" ToRole="SACH" />
         </EntityType>
         <EntityType Name="THAMDO">
           <Key>
@@ -525,6 +535,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FKMaTG">
+          <End Role="TACGIA" Type="Self.TACGIA" Multiplicity="0..1" />
+          <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACGIA">
+              <PropertyRef Name="MaTG" />
+            </Principal>
+            <Dependent Role="SACH">
+              <PropertyRef Name="MaTG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_VietSach_TacGia">
           <End Role="TACGIA" Type="Self.TACGIA" Multiplicity="1" />
           <End Role="VIETSACH" Type="Self.VIETSACH" Multiplicity="*" />
@@ -537,7 +559,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QLBANSACHEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QLBANSACHEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHUDEs" EntityType="Self.CHUDE" />
           <EntitySet Name="CTDATHANGs" EntityType="Self.CTDATHANG" />
           <EntitySet Name="CTTHAMDOes" EntityType="Self.CTTHAMDO" />
@@ -546,6 +568,7 @@
           <EntitySet Name="NHAXUATBANs" EntityType="Self.NHAXUATBAN" />
           <EntitySet Name="QUANGCAOs" EntityType="Self.QUANGCAO" />
           <EntitySet Name="SACHes" EntityType="Self.SACH" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TACGIAs" EntityType="Self.TACGIA" />
           <EntitySet Name="THAMDOes" EntityType="Self.THAMDO" />
           <EntitySet Name="VIETSACHes" EntityType="Self.VIETSACH" />
@@ -577,44 +600,21 @@
             <End Role="SACH" EntitySet="SACHes" />
             <End Role="VIETSACH" EntitySet="VIETSACHes" />
           </AssociationSet>
+          <AssociationSet Name="FKMaTG" Association="Self.FKMaTG">
+            <End Role="TACGIA" EntitySet="TACGIAs" />
+            <End Role="SACH" EntitySet="SACHes" />
+          </AssociationSet>
           <AssociationSet Name="FK_VietSach_TacGia" Association="Self.FK_VietSach_TacGia">
             <End Role="TACGIA" EntitySet="TACGIAs" />
             <End Role="VIETSACH" EntitySet="VIETSACHes" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="QLBANSACHModel.sysdiagram" />
-          <AssociationSet Name="FKMaTG" Association="QLBANSACHModel.FKMaTG">
-            <End Role="TACGIA" EntitySet="TACGIAs" />
-            <End Role="SACH" EntitySet="SACHes" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <Association Name="FKMaTG">
-          <End Type="QLBANSACHModel.TACGIA" Role="TACGIA" Multiplicity="0..1" />
-          <End Type="QLBANSACHModel.SACH" Role="SACH" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TACGIA">
-              <PropertyRef Name="MaTG" />
-            </Principal>
-            <Dependent Role="SACH">
-              <PropertyRef Name="MaTG" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QLBANSACHModelStoreContainer" CdmEntityContainer="QLBANSACHEntities">
+        <EntityContainerMapping StorageEntityContainer="QLBANSACHModelStoreContainer" CdmEntityContainer="QLBANSACHEntities1">
           <EntitySetMapping Name="CHUDEs">
             <EntityTypeMapping TypeName="QLBANSACHModel.CHUDE">
               <MappingFragment StoreEntitySet="CHUDE">
@@ -702,7 +702,6 @@
           <EntitySetMapping Name="SACHes">
             <EntityTypeMapping TypeName="QLBANSACHModel.SACH">
               <MappingFragment StoreEntitySet="SACH">
-                <ScalarProperty Name="MaTG" ColumnName="MaTG" />
                 <ScalarProperty Name="Masach" ColumnName="Masach" />
                 <ScalarProperty Name="Tensach" ColumnName="Tensach" />
                 <ScalarProperty Name="Donvitinh" ColumnName="Donvitinh" />
@@ -714,6 +713,18 @@
                 <ScalarProperty Name="Ngaycapnhat" ColumnName="Ngaycapnhat" />
                 <ScalarProperty Name="Soluongban" ColumnName="Soluongban" />
                 <ScalarProperty Name="solanxem" ColumnName="solanxem" />
+                <ScalarProperty Name="MaTG" ColumnName="MaTG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QLBANSACHModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -743,17 +754,6 @@
                 <ScalarProperty Name="MaTG" ColumnName="MaTG" />
                 <ScalarProperty Name="Masach" ColumnName="Masach" />
                 <ScalarProperty Name="Vaitro" ColumnName="Vaitro" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="QLBANSACHModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

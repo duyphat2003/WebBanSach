@@ -17,8 +17,8 @@ namespace WebBanSach.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TACGIA()
         {
-            this.VIETSACHes = new HashSet<VIETSACH>();
             this.SACHes = new HashSet<SACH>();
+            this.VIETSACHes = new HashSet<VIETSACH>();
         }
     
         public int MaTG { get; set; }
@@ -27,8 +27,8 @@ namespace WebBanSach.Models
         public string DienthoaiTG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VIETSACH> VIETSACHes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SACH> SACHes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VIETSACH> VIETSACHes { get; set; }
     }
 }

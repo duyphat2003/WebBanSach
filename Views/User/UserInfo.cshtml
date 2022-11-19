@@ -1,6 +1,5 @@
 ﻿@model WebBanSach.Models.KHACHHANG
 @{
-    ViewBag.Title = "UserInfo";
     Layout = "~/Views/Shared/TrangChu.cshtml";
 }
 
@@ -11,17 +10,17 @@
         <hr />
         <ol>
             <li>
-                <a href="#">Thông tin tài khoản</a>
+                <a href="@Url.Action("LoginRegister", "User", new {topic = "AcountInfo"})">Thông tin tài khoản</a>
                 <hr />
             </li>
 
             <li>
-                <a href="#">Đơn hàng của tôi</a>
+                <a href="@Url.Action("LoginRegister", "User", new {topic = "CartInfo"})">Đơn hàng của tôi</a>
                 <hr />
             </li>
 
             <li>
-                <a href="#">Thông báo</a>
+                <a href="@Url.Action("LoginRegister", "User", new {topic = "NofiContent"})">Thông báo</a>
                 <hr />
             </li>
             <li>
@@ -32,31 +31,78 @@
         </ol>
     </div>
     <div class="div-right-info">
-        <ol>
-            <li>
-                Tên người dùng: <span style="text-transform: uppercase">@ViewBag.UserName</span>
-            </li>
+        <div>@ViewBag.Title</div>
+        <table class="InfoBoard">
+            @using (Html.BeginForm("EditInfo", "User", new { id = Model.MaKH }))
+            {
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+                <tr>
+                    <td>
+                        Tên người dùng:
+                    </td>
 
-            <li>
-                Địa chỉ: <span>@Model.DiachiKH</span>
-            </li>
+                    <td>
+                        <span style="text-transform: uppercase"><input style="width: 100%" type="text" name="HoTenKH" placeholder="Nhập họ tên" value="@Model.HoTenKH" /></span>
+                    </td>
+                </tr>
 
-            <li>
-                Điện thoại: <span>@Model.DienthoaiKH</span>
-            </li>
+                <tr>
+                    <td>
+                        Địa chỉ:
+                    </td>
 
-            <li>
-                Email: <span>@Model.Email</span>
-            </li>
+                    <td>
+                        <span><input style="width: 100%" type="text" name="DiachiKH" placeholder="Nhập địa chỉ" value="@Model.DiachiKH" /></span>
+                    </td>
 
-            <li>
-                Tài khoản: <span>@Model.TenDN</span>
-            </li>
+                </tr>
 
-            <li>
-                Mật khẩu: <span>@Model.Matkhau</span>
-            </li>
-        </ol>
+                <tr>
+                    <td>
+                        Điện thoại:
+                    </td>
+
+                    <td>
+                        <span><input type="tel" name="DienthoaiKH" placeholder="Nhập địa chỉ" value="@Model.DienthoaiKH" /></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Email:
+                    </td>
+
+                    <td>
+                        <span><input style="width: 100%" type="email" name="Email" placeholder="Nhập số điện thoại" value="@Model.Email" /></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Tài khoản:
+                    </td>
+
+                    <td>
+                        <span><input style="width: 100%" type="text" value="@Model.TenDN" disabled /></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Mật khẩu:
+                    </td>
+
+                    <td>
+                        <span><input type="password" name="Matkhau" placeholder="Nhập mật khẩu mới" value="@Model.Matkhau" /></span>
+                    </td>
+                </tr>
+            }
+        </table>
+        <div style="text-align: center; margin-top: 40px;">
+            <input style="width: 30%; border-radius: 8px; border: none; background-color: #C92127; color: white;" type="submit" value="Lưu thay đổi!">
+        </div>
+
     </div>
 </div>
 

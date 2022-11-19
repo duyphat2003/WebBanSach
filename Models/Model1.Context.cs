@@ -13,10 +13,10 @@ namespace WebBanSach.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLBANSACHEntities : DbContext
+    public partial class QLBANSACHEntities1 : DbContext
     {
-        public QLBANSACHEntities()
-            : base("name=QLBANSACHEntities")
+        public QLBANSACHEntities1()
+            : base("name=QLBANSACHEntities1")
         {
         }
     
@@ -33,9 +33,9 @@ namespace WebBanSach.Models
         public virtual DbSet<NHAXUATBAN> NHAXUATBANs { get; set; }
         public virtual DbSet<QUANGCAO> QUANGCAOs { get; set; }
         public virtual DbSet<SACH> SACHes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TACGIA> TACGIAs { get; set; }
         public virtual DbSet<THAMDO> THAMDOes { get; set; }
         public virtual DbSet<VIETSACH> VIETSACHes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

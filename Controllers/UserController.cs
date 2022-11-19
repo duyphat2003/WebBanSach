@@ -4,29 +4,124 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using WebBanSach.Models;
 
 namespace WebBanSach.Controllers
 {
     public class UserController : Controller
     {
-        private QLBANSACHEntities db = new QLBANSACHEntities();
-        public ActionResult LoginRegister()
+        private QLBANSACHEntities1 db = new QLBANSACHEntities1();
+        public ActionResult LoginRegister(string topic)
         {
-
             if (Session["Taikhoan"] != null)
             {
-                return View("UserInfo");
+                if (topic == "AcountInfo")
+                {
+                    KHACHHANG newUser = (KHACHHANG)Session["Taikhoan"];
+                    return RedirectToAction("UserInfo", new { id = newUser.MaKH });
+                }
+                else if (topic == "CartInfo")
+                {
+                    KHACHHANG newUser = (KHACHHANG)Session["Taikhoan"];
+                    return RedirectToAction("UserCart", new { id = newUser.MaKH });
+                }
+                else if(topic == "NofiContent")
+                {
+                    KHACHHANG newUser = (KHACHHANG)Session["Taikhoan"];
+                    return RedirectToAction("UserNofi", new { id = newUser.MaKH });
+                }
+            }
+            return View();
+        }
+
+
+        public ActionResult LoginRegisterPartial()
+        {
+            if (Session["Taikhoan"] != null)
+            {
+                KHACHHANG newUser = (KHACHHANG)Session["Taikhoan"];
+                ViewBag.Account = "(" + newUser.HoTenKH + ")";
+            }
+            else
+                ViewBag.Account = "";
+
+            return PartialView();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditInfo(KHACHHANG khachhang, int id)
+        {
+            KHACHHANG myAccount = db.KHACHHANGs.Find(id);
+            if (ModelState.IsValid)
+            {
+                if (string.IsNullOrEmpty(khachhang.HoTenKH))
+                    ModelState.AddModelError(string.Empty, "Họ tên không được để trống");
+
+                if (string.IsNullOrEmpty(khachhang.DiachiKH))
+                    ModelState.AddModelError(string.Empty, "Địa chỉ không được để trống");
+
+                if (string.IsNullOrEmpty(khachhang.DienthoaiKH))
+                    ModelState.AddModelError(string.Empty, "Điện thoại không được để trống");
+
+                if (string.IsNullOrEmpty(khachhang.Email))
+                    ModelState.AddModelError(string.Empty, "Email không được để trống");
+
+                if (string.IsNullOrEmpty(khachhang.Matkhau))
+                    ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
+
+                var mail = db.KHACHHANGs.FirstOrDefault(k => k.Email == myAccount.Email && k.MaKH != myAccount.MaKH);
+                if (mail != null)
+                    ModelState.AddModelError(string.Empty, "Đã có người đăng kí mail này");
+
+
+                if (ModelState.IsValid)
+                {
+                    myAccount.HoTenKH = khachhang.HoTenKH;
+                    myAccount.DiachiKH = khachhang.DiachiKH;  
+                    myAccount.DienthoaiKH = khachhang.DienthoaiKH;  
+                    myAccount.Email = khachhang.Email;  
+                    myAccount.Matkhau = khachhang.Matkhau;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    return View("LoginRegister");
+                }
             }
 
-            return View();
+            return RedirectToAction("UserInfo", new { id = myAccount.MaKH });
         }
 
         public ActionResult UserInfo(int id)
         {
             KHACHHANG myAccount = db.KHACHHANGs.Find(id);
-            ViewBag.UserName = myAccount.HoTenKH;
+            ViewBag.Title = "THÔNG TIN TÀI KHOẢN";
             return View(myAccount);
+        }
+
+        public ActionResult UserCart(int id)
+        {
+            var myAccount = db.DONDATHANGs.Where(p => p.MaKH == id);
+            ViewBag.Title = "ĐƠN ĐẶT HÀNG";
+            return View(myAccount.ToList());
+        }
+
+        public ActionResult Delete(int id, int DH)
+        {
+            var myAccount = db.DONDATHANGs.Where(p => p.MaKH == id && p.SoDH == DH).FirstOrDefault();
+            db.DONDATHANGs.Remove(myAccount);
+            db.SaveChanges();
+            return View("UserCart", myAccount);
+        }
+
+        public ActionResult UserNofi(int id)
+        {
+            var myAccount = db.KHACHHANGs.Where(p => p.MaKH == id);
+       
+            ViewBag.Title = "THÔNG BÁO";
+            return View(myAccount.ToList());
         }
 
         public ActionResult LogOut()
