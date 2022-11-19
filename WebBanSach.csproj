@@ -129,7 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\SACHesController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
@@ -175,6 +175,9 @@
     <Compile Include="Models\QUANGCAO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QUANLY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SACH.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -193,6 +196,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Content\css\owl.carousel.min.css" />
+    <Content Include="Areas\Admin\Content\css\owl.theme.default.min.css" />
+    <Content Include="Areas\Admin\Content\css\style.css" />
+    <Content Include="Areas\Admin\Content\fonts\et-line.svg" />
+    <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Content\fonts\icomoon.svg" />
+    <Content Include="Areas\Admin\Content\fonts\roboto-bold-webfont.svg" />
+    <Content Include="Areas\Admin\Content\fonts\robotocondensed-regular-webfont.svg" />
+    <Content Include="Areas\Admin\Content\images\bg-01.jpg" />
+    <Content Include="Areas\Admin\Content\images\vector.png" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.bundle.js" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.bundle.min.js" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.esm.js" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.esm.min.js" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\js\jquery.min.js" />
+    <Content Include="Areas\Admin\Content\js\owl.carousel.min.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -332,6 +356,38 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Admin\DSTheloai.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CreateCD.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
+    <Content Include="Areas\Admin\Content\fonts\et-line.eot" />
+    <Content Include="Areas\Admin\Content\fonts\et-line.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\et-line.woff" />
+    <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Content\fonts\icomoon.eot" />
+    <Content Include="Areas\Admin\Content\fonts\icomoon.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\icomoon.woff" />
+    <Content Include="Areas\Admin\Content\fonts\roboto-bold-webfont.eot" />
+    <Content Include="Areas\Admin\Content\fonts\roboto-bold-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\roboto-bold-webfont.woff" />
+    <Content Include="Areas\Admin\Content\fonts\roboto-bold-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\fonts\roboto-light-webfont.woff" />
+    <Content Include="Areas\Admin\Content\fonts\roboto-light-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\fonts\roboto-regular-webfont.woff" />
+    <Content Include="Areas\Admin\Content\fonts\roboto-regular-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\fonts\robotocondensed-regular-webfont.eot" />
+    <Content Include="Areas\Admin\Content\fonts\robotocondensed-regular-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\robotocondensed-regular-webfont.woff" />
+    <Content Include="Areas\Admin\Content\fonts\robotocondensed-regular-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.bundle.js.map" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.esm.js.map" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.esm.min.js.map" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.js.map" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -374,7 +430,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

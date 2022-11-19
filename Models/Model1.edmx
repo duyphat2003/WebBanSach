@@ -84,6 +84,15 @@
           <Property Name="Ngaybatdau" Type="smalldatetime" />
           <Property Name="Ngayhethan" Type="smalldatetime" />
         </EntityType>
+        <EntityType Name="QUANLY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TenDN" Type="nvarchar(max)" />
+          <Property Name="VaiTro" Type="nvarchar(max)" />
+          <Property Name="Matkhau" Type="nchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="SACH">
           <Key>
             <PropertyRef Name="Masach" />
@@ -254,6 +263,7 @@
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHAXUATBAN" EntityType="Self.NHAXUATBAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QUANGCAO" EntityType="Self.QUANGCAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUANLY" EntityType="Self.QUANLY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TACGIA" EntityType="Self.TACGIA" Schema="dbo" store:Type="Tables" />
@@ -608,7 +618,17 @@
             <End Role="TACGIA" EntitySet="TACGIAs" />
             <End Role="VIETSACH" EntitySet="VIETSACHes" />
           </AssociationSet>
+          <EntitySet Name="QUANLies" EntityType="QLBANSACHModel.QUANLY" />
         </EntityContainer>
+        <EntityType Name="QUANLY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TenDN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VaiTro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Matkhau" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -754,6 +774,16 @@
                 <ScalarProperty Name="MaTG" ColumnName="MaTG" />
                 <ScalarProperty Name="Masach" ColumnName="Masach" />
                 <ScalarProperty Name="Vaitro" ColumnName="Vaitro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUANLies">
+            <EntityTypeMapping TypeName="QLBANSACHModel.QUANLY">
+              <MappingFragment StoreEntitySet="QUANLY">
+                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+                <ScalarProperty Name="VaiTro" ColumnName="VaiTro" />
+                <ScalarProperty Name="TenDN" ColumnName="TenDN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
