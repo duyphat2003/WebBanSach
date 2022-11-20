@@ -256,6 +256,7 @@
     <Content Include="Content\Images\Icon_Shopping.png" />
     <Content Include="Content\Images\lap1.png" />
     <Content Include="Content\Images\lap10.jpg" />
+    <Content Include="Content\Images\lap11.jpg" />
     <Content Include="Content\Images\lap2.png" />
     <Content Include="Content\Images\lap3.png" />
     <Content Include="Content\Images\lap4.png" />
@@ -381,6 +382,8 @@
     <Content Include="Views\Admin\DSTheloai.cshtml" />
     <Content Include="Views\Admin\CreateCD.cshtml" />
     <Content Include="Views\Admin\Register.cshtml" />
+    <Content Include="Views\Admin\DSSach.cshtml" />
+    <Content Include="Views\Admin\CreateSach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

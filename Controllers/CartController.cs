@@ -136,7 +136,7 @@ namespace WebBanSach.Controllers
                 Session["GioHang"] = null;
                 return RedirectToAction("UserCart", "User", new { id = cus.MaKH });
             }
-               
+            Session["GioHang"] = null;
             return RedirectToAction("LoginRegister", "User", new { topic = "AcountInfo" });
         }
     }

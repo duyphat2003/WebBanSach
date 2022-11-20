@@ -41,10 +41,10 @@ namespace WebBanSach.Controllers
             if (Session["Taikhoan"] != null)
             {
                 KHACHHANG newUser = (KHACHHANG)Session["Taikhoan"];
-                ViewBag.Account = "(" + newUser.HoTenKH + ")";
+                ViewBag.Account = newUser.HoTenKH;
             }
             else
-                ViewBag.Account = "";
+                ViewBag.Account = "TÀI KHOẢN";
 
             return PartialView();
         }
