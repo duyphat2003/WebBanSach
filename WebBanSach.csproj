@@ -128,8 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\SACHesController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
@@ -175,6 +174,9 @@
     <Compile Include="Models\QUANGCAO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QUANLY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SACH.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -185,6 +187,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THAMDO.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THONGBAO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VIETSACH.cs">
@@ -274,6 +279,7 @@
     <Content Include="Content\mystyle.css" />
     <Content Include="Content\mywebstyle.css" />
     <Content Include="Content\ProductStylePro.css" />
+    <Content Include="Areas\Admin\Content\css\Style.css" />
     <Content Include="Content\TieuThuyet.css" />
     <Content Include="Content\UserInfo.css" />
     <Content Include="favicon.ico" />
@@ -332,6 +338,9 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Admin\DSTheloai.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CreateCD.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebBanSach.Models.CHUDE>
+@{
+    ViewBag.Title = "DSTheloai";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+}
+
+<div class="container-sm" style="text-align:center">
+    <h2 style="text-align: center">Danh Sách Chủ Đề</h2>
+
+    <p style="text-align: end">
+        @Html.ActionLink("TẠO MỚI", "CreateCD", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Chủ Đề
+            </th>
+            <th>
+                Tên Chủ Đề
+            </th>
+            <th>
+                Lệnh
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaCD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenChuDe)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaCD }, new { @class = "btn btn-outline-primary" }) |
+                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaCD }, new { @class = "btn btn-outline-info" }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaCD }, new { @class = "btn btn-outline-danger bg-red " })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
