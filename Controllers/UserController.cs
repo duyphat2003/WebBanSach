@@ -116,9 +116,9 @@ namespace WebBanSach.Controllers
             return View("UserCart", myAccount);
         }
 
-        public ActionResult UserNofi(int id)
+        public ActionResult UserNofi()
         {
-            var myAccount = db.KHACHHANGs.Where(p => p.MaKH == id);
+            var myAccount = db.THONGBAOs;
        
             ViewBag.Title = "THÔNG BÁO";
             return View(myAccount.ToList());

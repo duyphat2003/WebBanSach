@@ -1,5 +1,8 @@
-﻿<!doctype html>
-<html lang="en">
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,18 +24,18 @@
                         <div class="form-sub-main">
                             <div class="_main_head_as">
                                 <a href="#">
-                                    <img src="~/Areas/Admin/Content/images/vector.png">
+                                    <img src="~/Areas/Admin/Content/pic/vector.png">
                                 </a>
                             </div>
                             @using (Html.BeginForm("Login", "Admin"))
                             {
                                 @Html.ValidationSummary(true)
                                 <div class="form-group">
-                                    <input name="TenDN" class="form-control _ge_de_ol" type="text" placeholder="User Name" aria-required="true" required>
+                                    <input name="TenDN" class="form-control _ge_de_ol" type="text" placeholder="Tên đăng nhập" aria-required="true" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="Matkhau" placeholder="********" required>
+                                    <input type="password" class="form-control" name="Matkhau" placeholder="Mật khẩu" required>
                                 </div>
 
 
@@ -50,4 +53,5 @@
     </section>
 </body>
 </html>
+
 

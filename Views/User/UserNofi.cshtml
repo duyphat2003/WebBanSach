@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebBanSach.Models.KHACHHANG>
+﻿@model IEnumerable<WebBanSach.Models.THONGBAO>
 @{
     Layout = "~/Views/Shared/TrangChu.cshtml";
 }
@@ -33,22 +33,28 @@
     <div class="div-right-info">
         <div>@ViewBag.Title</div>
         <table class="InfoBoard">
+            <tr>
+                <td>
+                    STT
+                </td>
+
+                <td>
+                    Nội dung
+                </td>
+            </tr>
             @foreach (var item in Model)
             {
                 <tr>
                     <td>
-                       
+                        @item.ID
                     </td>
 
                     <td>
-                     
+                        @item.Content
                     </td>
                 </tr>
             }
         </table>
-        <div style="text-align: center; margin-top: 40px;">
-            <input style="width: 30%; border-radius: 8px; border: none; background-color: #C92127; color: white;" type="submit" value="Lưu thay đổi!">
-        </div>
 
     </div>
 </div>

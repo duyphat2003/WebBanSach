@@ -85,5 +85,52 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             return RedirectToAction("DSTheloai", "Admin");
         }
+
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(QUANLY user)
+        {
+            if (string.IsNullOrEmpty(user.TenDN))
+                ModelState.AddModelError(string.Empty, "Vui lòng nhập tài khoản của bạn");
+            if (string.IsNullOrEmpty(user.Matkhau))
+                ModelState.AddModelError(string.Empty, "Vui lòng nhập mật khẩu");
+            if (string.IsNullOrEmpty(user.VaiTro))
+                ModelState.AddModelError(string.Empty, "Vui lòng nhập vai trò");
+            if (ModelState.IsValid)
+            {
+                var manager = db.QUANLies.FirstOrDefault(k => k.TenDN == user.TenDN && k.Matkhau == user.Matkhau);
+                if (manager == null)
+                {  
+                    int id = 0;
+                    while(true)
+                    {
+                        var managerID = db.QUANLies.FirstOrDefault(k => k.ID == id);
+                        if (managerID == null)
+                        {
+                            break;
+                        }
+                        else id++;
+                        
+                    }
+                    user.ID = id;
+                    db.QUANLies.Add(user);
+                    db.SaveChanges();
+                   return View("Login");
+                }
+
+            }
+            return View();
+        }
+
+        public ActionResult LogOut()
+        {
+            Session["Manager"] = null;
+            return View("Login");
+        }
+
     }
 }
