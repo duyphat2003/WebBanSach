@@ -13,7 +13,6 @@
     width: 28%;
     height: auto;
     float: left;
-    background-color: palegreen;
 }
     .div-left-menu h2 {
         position: relative;
@@ -40,7 +39,6 @@
     width: 70%;
     height: 100%;
     float: right;
-    background-color: sandybrown;
 }
     .div-right-info .InfoBoard {
         width: 100%;
@@ -54,6 +52,14 @@
         font-size: 0.8em;
     }
 
+    .div-right-info .NofiBoard table, td {
+        width: 100%;
+        height: auto;
+        font-size: 0.8em;
+        margin-top: 40px;
+        border: 1px solid black;
+    }
+
 
 
 
@@ -63,7 +69,4 @@
 
 #logoMenu {
     top: 25px;
-}
-table, td {
-    border: 1px solid black;
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,7 +24,7 @@ namespace WebBanSach.Areas.Admin.Controllers
             else
             {
                 var listcate = db.CHUDEs.ToList();
-                return View(listcate);
+                return View(listcate.ToList());
             }
         }
 
@@ -38,6 +40,7 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreateCD(CHUDE chude)
         {
             if (Session["Manager"] == null)
@@ -59,12 +62,14 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
         }
 
-        // Login, Logout & Register
+        // Login, Logout & Register 
+
         public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(QUANLY user)
         {
             if (string.IsNullOrEmpty(user.TenDN))
@@ -89,9 +94,19 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult Register()
         {
-            return View();
+            QUANLY qUANLY = (QUANLY)Session["Manager"];
+            string level = qUANLY.VaiTro.ToUpper();
+            if(level == "CAO CẤP" || level == "CAO")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("DSTheloai", "Admin");
+            }
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(QUANLY user)
         {
             if (string.IsNullOrEmpty(user.TenDN))
@@ -102,7 +117,7 @@ namespace WebBanSach.Areas.Admin.Controllers
                 ModelState.AddModelError(string.Empty, "Vui lòng nhập vai trò");
             if (ModelState.IsValid)
             {
-                var manager = db.QUANLies.FirstOrDefault(k => k.TenDN == user.TenDN && k.Matkhau == user.Matkhau);
+                var manager = db.QUANLies.FirstOrDefault(k => k.TenDN == user.TenDN);
                 if (manager == null)
                 {  
                     int id = 0;

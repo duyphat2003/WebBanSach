@@ -128,7 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Ares\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\SACHesController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
@@ -198,7 +198,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Content\pic\vector.png" />
+    <Content Include="Ares\Admin\Content\pic\vector.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -280,7 +280,7 @@
     <Content Include="Content\mystyle.css" />
     <Content Include="Content\mywebstyle.css" />
     <Content Include="Content\ProductStylePro.css" />
-    <Content Include="Areas\Admin\Content\css\Style.css" />
+    <Content Include="Ares\Admin\Content\css\Style.css" />
     <Content Include="Content\TieuThuyet.css" />
     <Content Include="Content\UserInfo.css" />
     <Content Include="favicon.ico" />
@@ -330,8 +330,6 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Shared\Admin.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -339,9 +337,8 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\Admin\DSTheloai.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\CreateCD.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
+    <Content Include="Ares\Admin\Views\Shared\Admin.cshtml" />
+    <Content Include="Ares\Admin\Views\web.config" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -380,11 +377,15 @@
     <Content Include="Views\User\LoginRegisterPartial.cshtml" />
     <Content Include="Views\User\UserCart.cshtml" />
     <Content Include="Views\User\UserNofi.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\DSTheloai.cshtml" />
+    <Content Include="Views\Admin\CreateCD.cshtml" />
+    <Content Include="Views\Admin\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Ares\Admin\Data\" />
+    <Folder Include="Ares\Admin\Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
