@@ -15,6 +15,8 @@ namespace WebBanSach.Areas.Admin.Controllers
         //Xử lý Sách
         public ActionResult DSTheloai()
         {
+            // Đoạn này xử lý xem có manager login không nếu không có manager trùng
+            // với trong database sẽ trả về lại login để đăng nhập lại.
             if (Session["Manager"] == null)
             {
                 return View("Login");
