@@ -1,0 +1,31 @@
+﻿@model WebBanSach.Models.THONGBAO
+@{
+    ViewBag.Title = "DetailThongBao";
+    Layout = "~/Ares/Admin/Views/Shared/Admin.cshtml";
+}
+
+<div class="container-sm" style="text-align:center">
+    <h2 style="text-align: center">Thông Tin Thông Báo</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Thông Báo
+            </th>
+            <th>
+                Nội Dung Thông Báo
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Content)
+            </td>
+        </tr>
+    </table>
+    <div>
+        @Html.ActionLink("Trở lại", "DSThongBao", null, new { @class = "btn btn-outline-dark" })
+    </div>
+</div>

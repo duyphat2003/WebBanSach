@@ -16,6 +16,110 @@ namespace WebBanSach.Areas.Admin.Controllers
         QLBANSACHEntities1 db = new QLBANSACHEntities1();
         // GET: Admin/Admin
 
+        // Xử lý thông báo
+        public ActionResult DSThongBao()
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                var listcate = db.THONGBAOs.ToList();
+                return View(listcate.ToList());
+            }
+        }
+        public ActionResult CreateThongBao()
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateThongBao(THONGBAO tHONGBAO)
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                try
+                {
+                    int id = 0;
+                    while (true)
+                    {
+                        var thongbaoID = db.THONGBAOs.FirstOrDefault(k => k.ID == id);
+                        if (thongbaoID == null)
+                        {
+                            break;
+                        }
+                        else id++;
+
+                    }
+                    tHONGBAO.ID = id;
+                    db.THONGBAOs.Add(tHONGBAO);
+                    db.SaveChanges();
+                    return RedirectToAction("DSThongBao");
+                }
+                catch
+                {
+                    return Content("ERROR !!!");
+                }
+            }
+        }
+
+        public ActionResult EditThongBao(int id)
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
+                return View(tHONGBAO);
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditThongBao(int id, string noidung)
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
+                tHONGBAO.Content = noidung;
+                db.SaveChanges();
+                return RedirectToAction("DSThongBao");
+            }
+        }
+
+        public ActionResult DetailThongBao(int id)
+        {
+            THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
+            return View(tHONGBAO);
+        }
+
+        public ActionResult DeleteThongBao(int id)
+        {
+            THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
+            db.THONGBAOs.Remove(tHONGBAO);
+            db.SaveChanges();
+            return RedirectToAction("DSThongBao");
+        }
+
+
+
         //Xử lý Sách
         public ActionResult DSTheloai()
         {

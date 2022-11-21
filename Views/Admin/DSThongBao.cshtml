@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebBanSach.Models.THONGBAO>
+@{
+    ViewBag.Title = "DSThongBao";
+    Layout = "~/Ares/Admin/Views/Shared/Admin.cshtml";
+}
+
+
+<div class="container-sm" style="text-align:center">
+    <h2 style="text-align: center">Danh Sách Thông Báo</h2>
+
+    <p style="text-align: end">
+        @Html.ActionLink("TẠO MỚI", "CreateThongBao", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Thông Báo
+            </th>
+            <th>
+                Nội Dung Thông Báo
+            </th>
+            <th>
+                Lệnh
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "EditThongBao", "Admin", new { id = item.ID }, new { @class = "btn btn-outline-primary" }) |
+                    @Html.ActionLink("Chi Tiết", "DetailThongBao", "Admin", new { id = item.ID }, new { @class = "btn btn-outline-info" }) |
+                    @Html.ActionLink("Xóa", "DeleteThongBao", "Admin", new { id = item.ID }, new { @class = "btn btn-outline-danger bg-red " })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
