@@ -393,6 +393,11 @@
     <Content Include="Views\Admin\EditThongBao.cshtml" />
     <Content Include="Views\Admin\DetailThongBao.cshtml" />
     <Content Include="Views\Admin\CreateThongBao.cshtml" />
+    <Content Include="Views\Admin\AdsList.cshtml" />
+    <Content Include="Views\Admin\CreateAd.cshtml" />
+    <Content Include="Views\Admin\EditAD.cshtml" />
+    <Content Include="Views\Admin\DetailAD.cshtml" />
+    <Content Include="Views\TrangChu\ADPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

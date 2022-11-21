@@ -4,75 +4,7 @@
     Layout = "~/Views/Shared/TrangChu.cshtml";
 }
 <link rel="stylesheet" href="~/Content/ProductStylePro.css" />
-<div class="col-md-6 col-md-offset-3 div-center-ADs-1">
-    <div class="col-md-6 col-md-offset-3 ADs-col1">
-        <a href="https://newshop.vn/tin-tuc/dung-bo-qua-5-cuon-tieu-thuyet-hay-nhat-cua-lan-rua-id1039.html" target="_blank">
-            <img src="~/Content/Images/ads15.png" alt="ads15.png bị lỗi" width="200" height="300" class="ADs-Image" />
-        </a>
-        <a href="https://motgame.vn/bxh-top-10-manga-ban-chay-nhat-nua-dau-nam-2022-top-1-gay-bat-ngo-c25492.game" target="_blank">
-            <img src="~/Content/Images/ads12.png" alt="ads12.png bị lỗi" width="200" height="300" class="ADs-Image" />
-        </a>
-        <a href="https://www.didau.info/detail/6/manga-festival-2022-8211-le-hoi-truyen-tranh-nhat-ban" target="_blank">
-            <img src="~/Content/Images/ads13.png" alt="ads13.png bị lỗi" width="200" height="300" class="ADs-Image" />
-        </a>
-        <a href="https://ghiensach.com/sach-lap-trinh/" target="_blank">
-            <img src="~/Content/Images/ads4.png" alt="ads4.png bị lỗi" width="200" height="300" class="ADs-Image" />
-        </a>
-
-        <button class="image-button-arrow button-left" onclick="plusDivs(-1)">&#10094;</button>
-        <button class="image-button-arrow button-right" onclick="plusDivs(1)">&#10095;</button>
-
-        <div class="container badge" style="width:100%">
-            <div class="image-button-circle" onclick="currentDiv(1)"></div>
-            <div class="image-button-circle" onclick="currentDiv(2)"></div>
-            <div class="image-button-circle" onclick="currentDiv(3)"></div>
-            <div class="image-button-circle" onclick="currentDiv(4)"></div>
-
-        </div>
-    </div>
-
-    <div class="col-md-6 col-md-offset-3 rounded float-end ADs-col-2-row-1">
-        <a href="https://ironhackvietnam.edu.vn/sach-day-lap-trinh-co-ban-hay-nhat/" target="_blank">
-            <img src="~/Content/Images/ads3.png" alt="ads3.png bị lỗi" class="ads-1">
-        </a>
-    </div>
-    <div class="col-md-6 col-md-offset-3 rounded float-end ADs-col-2-row-2">
-        <a href="https://spiderum.com/bai-dang/DevUP-Ban-biet-code-nhung-da-biet-lap-trinh-su-nghiep-cua-minh-wn2" target="_blank">
-            <img src="~/Content/Images/ads6.png" alt="ads6.png bị lỗi" class="ads-1">
-        </a>
-    </div>
-
-</div>
-
-<div class="col-md-2 col-md-offset-3 div-center-ADs-2">
-    <table class="table table-responsive-sm">
-        <tr>
-            <td class="ADs-row">
-                <a href="https://ioe.vn/chi-tiet/tin-tu-ban-to-chuc/vui-he-thang-6-viet-loi-truyen-tranh-sang-tao-tha-phanh-1-5285" target="_blank">
-                    <img src="~/Content/Images/ads1.png" alt="ads1.png bị lỗi" class="ads-2">
-                </a>
-            </td>
-
-            <td class="ADs-row">
-                <a href="https://vnskills.edu.vn/sach-hoc-lap-trinh-web/" target="_blank">
-                    <img src="~/Content/Images/ads11.png" alt="ads11.png bị lỗi" class="ads-2">
-                </a>
-            </td>
-
-            <td class="ADs-row">
-                <a href="https://newshop.vn/tin-tuc/10-sach-tieu-thuyet-hay-nhat-hien-nay-id618.html" target="_blank">
-                    <img src="~/Content/Images/ads5.png" alt="ads5.png bị lỗi" class="ads-2">
-                </a>
-            </td>
-
-            <td class="ADs-row">
-                <a href="https://www.didau.info/detail/6/manga-festival-2022-8211-le-hoi-truyen-tranh-nhat-ban" target="_blank">
-                    <img src="~/Content/Images/ads10.png" alt="ads10.png bị lỗi" class="ads-2">
-                </a>
-            </td>
-        </tr>
-    </table>
-</div>
+@Html.Action("ADPartial", "TrangChu")
 
 <div class="div-center-PopularProducts">
     <h2 style="text-align: center; color: rgb(255 46 149);">Những cuốn sách tiểu biểu</h2>

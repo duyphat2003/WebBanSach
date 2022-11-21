@@ -1,0 +1,60 @@
+﻿@model WebBanSach.Models.QUANGCAO
+@{
+    ViewBag.Title = "DetailAD";
+    Layout = "~/Ares/Admin/Views/Shared/Admin.cshtml";
+}
+
+<div class="container-sm" style="text-align:center">
+    <h2 style="text-align: center">Thông Tin Quảng Cáo</h2>
+    <table class="table">
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                Tên Công Ty
+            </th>
+            <th>
+                Tên Ảnh
+            </th>
+            <th>
+                Href
+            </th>
+            <th>
+                Ngày Bắt Đầu
+            </th>
+            <th>
+                Ngày Hết Hạn
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.STT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.TenCty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Hinhminhhoa)  <br />
+                <img width="100" src="~/Content/Images/@Html.DisplayFor(modelItem => Model.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => Model.Hinhminhhoa) bị lỗi" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Href)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => Model.Ngaybatdau)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => Model.Ngayhethan)
+            </td>
+        </tr>
+    </table>
+    <div>
+        @Html.ActionLink("Trở lại", "AdsList", null, new { @class = "btn btn-outline-dark" })
+    </div>
+</div>
+
+

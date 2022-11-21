@@ -79,10 +79,10 @@
           </Key>
           <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenCty" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="Hinhminhhoa" Type="varchar" MaxLength="20" />
-          <Property Name="Href" Type="varchar" MaxLength="100" />
+          <Property Name="Hinhminhhoa" Type="nvarchar(max)" />
           <Property Name="Ngaybatdau" Type="smalldatetime" />
           <Property Name="Ngayhethan" Type="smalldatetime" />
+          <Property Name="Href" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="QUANLY">
           <Key>
@@ -400,8 +400,8 @@
           </Key>
           <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenCty" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Hinhminhhoa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Href" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Hinhminhhoa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Href" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Ngaybatdau" Type="DateTime" Precision="0" />
           <Property Name="Ngayhethan" Type="DateTime" Precision="0" />
         </EntityType>

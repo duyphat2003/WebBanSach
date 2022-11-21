@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebBanSach.Models.QUANGCAO>
+
+<div class="col-md-6 col-md-offset-3 div-center-ADs-1">
+    <div class="col-md-6 col-md-offset-3 ADs-col1">
+        @foreach (var item in Model)
+        {
+            if (item.STT == 8 || item.STT == 15 || item.STT == 16 || item.STT == 18)
+            {
+                <a href="@item.Href" target="_blank">
+                    <img src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" width="200" height="300" class="ADs-Image" />
+                </a>
+            }
+
+        }
+        <button class="image-button-arrow button-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="image-button-arrow button-right" onclick="plusDivs(1)">&#10095;</button>
+
+        <div class="container badge" style="width:100%">
+            <div class="image-button-circle" onclick="currentDiv(1)"></div>
+            <div class="image-button-circle" onclick="currentDiv(2)"></div>
+            <div class="image-button-circle" onclick="currentDiv(3)"></div>
+            <div class="image-button-circle" onclick="currentDiv(4)"></div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3 rounded float-end ADs-col-2-row-1">
+        @foreach (var item in Model)
+        {
+            if (item.STT == 7)
+            {
+                <a href="@item.Href" target="_blank">
+                    <img src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" class="ads-1">
+                </a>
+            }
+        }
+    </div>
+    <div class="col-md-6 col-md-offset-3 rounded float-end ADs-col-2-row-2">
+        @foreach (var item in Model)
+        {
+            if (item.STT == 10)
+            {
+                <a href="@item.Href" target="_blank">
+                    <img src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" class="ads-1">
+                </a>
+            }
+
+        }
+    </div>
+
+</div>
+
+<div class="col-md-2 col-md-offset-3 div-center-ADs-2">
+    <table class="table table-responsive-sm">
+        <tr>
+            @foreach (var item in Model)
+            {
+                if (item.STT == 6 || item.STT == 9 || item.STT == 13 || item.STT == 14)
+                {
+                    <td class="ADs-row">
+                        <a href="@item.Href" target="_blank">
+                            <img src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" class="ads-2">
+                        </a>
+                    </td>
+                }
+            }
+        </tr>
+    </table>
+</div>

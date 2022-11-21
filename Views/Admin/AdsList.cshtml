@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebBanSach.Models.QUANGCAO>
+@{
+    ViewBag.Title = "AdsList";
+    Layout = "~/Ares/Admin/Views/Shared/Admin.cshtml";
+}
+
+<div class="container-sm" style="text-align:center">
+    <h2 style="text-align: center">Danh Sách Quảng Cáo</h2>
+
+    <p style="text-align: end">
+        @Html.ActionLink("TẠO MỚI", "CreateAd", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Số thứ tự
+            </th>
+            <th>
+                Tên Công Ty
+            </th>
+
+            <th>
+                Hình Minh Họa
+            </th>
+
+            <th>
+                Lệnh
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenCty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hinhminhhoa) <br />
+                    <img width="100" src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" />
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "EditAD", "Admin", new { id = item.STT }, new { @class = "btn btn-outline-primary" }) |
+                    @Html.ActionLink("Chi Tiết", "DetailAD", "Admin", new { id = item.STT }, new { @class = "btn btn-outline-info" }) |
+                    @Html.ActionLink("Xóa", "DeleteAD", "Admin", new { id = item.STT }, new { @class = "btn btn-outline-danger bg-red " })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

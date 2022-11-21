@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Razor.Parser.SyntaxTree;
 using WebBanSach.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WebBanSach.Areas.Admin.Controllers
 {
@@ -617,5 +618,111 @@ namespace WebBanSach.Areas.Admin.Controllers
             return View(dth.ToList());
         }
 
+        //Xử lý quảng cáo
+
+        public ActionResult AdsList()
+        {
+            var QC = db.QUANGCAOs;
+            return View(QC.ToList());
+        }
+
+        public ActionResult CreateAd()
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateAd(QUANGCAO qUANGCAO)
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                try
+                {
+                    int id = 0;
+                    while (true)
+                    {
+                        var qcID = db.QUANGCAOs.FirstOrDefault(k => k.STT == id);
+                        if (qcID == null)
+                        {
+                            break;
+                        }
+                        else id++;
+
+                    }
+                    qUANGCAO.STT = id;
+                    if(String.IsNullOrEmpty(qUANGCAO.TenCty))
+                    {
+                        qUANGCAO.TenCty = "Unknown";
+                    }
+                    db.QUANGCAOs.Add(qUANGCAO);
+                    db.SaveChanges();
+                    return RedirectToAction("AdsList");
+                }
+                catch
+                {
+                    return Content("ERROR !!!");
+                }
+            }
+        }
+
+        public ActionResult EditAD(int id)
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                QUANGCAO qc = db.QUANGCAOs.Find(id);
+                return View(qc);
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAD(int id, string tenCT, string hinhMinhHoa, string href, DateTime dayStart, DateTime dayEnd)
+        {
+
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                QUANGCAO qc = db.QUANGCAOs.Find(id);
+                qc.TenCty = tenCT;
+                qc.Hinhminhhoa = hinhMinhHoa;
+                qc.Href = href;
+                qc.Ngaybatdau = dayStart;
+                qc.Ngayhethan = dayEnd;
+                db.SaveChanges();
+                return RedirectToAction("AdsList");
+            }
+        }
+
+        public ActionResult DetailAD(int id)
+        {
+            QUANGCAO qc = db.QUANGCAOs.Find(id);
+            return View(qc);
+        }
+
+        public ActionResult DeleteAD(int id)
+        {
+            QUANGCAO qc = db.QUANGCAOs.Find(id);
+            db.QUANGCAOs.Remove(qc);
+            db.SaveChanges();
+            return RedirectToAction("AdsList");
+        }
     }
 }

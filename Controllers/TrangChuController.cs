@@ -95,5 +95,11 @@ namespace WebBanSach.Controllers
         }
 
 
+        public ActionResult ADPartial()
+        {
+            var AD = db.QUANGCAOs;
+            return PartialView(AD);
+        }
+
     }
 }

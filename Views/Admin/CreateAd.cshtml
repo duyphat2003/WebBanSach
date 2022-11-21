@@ -1,0 +1,54 @@
+﻿@model WebBanSach.Models.QUANGCAO
+@{
+    ViewBag.Title = "CreateAd";
+    Layout = "~/Ares/Admin/Views/Shared/Admin.cshtml";
+}
+<div class="container-sm">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Quảng Cáo Mới</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                Tên Công Ty
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenCty, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenCty, "", new { @class = "text-danger" })
+                </div>
+                Tên Ảnh
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Hinhminhhoa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Hinhminhhoa, "", new { @class = "text-danger" })
+                </div>
+                Link Ảnh
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Href, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Href, "", new { @class = "text-danger" })
+                </div>
+                Ngày Bắt Đầu
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Ngaybatdau, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ngaybatdau, "", new { @class = "text-danger" })
+                </div>
+                Ngày Hết Hạn
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Ngayhethan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ngayhethan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 mb-3 mt-3">
+                    <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Trở lại", "AdsList", null, new { @class = "btn btn-outline-dark" })
+    </div>
+</div>
