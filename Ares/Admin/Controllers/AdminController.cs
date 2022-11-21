@@ -519,10 +519,17 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult DeleteSach(int id)
         {
-            SACH sACH = db.SACHes.Find(id);
-            db.SACHes.Remove(sACH);
-            db.SaveChanges();
-            return RedirectToAction("DSSach");
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                SACH sACH = db.SACHes.Find(id);
+                db.SACHes.Remove(sACH);
+                db.SaveChanges();
+                return RedirectToAction("DSSach");
+            }
         }
 
         // Login, Logout & Register 
@@ -554,18 +561,29 @@ namespace WebBanSach.Areas.Admin.Controllers
             return RedirectToAction("DSTheloai", "Admin");
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
 
         public ActionResult Register()
         {
-            QUANLY qUANLY = (QUANLY)Session["Manager"];
-            string level = qUANLY.VaiTro.ToUpper();
-            if(level == "CAO CẤP" || level == "CAO")
+            if (Session["Manager"] == null)
             {
-                return View();
+                return View("Login");
             }
             else
             {
-                return RedirectToAction("DSTheloai", "Admin");
+                QUANLY qUANLY = (QUANLY)Session["Manager"];
+                string level = qUANLY.VaiTro.ToUpper();
+                if (level == "CAO CẤP" || level == "CAO")
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error");
+                }
             }
         }
         [HttpPost]

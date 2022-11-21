@@ -393,6 +393,7 @@
     <Content Include="Views\Admin\EditThongBao.cshtml" />
     <Content Include="Views\Admin\DetailThongBao.cshtml" />
     <Content Include="Views\Admin\CreateThongBao.cshtml" />
+    <Content Include="Views\Admin\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
