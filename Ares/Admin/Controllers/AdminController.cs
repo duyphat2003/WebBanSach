@@ -506,5 +506,12 @@ namespace WebBanSach.Areas.Admin.Controllers
             return View("Login");
         }
 
+
+        public ActionResult CartUsersList()
+        {
+            var dth = db.DONDATHANGs;
+            return View(dth.ToList());
+        }
+
     }
 }

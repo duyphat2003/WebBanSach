@@ -1,0 +1,111 @@
+﻿@model IEnumerable<WebBanSach.Models.DONDATHANG>
+@{
+    ViewBag.Title = "CartUsersList";
+    Layout = "~/Ares/Admin/Views/Shared/Admin.cshtml";
+}
+<div class="container-sm" style="text-align:center">
+    <h2 style="text-align: center">Thông Tin Sách</h2>
+    <table class="table" style="width: 100%; height:auto">
+        <tr>
+            <th>
+                Mã Đơn Hàng
+            </th>
+            <th>
+                Mã Khách Hàng
+            </th>
+            <th>
+                Ngày Đặt Hàng
+            </th>
+            <th>
+                Trị Giá
+            </th>
+            <th>
+                Trạng Thái Giao
+            </th>
+            <th>
+                Ngày Giao Hàng
+            </th>
+            <th>
+                Tên Người Nhận
+            </th>
+            <th>
+                Địa Chỉ Nhận
+            </th>
+            <th>
+                Điện Thoại Nhận
+            </th>
+            <th>
+                Hình Thức Thanh Toán
+            </th>
+            <th>
+                Hình Thức Giao Hàng
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+                if (item.Dagiao == false)
+                {
+                    ViewBag.GiaoInfo = "Chưa Giao" ;
+                }
+                else
+                {
+                    ViewBag.GiaoInfo = "Đã Giao";
+                }
+
+                if (item.HTThanhtoan == false)
+                {
+                    ViewBag.HTThanhtoan = "Offline";
+                }
+                else
+                {
+                    ViewBag.HTThanhtoan = "Online";
+                }
+
+                if (item.HTGiaohang == false)
+                {
+                    ViewBag.HTGiao = "Offline";
+                }
+                else
+                {
+                    ViewBag.HTGiao = "Online";
+                }
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoDH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trigia)
+                </td>
+                <td>
+                    @ViewBag.GiaoInfo
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ngaygiaohang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tennguoinhan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diachinhan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dienthoainhan)
+                </td>
+                <td>
+                    @ViewBag.HTThanhtoan
+                </td>
+                <td>
+                    @ViewBag.HTGiao
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
