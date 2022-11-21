@@ -1,0 +1,93 @@
+﻿@model WebBanSach.Models.SACH
+@{
+    ViewBag.Title = "DetailSach";
+    Layout = "~/Ares/Admin/Views/Shared/Admin.cshtml";
+}
+
+<div class="container-sm" style="text-align:center">
+    <h2 style="text-align: center">Thông Tin Sách</h2>
+    <table class="table" style="width: 100%; height:auto">
+        <tr>
+            <th>
+                Mã Sách
+            </th>
+            <th>
+                Tên Sách
+            </th>
+            <th>
+                Đơn Vị Tính
+            </th>
+            <th>
+                Đơn Giá
+            </th>
+            <th>
+                Mô Tả
+            </th>
+            <th>
+                Hình Minh Họa
+            </th>
+            <th>
+                Chủ Đề
+            </th>
+            <th>
+                Nhà Xuất Bản
+            </th>
+            <th>
+                Ngày Cập Nhật
+            </th>
+            <th>
+                Số Lượng Bán
+            </th>
+            <th>
+                Số Lượt Xem
+            </th>
+            <th>
+                Tác Giả
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Masach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Tensach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Donvitinh)
+            </td>
+            <td>
+                @Math.Round((decimal)Model.Dongia, 3)đ
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Mota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Hinhminhhoa) <br />
+                <img width="100" src="~/Content/Images/@Model.Hinhminhhoa" alt="@Model.Hinhminhhoa bị lỗi" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.MaCD)    <br />
+                @Html.DisplayFor(modelItem => Model.CHUDE.TenChuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.MaNXB)    <br />
+                @Html.DisplayFor(modelItem => Model.NHAXUATBAN.TenNXB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Ngaycapnhat)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => Model.Soluongban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.solanxem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.MaTG)<br />
+                @Html.DisplayFor(modelItem => Model.TACGIA.TenTG)
+            </td>
+        </tr>
+    </table>
+    @Html.ActionLink("Trở lại", "DSSach", null, new { @class = "btn btn-outline-dark" })
+</div>

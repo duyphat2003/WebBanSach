@@ -1,0 +1,32 @@
+﻿@model WebBanSach.Models.CHUDE
+@{
+    ViewBag.Title = "DetailCD";
+    Layout = "~/Ares/Admin/Views/Shared/Admin.cshtml";
+}
+
+<div class="container-sm" style="text-align:center">
+    <h2 style="text-align: center">Thông Tin Chủ Đề</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Chủ Đề
+            </th>
+            <th>
+                Tên Chủ Đề
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.MaCD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.TenChuDe)
+            </td>
+        </tr>
+    </table>
+    <div>
+        @Html.ActionLink("Trở lại", "DSTheloai", null, new { @class = "btn btn-outline-dark" })
+    </div>
+</div>
+

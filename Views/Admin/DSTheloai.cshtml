@@ -33,9 +33,9 @@
                     @Html.DisplayFor(modelItem => item.TenChuDe)
                 </td>
                 <td>
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaCD }, new { @class = "btn btn-outline-primary" }) |
-                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaCD }, new { @class = "btn btn-outline-info" }) |
-                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaCD }, new { @class = "btn btn-outline-danger bg-red " })
+                    @Html.ActionLink("Sửa", "EditCD", "Admin", new { id = item.MaCD }, new { @class = "btn btn-outline-primary" }) |
+                    @Html.ActionLink("Chi Tiết", "DetailCD", "Admin", new { id = item.MaCD }, new { @class = "btn btn-outline-info" }) |
+                    @Html.ActionLink("Xóa", "DeleteCD", "Admin", new { id = item.MaCD }, new { @class = "btn btn-outline-danger bg-red " })
                 </td>
             </tr>
         }

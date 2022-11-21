@@ -5,7 +5,7 @@
 }
 
 <div class="container-sm" style="text-align:center">
-    <h2 style="text-align: center">Danh Sách Chủ Đề</h2>
+    <h2 style="text-align: center">Danh Sách Sách</h2>
 
     <p style="text-align: end">
         @Html.ActionLink("TẠO MỚI", "CreateSach", null, new { @class = "btn btn-primary" })
@@ -19,34 +19,7 @@
                 Tên Sách
             </th>
             <th>
-                Đơn Vị Tính
-            </th>
-            <th>
                 Đơn Giá
-            </th>
-            <th>
-                Mô Tả
-            </th>
-            <th>
-                Hình Minh Họa
-            </th>
-            <th>
-                Chủ Đề
-            </th>
-            <th>
-                Nhà Xuất Bản
-            </th>
-            <th>
-                Ngày Cập Nhật
-            </th>
-            <th>
-                Số Lượng Bán
-            </th>
-            <th>
-                Số Lượt Xem
-            </th>
-            <th>
-                Tác Giả
             </th>
             <th>
                 Lệnh
@@ -63,44 +36,12 @@
                     @Html.DisplayFor(modelItem => item.Tensach)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Donvitinh)
-                </td>
-                <td>
                     @Math.Round((decimal)item.Dongia, 3)đ
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Mota)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hinhminhhoa) <br />
-                    <img width="100" src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaCD)    <br />
-                    @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaNXB)    <br />
-                    @Html.DisplayFor(modelItem => item.NHAXUATBAN.TenNXB)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ngaycapnhat)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Soluongban)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.solanxem)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaTG)<br />
-                    @Html.DisplayFor(modelItem => item.TACGIA.TenTG)
-                </td>
-                <td>
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.Masach }, new { @class = "btn btn-outline-primary" }) |
-                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.Masach }, new { @class = "btn btn-outline-info" }) |
-                    @Html.ActionLink("Xóa", "Delete", new { id = item.Masach }, new { @class = "btn btn-outline-danger bg-red " })
+                    @Html.ActionLink("Sửa", "EditSach", "Admin", new { id = item.Masach }, new { @class = "btn btn-outline-primary" }) |
+                    @Html.ActionLink("Chi Tiết", "DetailSach", "Admin", new { id = item.Masach }, new { @class = "btn btn-outline-info" }) |
+                    @Html.ActionLink("Xóa", "DeleteSach", "Admin", new { id = item.Masach }, new { @class = "btn btn-outline-danger bg-red " })
                 </td>
             </tr>
         }

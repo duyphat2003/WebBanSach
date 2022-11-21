@@ -384,6 +384,10 @@
     <Content Include="Views\Admin\Register.cshtml" />
     <Content Include="Views\Admin\DSSach.cshtml" />
     <Content Include="Views\Admin\CreateSach.cshtml" />
+    <Content Include="Views\Admin\EditCD.cshtml" />
+    <Content Include="Views\Admin\DetailCD.cshtml" />
+    <Content Include="Views\Admin\EditSach.cshtml" />
+    <Content Include="Views\Admin\DetailSach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

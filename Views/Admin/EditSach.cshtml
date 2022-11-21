@@ -1,0 +1,86 @@
+﻿@model WebBanSach.Models.SACH
+@{
+    ViewBag.Title = "EditSach";
+    Layout = "~/Ares/Admin/Views/Shared/Admin.cshtml";
+}
+
+<div class="container-sm">
+    @using (Html.BeginForm("EditSach", "Admin", new { id = Model.Masach }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Sách Mới</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                Tên Sách
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="tenSach" type="text" value="@Model.Tensach">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="tenSach" data-valmsg-replace="true"></span>
+                </div>
+                Đơn Vị Tính
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="DonViTinh" type="text" value="@Model.Donvitinh">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DonViTinh" data-valmsg-replace="true"></span>
+                </div>
+                Giá
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="Gia" type="number" value="@Model.Dongia">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Gia" data-valmsg-replace="true"></span>
+                </div>
+                Nội Dung Sách
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="NDSach" type="text" value="@Model.Mota">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NDSach" data-valmsg-replace="true"></span>
+                </div>
+                Tên Hình Minh họa
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="hinhMinhHoa" type="text" value="@Model.Hinhminhhoa">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="hinhMinhHoa" data-valmsg-replace="true"></span>
+                </div>
+                Thể Loại
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="tenChuDe" type="text" value="@Model.CHUDE.TenChuDe">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="tenChuDe" data-valmsg-replace="true"></span>
+                </div>
+                Nhà Xuất Bản
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="NHAXUATBAN_TenNXB" name="tenNXB" type="text" value="@Model.NHAXUATBAN.TenNXB">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="tenNXB" data-valmsg-replace="true"></span>
+                </div>
+                Ngày Cập Nhật
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="ngayCapNhap" type="datetime" value="@Model.Ngaycapnhat">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="ngayCapNhap" data-valmsg-replace="true"></span>
+                </div>
+                Số Lượng Bán
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="SLBan" type="text" value="@Model.Soluongban">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="SLBan" data-valmsg-replace="true"></span>
+                </div>
+                Số Lượng Xem
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="SLXem" type="text" value="@Model.solanxem">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="SLXem" data-valmsg-replace="true"></span>
+                </div>
+                Tên Tác Giả
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" name="tenTG" type="text" value="@Model.TACGIA.TenTG">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="tenTG" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 mb-3 mt-3">
+                    <input type="submit" value="Sửa" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Trở lại", "DSSach", null, new { @class = "btn btn-outline-dark" })
+    </div>
+</div>
+

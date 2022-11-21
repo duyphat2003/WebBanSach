@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Razor.Parser.SyntaxTree;
 using WebBanSach.Models;
 
 namespace WebBanSach.Areas.Admin.Controllers
@@ -74,6 +75,55 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult EditCD(int id)
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                CHUDE cHUDE = db.CHUDEs.Find(id);
+                return View(cHUDE);
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditCD(int id, string tenChuDe)
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                CHUDE cHUDE = db.CHUDEs.Find(id);
+                var topic = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
+                if (topic != null)
+                {
+                    db.CHUDEs.Remove(cHUDE);
+                }
+                else
+                    cHUDE.TenChuDe = tenChuDe;
+                db.SaveChanges();
+                return RedirectToAction("DSTheloai");
+            }
+        }
+
+        public ActionResult DetailCD(int id)
+        {
+            CHUDE cHUDE = db.CHUDEs.Find(id);
+            return View(cHUDE);
+        }
+
+        public ActionResult DeleteCD(int id)
+        {
+            CHUDE cHUDE = db.CHUDEs.Find(id);
+            db.CHUDEs.Remove(cHUDE);
+            db.SaveChanges();
+            return RedirectToAction("DSTheloai");
+        }
+
         // Xử lý sách
         public ActionResult DSSach()
         {
@@ -136,6 +186,9 @@ namespace WebBanSach.Areas.Admin.Controllers
 
                     if (string.IsNullOrEmpty(tenNXB))
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập tên nhà xuất bản");
+
+                    if (string.IsNullOrEmpty(sACH.Ngaycapnhat.ToString()))
+                        ModelState.AddModelError(string.Empty, "Vui lòng nhập ngày cập nhật");
 
                     sACH.solanxem = 0;
 
@@ -228,6 +281,144 @@ namespace WebBanSach.Areas.Admin.Controllers
                     return Content("ERROR !!!");
                 }
             }
+        }
+
+        public ActionResult EditSach(int id)
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                SACH sACH = db.SACHes.Find(id);
+                return View(sACH);
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditSach(int id, string tenSach, string DonViTinh, decimal Gia, string NDSach, string hinhMinhHoa, string tenChuDe, string tenNXB, DateTime ngayCapNhap, int SLBan, int SLXem, string tenTG)
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                SACH sACH = db.SACHes.Find(id);
+                var nameSach = db.SACHes.FirstOrDefault(k => k.Tensach.ToUpper() == tenSach.ToUpper() && k.Masach != sACH.Masach);
+                if (nameSach != null)
+                {
+                    db.SACHes.Remove(sACH);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    sACH.Tensach = tenSach;
+                    sACH.Donvitinh = DonViTinh;
+                    sACH.Dongia = Gia;
+                    sACH.Mota = NDSach;
+                    sACH.Hinhminhhoa = hinhMinhHoa;
+   
+                    var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
+                    if (topics == null)
+                    {
+                        int idTopic = 0;
+                        while (true)
+                        {
+                            var chudeID = db.CHUDEs.FirstOrDefault(k => k.MaCD == idTopic);
+                            if (chudeID == null)
+                            {
+                                break;
+                            }
+                            else idTopic++;
+
+                        }
+                        CHUDE topic = new CHUDE();
+                        topic.TenChuDe = tenChuDe;
+                        topic.MaCD = idTopic;
+                        sACH.MaCD = idTopic;
+                        db.CHUDEs.Add(topic);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        sACH.MaCD = topics.MaCD;
+                    }
+
+                    var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXB.ToUpper());
+                    if (NXB == null)
+                    {
+                        int idNXB = 0;
+                        while (true)
+                        {
+                            var NXBID = db.NHAXUATBANs.FirstOrDefault(k => k.MaNXB == idNXB);
+                            if (NXBID == null)
+                            {
+                                break;
+                            }
+                            else idNXB++;
+
+                        }
+                        NHAXUATBAN _NXB = new NHAXUATBAN();
+                        _NXB.TenNXB = tenNXB;
+                        _NXB.MaNXB = idNXB;
+                        sACH.MaNXB = idNXB;
+                        db.NHAXUATBANs.Add(_NXB);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        sACH.MaNXB = NXB.MaNXB;
+                    }
+
+                    sACH.Ngaycapnhat = ngayCapNhap;
+                    sACH.Soluongban = SLBan;
+                    sACH.solanxem = SLXem;
+
+                    var author = db.TACGIAs.FirstOrDefault(k => k.TenTG.ToUpper() == tenTG.ToUpper());
+                    if (author == null)
+                    {
+                        int idAuthor = 0;
+                        while (true)
+                        {
+                            var AuthorID = db.TACGIAs.FirstOrDefault(k => k.MaTG == idAuthor);
+                            if (AuthorID == null)
+                            {
+                                break;
+                            }
+                            else idAuthor++;
+
+                        }
+                        TACGIA _Author = new TACGIA();
+                        _Author.TenTG = tenNXB;
+                        _Author.MaTG = idAuthor;
+                        sACH.MaNXB = idAuthor;
+                        db.TACGIAs.Add(_Author);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        sACH.MaTG = author.MaTG;
+                    }
+                }
+                db.SaveChanges();
+                return RedirectToAction("DSSach");
+            }
+        }
+
+        public ActionResult DetailSach(int id)
+        {
+            SACH sACH = db.SACHes.Find(id);
+            return View(sACH);
+        }
+
+        public ActionResult DeleteSach(int id)
+        {
+            SACH sACH = db.SACHes.Find(id);
+            db.SACHes.Remove(sACH);
+            db.SaveChanges();
+            return RedirectToAction("DSSach");
         }
 
         // Login, Logout & Register 
