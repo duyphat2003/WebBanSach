@@ -520,17 +520,10 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult DeleteSach(int id)
         {
-            if (Session["Manager"] == null)
-            {
-                return View("Login");
-            }
-            else
-            {
-                SACH sACH = db.SACHes.Find(id);
-                db.SACHes.Remove(sACH);
-                db.SaveChanges();
-                return RedirectToAction("DSSach");
-            }
+            SACH sACH = db.SACHes.Find(id);
+            db.SACHes.Remove(sACH);
+            db.SaveChanges();
+            return RedirectToAction("DSSach");
         }
 
         // Login, Logout & Register 
