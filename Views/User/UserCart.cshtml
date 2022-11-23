@@ -32,107 +32,227 @@
     </div>
     <div class="div-right-info">
         <div>@ViewBag.Title</div>
-        <table class="CartBoard">
-            <tr>
-                <td>
-                    MÃ ĐƠN HÀNG
-                </td>
+        <main>
+            <table class="CartBoard" id="list1">
+                <tr>
+                    <td>
+                        MÃ ĐƠN HÀNG
+                    </td>
 
-                <td>
-                    MÃ KHÁCH HÀNG
-                </td>
+                    <td>
+                        MÃ KHÁCH HÀNG
+                    </td>
 
-                <td>
-                    NGÀY ĐẶT HÀNG
-                </td>
+                    <td>
+                        NGÀY ĐẶT HÀNG
+                    </td>
 
-                <td>
-                    TRỊ GIÁ
-                </td>
+                    <td>
+                        TRỊ GIÁ
+                    </td>
 
-                <td>
-                    ĐÃ GIAO
-                </td>
+                    <td>
+                        ĐÃ GIAO
+                    </td>
 
-                <td>
-                    NGÀY GIAO HÀNG
-                </td>
+                    <td>
+                        NGÀY GIAO HÀNG
+                    </td>
 
-                <td>
-                    TÊN NGƯỜI NHẬN
-                </td>
+                    <td>
+                        TÊN NGƯỜI NHẬN
+                    </td>
 
-                <td>
-                    ĐỊA CHỈ NHẬN
-                </td>
+                    <td>
+                        ĐỊA CHỈ NHẬN
+                    </td>
 
-                <td>
-                    ĐIỆN THOẠI NHẬN
-                </td>
+                    <td>
+                        ĐIỆN THOẠI NHẬN
+                    </td>
 
-                <td>
-                    HÌNH THỨC THANH TOÁN
-                </td>
-                <td>
-                    HÌNH THỨC GIAO HÀNG
-                </td>
-                <td></td>
-            </tr>
-            <tr>
+                    <td>
+                        HÌNH THỨC THANH TOÁN
+                    </td>
+                    <td>
+                        HÌNH THỨC GIAO HÀNG
+                    </td>
+                    <td></td>
+                </tr>
                 @foreach (var item in Model)
                 {
-                    <td>
-                        @item.SoDH
-                    </td>
+                    <tr class="item">
 
-                    <td>
-                        @item.MaKH
-                    </td>
+                        <td>
+                            @item.SoDH
+                        </td>
 
-                    <td>
-                        @item.NgayDH
-                    </td>
+                        <td>
+                            @item.MaKH
+                        </td>
 
-                    <td>
-                        @item.Trigia
-                    </td>
+                        <td>
+                            @item.NgayDH
+                        </td>
 
-                    <td>
-                        @item.Dagiao
-                    </td>
+                        <td>
+                            @item.Trigia
+                        </td>
 
-                    <td>
-                        @item.Ngaygiaohang
-                    </td>
+                        <td>
+                            @item.Dagiao
+                        </td>
 
-                    <td>
-                        @item.Tennguoinhan
-                    </td>
+                        <td>
+                            @item.Ngaygiaohang
+                        </td>
 
-                    <td>
-                        @item.Diachinhan
-                    </td>
+                        <td>
+                            @item.Tennguoinhan
+                        </td>
 
-                    <td>
-                        @item.Dienthoainhan
-                    </td>
+                        <td>
+                            @item.Diachinhan
+                        </td>
 
-                    <td>
-                        @item.HTThanhtoan
-                    </td>
-                    <td>
-                        @item.HTGiaohang
-                    </td>
-                    @*@using (Html.BeginForm())
-                    {
-                        <td><input type="submit" value="Xóa" /></td>
-                    }*@
+                        <td>
+                            @item.Dienthoainhan
+                        </td>
 
+                        <td>
+                            @item.HTThanhtoan
+                        </td>
+                        <td>
+                            @item.HTGiaohang
+                        </td>
+                        @*@using (Html.BeginForm())
+                        {
+                            <td><input type="submit" value="Xóa" /></td>
+                        }*@
+
+                    </tr>
                 }
+            </table>
 
-            </tr>
-        </table>
+
+            <nav class="pagination-container">
+                <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+                    &lt;
+                </button>
+
+                <div id="pagination-numbers">
+
+                </div>
+
+                <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+                    &gt;
+                </button>
+            </nav>
+        </main>
     </div>
 </div>
+
+<script>
+    const paginationNumbers = document.getElementById("pagination-numbers");
+    const paginatedList = document.getElementById("list1");
+    const listItems = paginatedList.querySelectorAll(".item");
+    const nextButton = document.getElementById("next-button");
+    const prevButton = document.getElementById("prev-button");
+
+    const paginationLimit = 6;
+    const pageCount = Math.ceil(listItems.length / paginationLimit);
+    let currentPage = 1;
+
+    const disableButton = (button) => {
+        button.classList.add("disabled");
+        button.setAttribute("disabled", true);
+    };
+
+    const enableButton = (button) => {
+        button.classList.remove("disabled");
+        button.removeAttribute("disabled");
+    };
+
+    const handlePageButtonsStatus = () => {
+        if (currentPage === 1) {
+            disableButton(prevButton);
+        } else {
+            enableButton(prevButton);
+        }
+
+        if (pageCount === currentPage) {
+            disableButton(nextButton);
+        } else {
+            enableButton(nextButton);
+        }
+    };
+
+    const handleActivePageNumber = () => {
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+            button.classList.remove("active");
+            const pageIndex = Number(button.getAttribute("page-index"));
+            if (pageIndex == currentPage) {
+                button.classList.add("active");
+            }
+        });
+    };
+
+    const appendPageNumber = (index) => {
+        const pageNumber = document.createElement("button");
+        pageNumber.className = "pagination-number";
+        pageNumber.innerHTML = index;
+        pageNumber.setAttribute("page-index", index);
+        pageNumber.setAttribute("aria-label", "Page " + index);
+
+        paginationNumbers.appendChild(pageNumber);
+    };
+
+    const getPaginationNumbers = () => {
+        for (let i = 1; i <= pageCount; i++) {
+            appendPageNumber(i);
+        }
+    };
+
+    const setCurrentPage = (pageNum) => {
+        currentPage = pageNum;
+
+        handleActivePageNumber();
+        handlePageButtonsStatus();
+
+        const prevRange = (pageNum - 1) * paginationLimit;
+        const currRange = pageNum * paginationLimit;
+
+        listItems.forEach((item, index) => {
+            item.classList.add("hidden");
+            if (index >= prevRange && index < currRange) {
+                item.classList.remove("hidden");
+            }
+        });
+    };
+
+    window.addEventListener("load", () => {
+        getPaginationNumbers();
+        setCurrentPage(1);
+
+        prevButton.addEventListener("click", () => {
+            setCurrentPage(currentPage - 1);
+        });
+
+        nextButton.addEventListener("click", () => {
+            setCurrentPage(currentPage + 1);
+        });
+
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+            const pageIndex = Number(button.getAttribute("page-index"));
+
+            if (pageIndex) {
+                button.addEventListener("click", () => {
+                    setCurrentPage(pageIndex);
+                });
+            }
+        });
+    });
+
+</script>
 
 

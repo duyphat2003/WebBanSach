@@ -38,63 +38,63 @@
                 @Html.ValidationSummary(true)
                 @Html.AntiForgeryToken()
                 <tr>
-                    <td>
+                    <td class="colName">
                         Tên người dùng:
                     </td>
 
-                    <td>
+                    <td class="colInfo">
                         <span style="text-transform: uppercase"><input style="width: 100%" type="text" name="HoTenKH" placeholder="Nhập họ tên" value="@Model.HoTenKH" /></span>
                     </td>
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="colName">
                         Địa chỉ:
                     </td>
 
-                    <td>
+                    <td class="colInfo">
                         <span><input style="width: 100%" type="text" name="DiachiKH" placeholder="Nhập địa chỉ" value="@Model.DiachiKH" /></span>
                     </td>
 
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="colName">
                         Điện thoại:
                     </td>
 
-                    <td>
-                        <span><input type="tel" name="DienthoaiKH" placeholder="Nhập địa chỉ" value="@Model.DienthoaiKH" /></span>
+                    <td class="colInfo">
+                        <span><input  style="width: 100%" type="tel" name="DienthoaiKH" placeholder="Nhập địa chỉ" value="@Model.DienthoaiKH" /></span>
                     </td>
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="colName">
                         Email:
                     </td>
 
-                    <td>
+                    <td class="colInfo">
                         <span><input style="width: 100%" type="email" name="Email" placeholder="Nhập số điện thoại" value="@Model.Email" /></span>
                     </td>
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="colName">
                         Tài khoản:
                     </td>
 
-                    <td>
+                    <td class="colInfo">
                         <span><input style="width: 100%" type="text" value="@Model.TenDN" disabled /></span>
                     </td>
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="colName">
                         Mật khẩu:
                     </td>
 
-                    <td>
-                        <span><input type="password" name="Matkhau" placeholder="Nhập mật khẩu mới" value="@Model.Matkhau" /></span>
+                    <td class="colInfo">
+                        <span><input style="width: 100%" type="password" name="Matkhau" placeholder="Nhập mật khẩu mới" value="@Model.Matkhau" /></span>
                     </td>
                 </tr>
             }

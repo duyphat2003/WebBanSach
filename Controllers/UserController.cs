@@ -127,6 +127,7 @@ namespace WebBanSach.Controllers
         public ActionResult LogOut()
         {
             Session["Taikhoan"] = null;
+            Session["GioHang"] = null;
             return RedirectToAction("Home", "TrangChu");
         }
 
@@ -136,6 +137,7 @@ namespace WebBanSach.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(KHACHHANG khachhang)
         {
+            Session["GioHang"] = null;
             if (ModelState.IsValid)
             {
                 if (string.IsNullOrEmpty(khachhang.HoTenKH))
@@ -196,7 +198,7 @@ namespace WebBanSach.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(KHACHHANG khachhang)
         {
-
+            Session["GioHang"] = null;
             if (ModelState.IsValid)
             {
 
