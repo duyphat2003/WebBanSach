@@ -240,6 +240,7 @@
     <Content Include="Content\Images\book12.jpg" />
     <Content Include="Content\Images\book13.png" />
     <Content Include="Content\Images\book14.jpg" />
+    <Content Include="Content\Images\book15.jpg" />
     <Content Include="Content\Images\book2.jpg" />
     <Content Include="Content\Images\book3.jpg" />
     <Content Include="Content\Images\book4.jpg" />
@@ -399,6 +400,8 @@
     <Content Include="Views\Admin\EditAD.cshtml" />
     <Content Include="Views\Admin\DetailAD.cshtml" />
     <Content Include="Views\TrangChu\ADPartial.cshtml" />
+    <Content Include="Views\Admin\ChuDePartial.cshtml" />
+    <Content Include="Views\Admin\NXBPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

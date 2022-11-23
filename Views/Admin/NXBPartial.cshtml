@@ -1,0 +1,14 @@
+﻿@model IEnumerable<WebBanSach.Models.NHAXUATBAN>
+
+<select name="tenNXBOption">
+    @foreach (var item in Model)
+    {
+        <option value="@item.TenNXB" selected="selected">
+            @item.TenNXB
+        </option>
+    }
+    <option value="Other">
+        Other
+    </option>
+</select>
+

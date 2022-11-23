@@ -40,11 +40,13 @@
             </div>
             Thể Loại
             <div class="col-md-10">
-                <input class="form-control text-box single-line"  name="tenChuDe" type="text" value="">
+                 @Html.Action("ChuDePartial", "Admin") <br />
+                <input class="form-control text-box single-line" name="tenChuDe" type="text" value="">
                 <span class="field-validation-valid text-danger" data-valmsg-for="tenChuDe" data-valmsg-replace="true"></span>
             </div>
             Nhà Xuất Bản
             <div class="col-md-10">
+                @Html.Action("NXBPartial", "Admin") <br />
                 <input class="form-control text-box single-line" id="NHAXUATBAN_TenNXB" name="tenNXB" type="text" value="">
                 <span class="field-validation-valid text-danger" data-valmsg-for="tenNXB" data-valmsg-replace="true"></span>
             </div>

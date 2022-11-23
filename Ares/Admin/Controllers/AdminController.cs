@@ -254,9 +254,22 @@ namespace WebBanSach.Areas.Admin.Controllers
                 return View();
             }
         }
+
+
+        public ActionResult ChuDePartial()
+        {
+            var chude = db.CHUDEs;
+            return PartialView(chude);
+        }
+        public ActionResult NXBPartial()
+        {
+            var NXB = db.NHAXUATBANs;
+            return PartialView(NXB);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateSach(SACH sACH, string content, string tenChuDe, string tenTG, string tenNXB)
+        public ActionResult CreateSach(SACH sACH, string content, string tenChuDe, string tenChuDeOption, string tenTG, string tenNXB, string tenNXBOption)
         {
             if (Session["Manager"] == null)
             {
@@ -330,20 +343,32 @@ namespace WebBanSach.Areas.Admin.Controllers
                         }
                     }
 
-                    CHUDE topic = new CHUDE();
-                    topic.MaCD = idTopic;
-                    var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
-                    if (topics == null)
+
+
+
+                    if (tenChuDeOption == "Other")
                     {
-                        topic.TenChuDe = tenChuDe;
-                        sACH.MaTG = idTopic;
-                        db.CHUDEs.Add(topic);
-                        db.SaveChanges();
+                        CHUDE topic = new CHUDE();
+                        topic.MaCD = idTopic;
+                        var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
+                        if (topics == null)
+                        {
+                            topic.TenChuDe = tenChuDe;
+                            sACH.MaCD = idTopic;
+                            db.CHUDEs.Add(topic);
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            sACH.MaCD = topics.MaCD;
+                        }
                     }
                     else
                     {
+                        var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDeOption.ToUpper());
                         sACH.MaCD = topics.MaCD;
                     }
+
 
                     TACGIA author = new TACGIA();
                     author.MaTG = idAuthor;              
@@ -360,18 +385,26 @@ namespace WebBanSach.Areas.Admin.Controllers
                         sACH.MaTG = tacgia.MaTG;
                     }
 
-                    NHAXUATBAN Provider = new NHAXUATBAN();
-                    Provider.MaNXB = idNXB;
-                    var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXB.ToUpper());
-                    if (NXB == null)
+                    if (tenNXBOption == "Other")
                     {
-                        Provider.TenNXB = tenNXB;
-                        sACH.MaNXB = idNXB;
-                        db.NHAXUATBANs.Add(Provider);
-                        db.SaveChanges();
+                        NHAXUATBAN Provider = new NHAXUATBAN();
+                        Provider.MaNXB = idNXB;
+                        var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXB.ToUpper());
+                        if (NXB == null)
+                        {
+                            Provider.TenNXB = tenNXB;
+                            sACH.MaNXB = idNXB;
+                            db.NHAXUATBANs.Add(Provider);
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            sACH.MaNXB = NXB.MaNXB;
+                        }
                     }
                     else
                     {
+                        var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXBOption.ToUpper());
                         sACH.MaNXB = NXB.MaNXB;
                     }
 
