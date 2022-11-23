@@ -1,5 +1,11 @@
 ﻿@model IEnumerable<WebBanSach.Models.SACH>
 @{
+    int count = 0;
+    foreach (var item in Model)
+    {
+        count += 1;
+    }
+    ViewBag.Count = count;
     int cd = ViewBag.maCD;
     decimal from = ViewBag.From;
     decimal to = 0;
@@ -53,24 +59,143 @@
 </div>
 <div class="container-fluid div-right-product">
     <div style=" margin-top: 10px; margin-bottom: 20px;">CHỌN LỌC: @ViewBag.From - @ViewBag.To</div>
-    <div class="row product" id="list1">
-        @foreach (var item in Model)
-        {
-            if (item.Dongia >= from && item.Dongia <= to)
+    <main>
+        <div class="row-product" id="list1" ata-current-page="1" aria-live="polite">
+            @foreach (var item in Model)
             {
-                <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
-                    <a href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none;">
-                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
-                    </a>
-                    <div class="card-body">
-                        <a class="card-text" href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: black; font-size: 125%;">
-                            @Html.DisplayFor(modelItem => item.Tensach)
+                if (item.Dongia >= from && item.Dongia <= to)
+                {
+                    <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
+                        <a href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none;">
+                            <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
                         </a>
-                        <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
+                        <div class="card-body">
+                            <a class="card-text" href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: black; font-size: 125%;">
+                                @Html.DisplayFor(modelItem => item.Tensach)
+                            </a>
+                            <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
+                        </div>
                     </div>
-                </div>
+                }
             }
+        </div>
 
-        }
-    </div>
+        <nav class="pagination-container">
+            <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+                &lt;
+            </button>
+
+            <div id="pagination-numbers">
+
+            </div>
+
+            <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+                &gt;
+            </button>
+        </nav>
+    </main>
+
 </div>
+
+<script>
+    const paginationNumbers = document.getElementById("pagination-numbers");
+    const paginatedList = document.getElementById("list1");
+    const listItems = paginatedList.querySelectorAll(".card");
+    const nextButton = document.getElementById("next-button");
+    const prevButton = document.getElementById("prev-button");
+
+    const paginationLimit = 6;
+    const pageCount = Math.ceil(listItems.length / paginationLimit);
+    let currentPage = 1;
+
+    const disableButton = (button) => {
+        button.classList.add("disabled");
+        button.setAttribute("disabled", true);
+    };
+
+    const enableButton = (button) => {
+        button.classList.remove("disabled");
+        button.removeAttribute("disabled");
+    };
+
+    const handlePageButtonsStatus = () => {
+        if (currentPage === 1) {
+            disableButton(prevButton);
+        } else {
+            enableButton(prevButton);
+        }
+
+        if (pageCount === currentPage) {
+            disableButton(nextButton);
+        } else {
+            enableButton(nextButton);
+        }
+    };
+
+    const handleActivePageNumber = () => {
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+            button.classList.remove("active");
+            const pageIndex = Number(button.getAttribute("page-index"));
+            if (pageIndex == currentPage) {
+                button.classList.add("active");
+            }
+        });
+    };
+
+    const appendPageNumber = (index) => {
+        const pageNumber = document.createElement("button");
+        pageNumber.className = "pagination-number";
+        pageNumber.innerHTML = index;
+        pageNumber.setAttribute("page-index", index);
+        pageNumber.setAttribute("aria-label", "Page " + index);
+
+        paginationNumbers.appendChild(pageNumber);
+    };
+
+    const getPaginationNumbers = () => {
+        for (let i = 1; i <= pageCount; i++) {
+            appendPageNumber(i);
+        }
+    };
+
+    const setCurrentPage = (pageNum) => {
+        currentPage = pageNum;
+
+        handleActivePageNumber();
+        handlePageButtonsStatus();
+
+        const prevRange = (pageNum - 1) * paginationLimit;
+        const currRange = pageNum * paginationLimit;
+
+        listItems.forEach((item, index) => {
+            item.classList.add("hidden");
+            if (index >= prevRange && index < currRange) {
+                item.classList.remove("hidden");
+            }
+        });
+    };
+
+    window.addEventListener("load", () => {
+        getPaginationNumbers();
+        setCurrentPage(1);
+
+        prevButton.addEventListener("click", () => {
+            setCurrentPage(currentPage - 1);
+        });
+
+        nextButton.addEventListener("click", () => {
+            setCurrentPage(currentPage + 1);
+        });
+
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+            const pageIndex = Number(button.getAttribute("page-index"));
+
+            if (pageIndex) {
+                button.addEventListener("click", () => {
+                    setCurrentPage(pageIndex);
+                });
+            }
+        });
+    });
+
+</script>

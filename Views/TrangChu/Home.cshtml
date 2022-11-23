@@ -8,29 +8,38 @@
 
 <div class="div-center-PopularProducts">
     <h2 style="text-align: center; color: rgb(255 46 149);">Những cuốn sách tiểu biểu</h2>
-    <link rel="stylesheet" href="~/Content/ProductStylePro.css" />
-    <div class="row product">
-        @foreach (var item in Model)
-        {
-            if (item.Masach < 13)
+    <main>
+        <div class="row-product" id="list1" ata-current-page="1" aria-live="polite">
+            @foreach (var item in Model)
             {
                 <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
-                    <a href="@Url.Action("ChiTiet", "TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none;">
+                    <a href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none;">
                         <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
                     </a>
                     <div class="card-body">
-                        <div>
-                            <a class="card-text" href="@Url.Action("ChiTiet","TrangChu", new {id = item.Masach, @class = "btn btn-primary"})" target="_self" style="text-decoration: none; color: black; font-size: 125%">
-                                @Html.DisplayFor(modelItem => item.Tensach)
-                            </a>
-                        </div>
-
+                        <a class="card-text" href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: black; font-size: 125%;">
+                            @Html.DisplayFor(modelItem => item.Tensach)
+                        </a>
                         <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
                     </div>
                 </div>
             }
-        }
-    </div>
+        </div>
+
+        <nav class="pagination-container">
+            <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+                &lt;
+            </button>
+
+            <div id="pagination-numbers">
+
+            </div>
+
+            <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+                &gt;
+            </button>
+        </nav>
+    </main>
 </div>
 
 
@@ -79,4 +88,108 @@
         x[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " badge-white";
     }
+
+    /*Pagination */
+
+    const paginationNumbers = document.getElementById("pagination-numbers");
+    const paginatedList = document.getElementById("list1");
+    const listItems = paginatedList.querySelectorAll(".card");
+    const nextButton = document.getElementById("next-button");
+    const prevButton = document.getElementById("prev-button");
+
+    const paginationLimit = 8;
+    const pageCount = Math.ceil(listItems.length / paginationLimit);
+    let currentPage = 1;
+
+    const disableButton = (button) => {
+        button.classList.add("disabled");
+        button.setAttribute("disabled", true);
+    };
+
+    const enableButton = (button) => {
+        button.classList.remove("disabled");
+        button.removeAttribute("disabled");
+    };
+
+    const handlePageButtonsStatus = () => {
+        if (currentPage === 1) {
+            disableButton(prevButton);
+        } else {
+            enableButton(prevButton);
+        }
+
+        if (pageCount === currentPage) {
+            disableButton(nextButton);
+        } else {
+            enableButton(nextButton);
+        }
+    };
+
+    const handleActivePageNumber = () => {
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+            button.classList.remove("active");
+            const pageIndex = Number(button.getAttribute("page-index"));
+            if (pageIndex == currentPage) {
+                button.classList.add("active");
+            }
+        });
+    };
+
+    const appendPageNumber = (index) => {
+        const pageNumber = document.createElement("button");
+        pageNumber.className = "pagination-number";
+        pageNumber.innerHTML = index;
+        pageNumber.setAttribute("page-index", index);
+        pageNumber.setAttribute("aria-label", "Page " + index);
+
+        paginationNumbers.appendChild(pageNumber);
+    };
+
+    const getPaginationNumbers = () => {
+        for (let i = 1; i <= pageCount; i++) {
+            appendPageNumber(i);
+        }
+    };
+
+    const setCurrentPage = (pageNum) => {
+        currentPage = pageNum;
+
+        handleActivePageNumber();
+        handlePageButtonsStatus();
+
+        const prevRange = (pageNum - 1) * paginationLimit;
+        const currRange = pageNum * paginationLimit;
+
+        listItems.forEach((item, index) => {
+            item.classList.add("hidden");
+            if (index >= prevRange && index < currRange) {
+                item.classList.remove("hidden");
+            }
+        });
+    };
+
+    window.addEventListener("load", () => {
+        getPaginationNumbers();
+        setCurrentPage(1);
+
+        prevButton.addEventListener("click", () => {
+            setCurrentPage(currentPage - 1);
+        });
+
+        nextButton.addEventListener("click", () => {
+            setCurrentPage(currentPage + 1);
+        });
+
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+            const pageIndex = Number(button.getAttribute("page-index"));
+
+            if (pageIndex) {
+                button.addEventListener("click", () => {
+                    setCurrentPage(pageIndex);
+                });
+            }
+        });
+    });
+
+     
 </script>

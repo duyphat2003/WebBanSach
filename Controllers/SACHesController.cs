@@ -18,8 +18,7 @@ namespace WebBanSach.Controllers
         private QLBANSACHEntities1 db = new QLBANSACHEntities1();
         public ActionResult SachTheoChuDe()
         {
-            var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-            
+            var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);     
             return View(sachs.ToList());
         }
         public ActionResult ChonSachQuaChuDe()
@@ -79,6 +78,7 @@ namespace WebBanSach.Controllers
             }
             ViewBag.Topic = cHUDE.TenChuDe;
             ViewBag.maCD = cHUDE.MaCD;
+
             return View("SachTheoChuDe", sachs);
         }
 

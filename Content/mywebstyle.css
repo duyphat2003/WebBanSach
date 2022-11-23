@@ -373,6 +373,16 @@ td.TitleChoice {
     margin: 0 auto;
 }
 
+.row-product {
+    width: fit-content;
+    height: auto;
+    display: -webkit-box;
+    justify-content: left;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font: -webkit-control;
+}
+
 .div-center-InfoWeb {
     width: 65%;
     height: auto;

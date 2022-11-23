@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="~/Content/Detail.css" />
 <div>
-    <a href="@Url.Action("Home", "TrangChu")" class="div-title">Trang chủ</a>&nbsp;&gt;&nbsp;<div style="display: inline-block; font-size: 15px; font-weight: bold;">@Html.ActionLink(Model.CHUDE.TenChuDe, "ChonSachQuaIDChuDe", "SACHes", new { id = Model.MaCD }, new { @class = "list-group-item action-link LinkType" })</div>&nbsp;&gt;&nbsp;<span class="current-title">@ViewBag.Title</span>
+    <a href="@Url.Action("Home", "TrangChu")" class="div-title">Trang chủ</a>&nbsp;&gt;&nbsp;<div style="display: inline-block; font-size: 15px; font-weight: bold;">@Html.ActionLink(Model.CHUDE.TenChuDe, "ChonSachQuaIDChuDe", "SACHes", new { num = "Default", id = Model.MaCD }, new { @class = "list-group-item action-link LinkType" })</div>&nbsp;&gt;&nbsp;<span class="current-title">@ViewBag.Title</span>
 </div>
 <div class="Describe-Box">
     <div class="row">
