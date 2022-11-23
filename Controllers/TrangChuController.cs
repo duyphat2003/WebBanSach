@@ -101,5 +101,11 @@ namespace WebBanSach.Controllers
             return PartialView(AD);
         }
 
+
+        public ActionResult BinhChon(int? id)
+        {
+            var comments = db.CTTHAMDOes.Include(p => p.THAMDO);
+            return PartialView(comments);
+        }
     }
 }

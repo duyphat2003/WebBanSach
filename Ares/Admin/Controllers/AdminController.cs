@@ -255,7 +255,7 @@ namespace WebBanSach.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateSach(SACH sACH, string tenChuDe, string tenTG, string tenNXB)
+        public ActionResult CreateSach(SACH sACH, string content, string tenChuDe, string tenTG, string tenNXB)
         {
             if (Session["Manager"] == null)
             {
@@ -274,7 +274,7 @@ namespace WebBanSach.Areas.Admin.Controllers
                     if (string.IsNullOrEmpty(sACH.Dongia.ToString()) && sACH.Dongia > 0)
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập giá sách");
 
-                    if (string.IsNullOrEmpty(sACH.Mota))
+                    if (string.IsNullOrEmpty(content))
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập nội dung");
 
                     if (string.IsNullOrEmpty(sACH.Hinhminhhoa))
@@ -296,7 +296,7 @@ namespace WebBanSach.Areas.Admin.Controllers
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập ngày cập nhật");
 
                     sACH.solanxem = 0;
-
+                    sACH.Mota = content;
                     int idBook = 0;
                     int idTopic = 0;
                     int idAuthor = 0;

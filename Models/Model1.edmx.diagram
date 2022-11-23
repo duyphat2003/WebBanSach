@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="QLBANSACHModel.sysdiagram" Width="1.5" PointX="5.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBANSACHModel.TACGIA" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBANSACHModel.THAMDO" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANSACHModel.VIETSACH" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANSACHModel.VIETSACH" Width="1.5" PointX="6.125" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="QLBANSACHModel.FK_Sach_ChuDe" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANSACHModel.FK_CTDatHang_DonDatHang" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANSACHModel.FK_CTDatHang_Sach" ManuallyRouted="false" />
