@@ -43,7 +43,7 @@ namespace WebBanSach.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateThongBao(THONGBAO tHONGBAO)
+        public ActionResult CreateThongBao(THONGBAO tHONGBAO, string content)
         {
             if (Session["Manager"] == null)
             {
@@ -65,6 +65,7 @@ namespace WebBanSach.Areas.Admin.Controllers
 
                     }
                     tHONGBAO.ID = id;
+                    tHONGBAO.Content = content;
                     db.THONGBAOs.Add(tHONGBAO);
                     db.SaveChanges();
                     return RedirectToAction("DSThongBao");
