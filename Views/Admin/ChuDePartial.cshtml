@@ -1,11 +1,22 @@
 ﻿@model IEnumerable<WebBanSach.Models.CHUDE>
 
+
 <select name="tenChuDeOption">
     @foreach (var item in Model)
     {
-        <option value="@item.TenChuDe" selected="selected">
-            @item.TenChuDe
-        </option>
+        if (item.TenChuDe != ViewBag.Topic)
+        {
+            <option value="@item.TenChuDe">
+                @item.TenChuDe
+            </option>
+        }
+        else
+        {
+            <option value="@item.TenChuDe" selected="selected">
+                @item.TenChuDe
+            </option>
+        }
+
     }
     <option value="Other">
         Other

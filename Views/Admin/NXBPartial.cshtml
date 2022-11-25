@@ -3,9 +3,19 @@
 <select name="tenNXBOption">
     @foreach (var item in Model)
     {
-        <option value="@item.TenNXB" selected="selected">
-            @item.TenNXB
-        </option>
+        if (item.TenNXB != ViewBag.NXB)
+        {
+            <option value="@item.TenNXB">
+                @item.TenNXB
+            </option>
+        }
+        else
+        {
+            <option value="@item.TenNXB" selected="selected">
+                @item.TenNXB
+            </option>
+        }
+
     }
     <option value="Other">
         Other

@@ -503,7 +503,7 @@ td.TitleChoice {
     }
     #logo {
         position: absolute;
-        right: 0;
+        left: 21px;
         font-size: 35px;
     }
     #logoMenu {

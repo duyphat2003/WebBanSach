@@ -120,9 +120,20 @@ namespace WebBanSach.Areas.Admin.Controllers
             return RedirectToAction("DSThongBao");
         }
 
-
-
-        //Xử lý Sách
+        // Xử lý tác giả
+        public ActionResult DSTacGia()
+        {
+            if (Session["Manager"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                var listcate = db.TACGIAs.ToList();
+                return View(listcate.ToList());
+            }
+        }
+        //Xử lý Thể loại
         public ActionResult DSTheloai()
         {
             if (Session["Manager"] == null)
@@ -225,6 +236,12 @@ namespace WebBanSach.Areas.Admin.Controllers
         public ActionResult DeleteCD(int id)
         {
             CHUDE cHUDE = db.CHUDEs.Find(id);
+
+            var sACH = db.SACHes.Where(p => p.MaCD == id);
+            foreach(var item in sACH)
+            {
+                item.MaCD = null;
+            }
             db.CHUDEs.Remove(cHUDE);
             db.SaveChanges();
             return RedirectToAction("DSTheloai");
@@ -256,20 +273,34 @@ namespace WebBanSach.Areas.Admin.Controllers
         }
 
 
-        public ActionResult ChuDePartial()
+        public ActionResult ChuDePartial(int id)
         {
             var chude = db.CHUDEs;
+            if (id != -1)
+            {
+                CHUDE cHUDE = db.CHUDEs.Find(id);
+                ViewBag.Topic = cHUDE.TenChuDe;
+            }
+            else
+                ViewBag.Topic = "none";
             return PartialView(chude);
         }
-        public ActionResult NXBPartial()
+        public ActionResult NXBPartial(int id)
         {
             var NXB = db.NHAXUATBANs;
+            if (id != -1)
+            {
+                NHAXUATBAN nHAXUATBAN = db.NHAXUATBANs.Find(id);
+                ViewBag.NXB = nHAXUATBAN.TenNXB;
+            }
+            else
+                ViewBag.NXB = "none";
             return PartialView(NXB);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateSach(SACH sACH, string content, string tenChuDe, string tenChuDeOption, string tenTG, string tenNXB, string tenNXBOption)
+        public ActionResult CreateSach(SACH sACH, string content, string tenChuDe, string tenChuDeOption, string tenTG, string tenNXB, string tenNXBOption, DateTime time)
         {
             if (Session["Manager"] == null)
             {
@@ -306,7 +337,7 @@ namespace WebBanSach.Areas.Admin.Controllers
                     if (string.IsNullOrEmpty(tenNXB))
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập tên nhà xuất bản");
 
-                    if (string.IsNullOrEmpty(sACH.Ngaycapnhat.ToString()))
+                    if (string.IsNullOrEmpty(time.ToString()))
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập ngày cập nhật");
 
                     sACH.solanxem = 0;
@@ -436,7 +467,7 @@ namespace WebBanSach.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditSach(int id, string tenSach, string DonViTinh, decimal Gia, string NDSach, string hinhMinhHoa, string tenChuDe, string tenNXB, DateTime ngayCapNhap, int SLBan, int SLXem, string tenTG)
+        public ActionResult EditSach(int id, string tenSach, string DonViTinh, decimal Gia, string NDSach, string hinhMinhHoa, string tenChuDe, string tenChuDeOption, string tenNXB, string tenNXBOption, DateTime ngayCapNhap, int SLBan, int SLXem, string tenTG)
         {
             if (Session["Manager"] == null)
             {
@@ -458,56 +489,69 @@ namespace WebBanSach.Areas.Admin.Controllers
                     sACH.Dongia = Gia;
                     sACH.Mota = NDSach;
                     sACH.Hinhminhhoa = hinhMinhHoa;
-   
-                    var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
-                    if (topics == null)
-                    {
-                        int idTopic = 0;
-                        while (true)
-                        {
-                            var chudeID = db.CHUDEs.FirstOrDefault(k => k.MaCD == idTopic);
-                            if (chudeID == null)
-                            {
-                                break;
-                            }
-                            else idTopic++;
 
+                    int idTopic = 0;
+                    int idNXB = 0;
+                    while (true)
+                    {
+                        var topicID = db.CHUDEs.FirstOrDefault(k => k.MaCD == idTopic);
+                        var nxbID = db.NHAXUATBANs.FirstOrDefault(k => k.MaNXB == idNXB);
+                        if (nxbID == null && topicID == null)
+                        {
+                            break;
                         }
+                        if (topicID != null)
+                        {
+                            idTopic++;
+                        }
+                        if (nxbID != null)
+                        {
+                            idNXB++;
+                        }
+                    }
+                    if (tenChuDeOption == "Other")
+                    {
                         CHUDE topic = new CHUDE();
-                        topic.TenChuDe = tenChuDe;
                         topic.MaCD = idTopic;
-                        sACH.MaCD = idTopic;
-                        db.CHUDEs.Add(topic);
-                        db.SaveChanges();
+                        var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
+                        if (topics == null)
+                        {
+                            topic.TenChuDe = tenChuDe;
+                            sACH.MaCD = idTopic;
+                            db.CHUDEs.Add(topic);
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            sACH.MaCD = topics.MaCD;
+                        }
                     }
                     else
                     {
+                        var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDeOption.ToUpper());
                         sACH.MaCD = topics.MaCD;
                     }
 
-                    var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXB.ToUpper());
-                    if (NXB == null)
+                    if (tenNXBOption == "Other")
                     {
-                        int idNXB = 0;
-                        while (true)
+                        NHAXUATBAN Provider = new NHAXUATBAN();
+                        Provider.MaNXB = idNXB;
+                        var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXB.ToUpper());
+                        if (NXB == null)
                         {
-                            var NXBID = db.NHAXUATBANs.FirstOrDefault(k => k.MaNXB == idNXB);
-                            if (NXBID == null)
-                            {
-                                break;
-                            }
-                            else idNXB++;
-
+                            Provider.TenNXB = tenNXB;
+                            sACH.MaNXB = idNXB;
+                            db.NHAXUATBANs.Add(Provider);
+                            db.SaveChanges();
                         }
-                        NHAXUATBAN _NXB = new NHAXUATBAN();
-                        _NXB.TenNXB = tenNXB;
-                        _NXB.MaNXB = idNXB;
-                        sACH.MaNXB = idNXB;
-                        db.NHAXUATBANs.Add(_NXB);
-                        db.SaveChanges();
+                        else
+                        {
+                            sACH.MaNXB = NXB.MaNXB;
+                        }
                     }
                     else
                     {
+                        var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXBOption.ToUpper());
                         sACH.MaNXB = NXB.MaNXB;
                     }
 
@@ -685,7 +729,7 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateAd(QUANGCAO qUANGCAO)
+        public ActionResult CreateAd(QUANGCAO qUANGCAO, DateTime dayStart, DateTime dayEnd)
         {
             if (Session["Manager"] == null)
             {
@@ -695,6 +739,8 @@ namespace WebBanSach.Areas.Admin.Controllers
             {
                 try
                 {
+                    qUANGCAO.Ngaybatdau = dayStart;
+                    qUANGCAO.Ngayhethan = dayEnd;
                     int id = 0;
                     while (true)
                     {

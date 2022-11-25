@@ -15,12 +15,14 @@ namespace WebBanSach.Controllers
     {
         private QLBANSACHEntities1 db = new QLBANSACHEntities1();
 
+        //Trang home
         public ActionResult Home()
         {
-            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-            return View(sACHes.ToList());
+            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN); // Khởi tạo IQueryable(database) truy vấn đến bảng sách. bảng sách truy vấn đến bảng chude với bảng nha xuat ban.
+            return View(sACHes.ToList()); // trả lại view với model là sACHes
         }
 
+        // Trang SearchPage : show trang này  khi ta dùng chức năng tìm kiếm
         public ActionResult SearchPage(string searchQuery, string num)
         {
             var sachs = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);

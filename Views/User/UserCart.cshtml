@@ -81,6 +81,32 @@
                 </tr>
                 @foreach (var item in Model)
                 {
+                    if (item.Dagiao == false)
+                    {
+                        ViewBag.GiaoInfo = "Chưa Giao";
+                    }
+                    else
+                    {
+                        ViewBag.GiaoInfo = "Đã Giao";
+                    }
+
+                    if (item.HTThanhtoan == false)
+                    {
+                        ViewBag.HTThanhtoan = "Offline";
+                    }
+                    else
+                    {
+                        ViewBag.HTThanhtoan = "Online";
+                    }
+
+                    if (item.HTGiaohang == false)
+                    {
+                        ViewBag.HTGiao = "Offline";
+                    }
+                    else
+                    {
+                        ViewBag.HTGiao = "Online";
+                    }
                     <tr class="item">
 
                         <td>
@@ -100,7 +126,7 @@
                         </td>
 
                         <td>
-                            @item.Dagiao
+                            @ViewBag.GiaoInfo
                         </td>
 
                         <td>
@@ -120,10 +146,10 @@
                         </td>
 
                         <td>
-                            @item.HTThanhtoan
+                            @ViewBag.HTThanhtoan
                         </td>
                         <td>
-                            @item.HTGiaohang
+                            @ViewBag.HTGiao
                         </td>
                         @*@using (Html.BeginForm())
                         {

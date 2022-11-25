@@ -403,6 +403,7 @@
     <Content Include="Views\TrangChu\ADPartial.cshtml" />
     <Content Include="Views\Admin\ChuDePartial.cshtml" />
     <Content Include="Views\Admin\NXBPartial.cshtml" />
+    <Content Include="Views\Admin\DSTacGia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
