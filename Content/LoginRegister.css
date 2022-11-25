@@ -15,6 +15,7 @@
 
 #logoMenu {
 	top: 25px;
+	margin-left: 30px;
 }
 
 /*Phần checkbox Animation*/
@@ -34,7 +35,6 @@ a {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
-	margin: 15px 0;
 }
 
 .ghost {
@@ -68,7 +68,7 @@ form {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	padding: 0 50px;
+	/* padding: 0px 50px; */
 	height: 100%;
 }
 
