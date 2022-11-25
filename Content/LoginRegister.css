@@ -37,7 +37,7 @@ a {
 	margin: 15px 0;
 }
 
-button {
+.ghost {
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	color: #ffff;
@@ -52,16 +52,14 @@ button {
 	width: auto;
 	height: auto;
 	font-size: initial;
+		background-color: transparent;
+		border-color: #ffffff;
 }
 
-	button:active {
+	.ghost:active {
 		transform: scale(.95);
 	}
 
-	button.ghost {
-		background-color: transparent;
-		border-color: #ffffff;
-	}
 
 form {
 	background-color: #ffffff;
@@ -74,7 +72,7 @@ form {
 	height: 100%;
 }
 
-input {
+.form-user {
 	background-color: #eee;
 	border: none;
 	margin: 8px 0;

@@ -473,7 +473,7 @@ td.TitleChoice {
 .material-symbols-outlined {
     display: flex;
     justify-content: center;
-    padding: 10px 20px;
+    padding: 10px 17px;                                     
 }
 
 .bllp-btn-search {
@@ -485,7 +485,7 @@ td.TitleChoice {
     background-color: #ccc;
 }
 
-@media screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
     .div-center-Page {
         width: 100%;
     }
@@ -496,14 +496,14 @@ td.TitleChoice {
         margin-left:0;
     }
     #SearchBar{
-        width:347px;
+        width: 325px !important;
     }
     .navbar navbar-expand-sm wp-inner{
         position:relative;
     }
     #logo {
         position: absolute;
-        left: 0;
+        right: 0;
         font-size: 35px;
     }
     #logoMenu {

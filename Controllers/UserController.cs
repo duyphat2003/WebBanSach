@@ -168,21 +168,22 @@ namespace WebBanSach.Controllers
                 if (mail != null)
                     ModelState.AddModelError(string.Empty, "Đã có người đăng kí mail này");
 
-                int MaKH = 1;
-                while (true)
-                {
-                    var id = db.KHACHHANGs.FirstOrDefault(k => k.MaKH == MaKH);
-                    if (id != null)
-                    {
-                        MaKH += 1;
-                    }
-                    else
-                        break;
-                }
-                khachhang.MaKH = MaKH;
+
 
                 if (ModelState.IsValid)
                 {
+                    int MaKH = 1;
+                    while (true)
+                    {
+                        var id = db.KHACHHANGs.FirstOrDefault(k => k.MaKH == MaKH);
+                        if (id != null)
+                        {
+                            MaKH += 1;
+                        }
+                        else
+                            break;
+                    }
+                    khachhang.MaKH = MaKH;
                     db.KHACHHANGs.Add(khachhang);
                     db.SaveChanges();
                 }

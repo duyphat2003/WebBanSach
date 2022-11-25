@@ -21,6 +21,7 @@
                         <th>Số lượng</th>
                         <th>Đơn giá</th>
                         <th>Thành tiền</th>
+                        <th> </th>
                     </tr>
                 </thead>
 
@@ -30,25 +31,26 @@
                     {
 
                         <tr>
-                            <td>ATF @Html.DisplayFor(modelItem => @sach.MaSach)</td>
+                            <td>ATF @Html.DisplayFor(modelItem => sach.MaSach)</td>
                             <td>
-                                <a href="@Url.Action("ChiTiet", "TrangChu", new { id = @sach.MaSach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: rgb(255 0 172);">
+                                <a href="@Url.Action("ChiTiet", "TrangChu", new { id = sach.MaSach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: rgb(255 0 172);">
                                     @sach.TenSach
                                 </a>
                             </td>
                             <td style="text-align: center;">
-                                <a href="@Url.Action("ChiTiet", "TrangChu", new { id = @sach.MaSach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: rgb(255 0 172);">
+                                <a href="@Url.Action("ChiTiet", "TrangChu", new { id = sach.MaSach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: rgb(255 0 172);">
                                     <img src="~/Content/Images/@sach.ImageFile" alt="@sach.ImageFile bị lỗi" style="width: 60%" />
                                 </a>
                             </td>
                             <td>@sach.Number</td>
                             <td>@Math.Round(sach.Price, 3)đ</td>
                             <td>@Math.Round(sach.Total(), 3)đ</td>
+                            <td><a href="@Url.Action("DelProductChosen", "Cart", new {id = sach.MaSach })" target="_self">Xóa</a></td>
                         </tr>
                     }
                     <tr style="font-weight: bold; text-align: right; color: rgb(255 0 148)">
                         <td colspan="5">Tổng số lượng: @ViewBag.TotalNumber</td>
-                        <td colspan="1">Tổng tiền: @Math.Round(@ViewBag.TotalPrice, 3)đ</td>
+                        <td colspan="2">Tổng tiền: @Math.Round((decimal)ViewBag.TotalPrice, 3)đ</td>
                     </tr>
                 </tbody>
             </table>

@@ -65,8 +65,12 @@ namespace WebBanSach.Controllers
         {
             List<CartItem> myCart = GetCart();
             //Nếu giỏ hàng trống thì trả về trang ban đầu
-            ViewBag.TotalNumber = GetTotalNumber();
-            ViewBag.TotalPrice = GetTotalPrice();
+            if (myCart != null || myCart.Count > 0)
+            {
+                ViewBag.TotalNumber = GetTotalNumber();
+                ViewBag.TotalPrice = GetTotalPrice();
+            }
+
             return View(myCart); 
         }
 
@@ -77,6 +81,32 @@ namespace WebBanSach.Controllers
 
             return PartialView();
         }
+
+
+        public ActionResult DelProductChosen(int id)
+        {
+            List<CartItem> myCart = GetCart();
+            foreach (CartItem item in myCart)
+            {
+                if (item.MaSach == id)
+                {
+                    if (item.Number > 1)
+                    {
+                        item.Number--;
+                        break;
+                    }
+                    if (item.Number == 1)
+                    {
+                        myCart.Remove(item);
+                        break;
+                    }
+                }
+            }
+            ViewBag.TotalNumber = GetTotalNumber();
+            ViewBag.TotalPrice = GetTotalPrice();
+            return View("GetCartInfo", myCart);
+        }
+
 
         public ActionResult PaySection(string HTGiaohang, string HTThanhtoan)
         {

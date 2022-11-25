@@ -45,22 +45,26 @@
     </div>
 </div>
 <div class="container-fluid div-right-product">
-    <div style="text-align: left; padding-bottom: 50px;">KẾT QUẢ TÌM KIẾM VỚI: @ViewBag.SearchString</div>
+    <div style="text-align: left; padding-bottom: 10px;">KẾT QUẢ TÌM KIẾM VỚI: @ViewBag.SearchString</div>
+    <div style=" margin-top: 2px; margin-bottom: 20px;">CHỌN LỌC: @ViewBag.From - @ViewBag.To</div>
     <main>
         <div class="row-product" id="list1" ata-current-page="1" aria-live="polite">
             @foreach (var item in Model)
             {
-                <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
-                    <a href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none;">
-                        <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
-                    </a>
-                    <div class="card-body">
-                        <a class="card-text" href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: black; font-size: 125%;">
-                            @Html.DisplayFor(modelItem => item.Tensach)
+                if (item.Dongia >= from && item.Dongia <= to)
+                {
+                    <div class="card" style="width: 18rem; margin: 10px auto; position: relative; left: 13.5px">
+                        <a href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none;">
+                            <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" alt="@Html.DisplayFor(modelItem => item.Hinhminhhoa) bị lỗi" class="card-img-top" />
                         </a>
-                        <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
+                        <div class="card-body">
+                            <a class="card-text" href="@Url.Action("ChiTiet", "TrangChu", new { id = item.Masach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: black; font-size: 125%;">
+                                @Html.DisplayFor(modelItem => item.Tensach)
+                            </a>
+                            <h5 class="card-title" style="color: rgb(189, 33, 36); font-weight: bolder; margin-top: 10px;">@Html.DisplayFor(modelItem => item.Dongia)0đ</h5>
+                        </div>
                     </div>
-                </div>
+                }
             }
         </div>
 
