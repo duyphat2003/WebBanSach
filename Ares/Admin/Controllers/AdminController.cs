@@ -40,7 +40,7 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                return View();     // Trả lại view
+                return View();  // Trả lại view CreateThongBao
             }
         }
         [HttpPost]
@@ -302,7 +302,7 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                return View();
+                return View();  // Trả lại view CreateSach
             }
         }
 
@@ -355,6 +355,7 @@ namespace WebBanSach.Areas.Admin.Controllers
             {
                 try
                 {
+                    //Xét có dữ liệu nào để null hoặc để trống hay không
                     if (string.IsNullOrEmpty(sACH.Tensach))
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập tên sách");
 
@@ -387,6 +388,7 @@ namespace WebBanSach.Areas.Admin.Controllers
 
                     sACH.solanxem = 0;
                     sACH.Mota = content;
+                    //Tạo ra id của sách, chủ đề, tác giả, nhà xuất bản không trùng với id của sách, chủ đề, tác giả, nhà xuất bản trong database 
                     int idBook = 0;
                     int idTopic = 0;
                     int idAuthor = 0;
@@ -436,7 +438,7 @@ namespace WebBanSach.Areas.Admin.Controllers
                         }
                         else
                         {
-                            sACH.MaCD = topics.MaCD;
+                            sACH.MaCD = topics.MaCD;  // Nếu tên chủ đề trùng với tên chủ đề trong bảng CHỦ ĐỀ thì 
                         }
                     }
                     else
@@ -665,7 +667,7 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult Login()
         {
-            return View();
+            return View();   // Trả lại view Login
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -692,7 +694,7 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult Error()
         {
-            return View();
+            return View();   // Trả lại view Error
         }
 
         public ActionResult Register()
@@ -707,7 +709,7 @@ namespace WebBanSach.Areas.Admin.Controllers
                 string level = qUANLY.VaiTro.ToUpper();
                 if (level == "CAO CẤP" || level == "CAO")
                 {
-                    return View();
+                    return View();     // Trả lại view Register
                 }
                 else
                 {
@@ -796,7 +798,7 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                return View();
+                return View();    // Trả lại view CreateAd
             }
         }
 
@@ -813,6 +815,8 @@ namespace WebBanSach.Areas.Admin.Controllers
             {
                 try
                 {
+                    if (String.IsNullOrEmpty(qUANGCAO.Href))
+                        qUANGCAO.Href = "#";
                     qUANGCAO.Ngaybatdau = dayStart;
                     qUANGCAO.Ngayhethan = dayEnd;
                     int id = 0;
@@ -852,6 +856,8 @@ namespace WebBanSach.Areas.Admin.Controllers
             else
             {
                 QUANGCAO qc = db.QUANGCAOs.Find(id);
+                if (String.IsNullOrEmpty(qc.Href))
+                    qc.Href = "#";
                 return View(qc);
             }
         }
@@ -870,6 +876,8 @@ namespace WebBanSach.Areas.Admin.Controllers
                 QUANGCAO qc = db.QUANGCAOs.Find(id);
                 qc.TenCty = tenCT;
                 qc.Hinhminhhoa = hinhMinhHoa;
+                if (String.IsNullOrEmpty(qc.Href))
+                    href = "#";
                 qc.Href = href;
                 qc.Ngaybatdau = dayStart;
                 qc.Ngayhethan = dayEnd;
@@ -886,6 +894,8 @@ namespace WebBanSach.Areas.Admin.Controllers
                 return View("Login");  // Trả lại view Login Page
             }
             QUANGCAO qc = db.QUANGCAOs.Find(id);
+            if (String.IsNullOrEmpty(qc.Href))
+                qc.Href = "#";
             return View(qc);
         }
 

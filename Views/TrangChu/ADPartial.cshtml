@@ -1,12 +1,23 @@
 ﻿@model IEnumerable<WebBanSach.Models.QUANGCAO>
-
+ @{ 
+     string x = "";
+ }
 <div class="col-md-6 col-md-offset-3 div-center-ADs-1">
     <div class="col-md-6 col-md-offset-3 ADs-col1">
         @foreach (var item in Model)
         {
             if (item.STT == 8 || item.STT == 15 || item.STT == 16 || item.STT == 18)
             {
-                <a href="@item.Href" target="_blank">
+                if (item.Href != "#")
+                {
+                    x = "_blank";
+                }
+                else
+                {
+                    x = "_self";
+                }
+
+                <a href="@item.Href" target="@x">
                     <img src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" width="200" height="300" class="ADs-Image" />
                 </a>
             }
@@ -27,9 +38,17 @@
     <div class="col-md-6 col-md-offset-3 rounded float-end ADs-col-2-row-1">
         @foreach (var item in Model)
         {
-            if (item.STT == 7)
+            if (item.STT == 5)
             {
-                <a href="@item.Href" target="_blank">
+                if (item.Href != "#")
+                {
+                    x = "_blank";
+                }
+                else
+                {
+                    x = "_self";
+                }
+                <a href="@item.Href" target="@x">
                     <img src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" class="ads-1">
                 </a>
             }
@@ -40,7 +59,15 @@
         {
             if (item.STT == 10)
             {
-                <a href="@item.Href" target="_blank">
+                if (item.Href != "#")
+                {
+                    x = "_blank";
+                }
+                else
+                {
+                    x = "_self";
+                }
+                <a href="@item.Href" target="@x">
                     <img src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" class="ads-1">
                 </a>
             }
@@ -57,8 +84,16 @@
             {
                 if (item.STT == 6 || item.STT == 9 || item.STT == 13 || item.STT == 14)
                 {
+                    if (item.Href != "#")
+                    {
+                        x = "_blank";
+                    }
+                    else
+                    {
+                        x = "_self";
+                    }
                     <td class="ADs-row">
-                        <a href="@item.Href" target="_blank">
+                        <a href="@item.Href" target="@x">
                             <img src="~/Content/Images/@item.Hinhminhhoa" alt="@item.Hinhminhhoa bị lỗi" class="ads-2">
                         </a>
                     </td>
