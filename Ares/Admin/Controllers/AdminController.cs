@@ -27,7 +27,7 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                var listcate = db.THONGBAOs.ToList();    // lấy dữ liệu từ bảng Thông báo 
+                var listcate = db.THONGBAOs.ToList();    // lấy dữ liệu từ bảng Thông báo trả về kiểu dữ liệu danh sách
                 return View(listcate.ToList());   // Trả lại view có dữ liệu đã có được ở trên
             }
         }
@@ -56,6 +56,7 @@ namespace WebBanSach.Areas.Admin.Controllers
             {
                 try
                 {
+                    // Tạo một ID mới không trùng trong bảng thông báo
                     int id = 0;
                     while (true)
                     {
@@ -68,14 +69,14 @@ namespace WebBanSach.Areas.Admin.Controllers
 
                     }
                     tHONGBAO.ID = id;
-                    tHONGBAO.Content = content;
-                    db.THONGBAOs.Add(tHONGBAO);
-                    db.SaveChanges();
-                    return RedirectToAction("DSThongBao");
+                    tHONGBAO.Content = content; // Content trong bảng thông báo bằng với biến content (biến này lấy dữ liệu từ input)
+                    db.THONGBAOs.Add(tHONGBAO);  // Thêm vào bảng thông bảo
+                    db.SaveChanges();  // Lưu dữ liệu
+                    return RedirectToAction("DSThongBao");  // Hướng đến action method DSThongBao trả lại view của action method này
                 }
                 catch
                 {
-                    return Content("ERROR !!!");
+                    return Content("ERROR !!!"); // Trả lại view có nội dung Error !!!
                 }
             }
         }
@@ -89,8 +90,8 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
-                return View(tHONGBAO);
+                THONGBAO tHONGBAO = db.THONGBAOs.Find(id); // Tìm thông báo nào có mã bằng với id
+                return View(tHONGBAO);  // Trả lại view với dữ liệu của tHONGBAO có mã bằng với id
             }
         }
         [HttpPost]
@@ -104,10 +105,10 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
-                tHONGBAO.Content = noidung;
-                db.SaveChanges();
-                return RedirectToAction("DSThongBao");
+                THONGBAO tHONGBAO = db.THONGBAOs.Find(id);  // Tìm thông báo nào có mã bằng với id
+                tHONGBAO.Content = noidung;      // Content trong bảng thông báo bằng với biến noidung (biến này lấy dữ liệu từ input)
+                db.SaveChanges();  // Lưu dữ liệu
+                return RedirectToAction("DSThongBao"); // Hướng đến action method DSThongBao trả lại view của action method này
             }
         }
 
@@ -118,8 +119,8 @@ namespace WebBanSach.Areas.Admin.Controllers
             {
                 return View("Login");    // Trả lại view Login Page
             }
-            THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
-            return View(tHONGBAO);
+            THONGBAO tHONGBAO = db.THONGBAOs.Find(id); // Tìm thông báo nào có mã bằng với id
+            return View(tHONGBAO);  // Trả lại view với dữ liệu của tHONGBAO có mã bằng với id
         }
 
         public ActionResult DeleteThongBao(int id)
@@ -129,10 +130,10 @@ namespace WebBanSach.Areas.Admin.Controllers
             {
                 return View("Login");   // Trả lại view Login Page
             }
-            THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
-            db.THONGBAOs.Remove(tHONGBAO);
-            db.SaveChanges();
-            return RedirectToAction("DSThongBao");
+            THONGBAO tHONGBAO = db.THONGBAOs.Find(id);  // Tìm thông báo nào có mã bằng với id
+            db.THONGBAOs.Remove(tHONGBAO);     // Xóa dữ liệu tHONGBAO
+            db.SaveChanges();  // Lưu dữ liệu
+            return RedirectToAction("DSThongBao");   // Hướng đến action method DSThongBao trả lại view của action method này
         }
 
         // Xử lý tác giả
@@ -145,8 +146,8 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                var listcate = db.TACGIAs.ToList();
-                return View(listcate.ToList());
+                var listcate = db.TACGIAs.ToList(); // lấy dữ liệu từ bảng TÁC GIẢ trả về kiểu dữ liệu danh sách
+                return View(listcate.ToList());  // Trả lại view có dữ liệu đã có được ở trên
             }
         }
         //Xử lý Thể loại
@@ -159,8 +160,8 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                var listcate = db.CHUDEs.ToList();
-                return View(listcate.ToList());
+                var listcate = db.CHUDEs.ToList();  // lấy dữ liệu từ bảng CHỦ ĐỀ trả về kiểu dữ liệu danh sách
+                return View(listcate.ToList());      // Trả lại view có dữ liệu đã có được ở trên
             }
         }
         public ActionResult CreateCD()
@@ -288,8 +289,8 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                var listcate = db.SACHes.ToList();
-                return View(listcate.ToList());
+                var listcate = db.SACHes.ToList();   // lấy dữ liệu từ bảng SÁCH trả về kiểu dữ liệu danh sách
+                return View(listcate.ToList());      // Trả lại view có dữ liệu đã có được ở trên
             }
         }
         public ActionResult CreateSach()
