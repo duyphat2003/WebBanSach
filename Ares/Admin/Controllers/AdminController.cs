@@ -20,34 +20,37 @@ namespace WebBanSach.Areas.Admin.Controllers
         // Xử lý thông báo
         public ActionResult DSThongBao()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");    // Trả lại view Login Page
             }
             else
             {
-                var listcate = db.THONGBAOs.ToList();
-                return View(listcate.ToList());
+                var listcate = db.THONGBAOs.ToList();    // lấy dữ liệu từ bảng Thông báo 
+                return View(listcate.ToList());   // Trả lại view có dữ liệu đã có được ở trên
             }
         }
         public ActionResult CreateThongBao()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");    // Trả lại view Login Page
             }
             else
             {
-                return View();
+                return View();     // Trả lại view
             }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateThongBao(THONGBAO tHONGBAO, string content)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");   // Trả lại view Login Page
             }
             else
             {
@@ -79,9 +82,10 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult EditThongBao(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");  // Trả lại view Login Page
             }
             else
             {
@@ -93,9 +97,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditThongBao(int id, string noidung)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");   // Trả lại view Login Page
             }
             else
             {
@@ -108,12 +113,22 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult DetailThongBao(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");    // Trả lại view Login Page
+            }
             THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
             return View(tHONGBAO);
         }
 
         public ActionResult DeleteThongBao(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");   // Trả lại view Login Page
+            }
             THONGBAO tHONGBAO = db.THONGBAOs.Find(id);
             db.THONGBAOs.Remove(tHONGBAO);
             db.SaveChanges();
@@ -123,9 +138,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         // Xử lý tác giả
         public ActionResult DSTacGia()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");  // Trả lại view Login Page
             }
             else
             {
@@ -136,9 +152,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         //Xử lý Thể loại
         public ActionResult DSTheloai()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");   // Trả lại view Login Page
             }
             else
             {
@@ -148,22 +165,24 @@ namespace WebBanSach.Areas.Admin.Controllers
         }
         public ActionResult CreateCD()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login"); // Trả lại view Login Page
             }
             else
             {
-                return View();
+                return View();    // Trả lại view CreateCD
             }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateCD(CHUDE chude)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");      // Trả lại view Login Page
             }
             else
             {
@@ -194,9 +213,10 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult EditCD(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");  // Trả lại view Login Page
             }
             else
             {
@@ -208,9 +228,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditCD(int id, string tenChuDe)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");    // Trả lại view Login Page
             }
             else
             {
@@ -229,12 +250,22 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult DetailCD(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");  // Trả lại view Login Page
+            }
             CHUDE cHUDE = db.CHUDEs.Find(id);
             return View(cHUDE);
         }
 
         public ActionResult DeleteCD(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login"); // Trả lại view Login Page
+            }
             CHUDE cHUDE = db.CHUDEs.Find(id);
 
             var sACH = db.SACHes.Where(p => p.MaCD == id);
@@ -250,9 +281,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         // Xử lý sách
         public ActionResult DSSach()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");  // Trả lại view Login Page
             }
             else
             {
@@ -262,9 +294,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         }
         public ActionResult CreateSach()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login"); // Trả lại view Login Page
             }
             else
             {
@@ -275,6 +308,11 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult ChuDePartial(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");  // Trả lại view Login Page
+            }
             var chude = db.CHUDEs;
             if (id != -1)
             {
@@ -287,6 +325,11 @@ namespace WebBanSach.Areas.Admin.Controllers
         }
         public ActionResult NXBPartial(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");   // Trả lại view Login Page
+            }
             var NXB = db.NHAXUATBANs;
             if (id != -1)
             {
@@ -302,9 +345,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateSach(SACH sACH, string content, string tenChuDe, string tenChuDeOption, string tenTG, string tenNXB, string tenNXBOption, DateTime time)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");  // Trả lại view Login Page
             }
             else
             {
@@ -455,9 +499,10 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult EditSach(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");  // Trả lại view Login Page
             }
             else
             {
@@ -469,9 +514,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditSach(int id, string tenSach, string DonViTinh, decimal Gia, string NDSach, string hinhMinhHoa, string tenChuDe, string tenChuDeOption, string tenNXB, string tenNXBOption, DateTime ngayCapNhap, int SLBan, int SLXem, string tenTG)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");    // Trả lại view Login Page
             }
             else
             {
@@ -592,12 +638,22 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult DetailSach(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");   // Trả lại view Login Page
+            }
             SACH sACH = db.SACHes.Find(id);
             return View(sACH);
         }
 
         public ActionResult DeleteSach(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");  // Trả lại view Login Page
+            }
             SACH sACH = db.SACHes.Find(id);
             db.SACHes.Remove(sACH);
             db.SaveChanges();
@@ -642,7 +698,7 @@ namespace WebBanSach.Areas.Admin.Controllers
         {
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");        // Trả lại view Login Page
             }
             else
             {
@@ -662,6 +718,11 @@ namespace WebBanSach.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(QUANLY user)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");   // Trả lại view Login Page
+            }
             if (string.IsNullOrEmpty(user.TenDN))
                 ModelState.AddModelError(string.Empty, "Vui lòng nhập tài khoản của bạn");
             if (string.IsNullOrEmpty(user.Matkhau))
@@ -697,12 +758,17 @@ namespace WebBanSach.Areas.Admin.Controllers
         public ActionResult LogOut()
         {
             Session["Manager"] = null;
-            return View("Login");
+            return View("Login");  // Trả lại view Login Page
         }
 
 
         public ActionResult CartUsersList()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login"); // Trả lại view Login Page
+            }
             var dth = db.DONDATHANGs;
             return View(dth.ToList());
         }
@@ -711,15 +777,21 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult AdsList()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");    // Trả lại view Login Page
+            }
             var QC = db.QUANGCAOs;
             return View(QC.ToList());
         }
 
         public ActionResult CreateAd()
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login"); // Trả lại view Login Page
             }
             else
             {
@@ -731,9 +803,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateAd(QUANGCAO qUANGCAO, DateTime dayStart, DateTime dayEnd)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");  // Trả lại view Login Page
             }
             else
             {
@@ -770,9 +843,10 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult EditAD(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");     // Trả lại view Login Page
             }
             else
             {
@@ -785,9 +859,10 @@ namespace WebBanSach.Areas.Admin.Controllers
         public ActionResult EditAD(int id, string tenCT, string hinhMinhHoa, string href, DateTime dayStart, DateTime dayEnd)
         {
 
+            // Điều kiện kiểm tra có đăng nhập chưa
             if (Session["Manager"] == null)
             {
-                return View("Login");
+                return View("Login");  // Trả lại view Login Page
             }
             else
             {
@@ -804,12 +879,22 @@ namespace WebBanSach.Areas.Admin.Controllers
 
         public ActionResult DetailAD(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");  // Trả lại view Login Page
+            }
             QUANGCAO qc = db.QUANGCAOs.Find(id);
             return View(qc);
         }
 
         public ActionResult DeleteAD(int id)
         {
+            // Điều kiện kiểm tra có đăng nhập chưa
+            if (Session["Manager"] == null)
+            {
+                return View("Login");  // Trả lại view Login Page
+            }
             QUANGCAO qc = db.QUANGCAOs.Find(id);
             db.QUANGCAOs.Remove(qc);
             db.SaveChanges();
