@@ -63,7 +63,7 @@ body {
 }
 
 .frst-Upper {
-    background-color: hotpink;
+    background-color: rgb(189, 33, 36);
 }
 
 .marquee {
@@ -72,7 +72,7 @@ body {
     position: relative;
     clear: both;
     margin: 0 auto;
-    color: rgb(189, 33, 36);
+    color: white;
     font-size: 120%;
     font-weight: bolder;
     display: flex;

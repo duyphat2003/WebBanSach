@@ -249,6 +249,8 @@
     <Content Include="Content\Images\book7.png" />
     <Content Include="Content\Images\book8.png" />
     <Content Include="Content\Images\book9.png" />
+    <Content Include="Content\Images\BookStoreLogon.jpg" />
+    <Content Include="Content\Images\delete.png" />
     <Content Include="Content\Images\IconLogo.jpg" />
     <Content Include="Content\Images\Icon_Account 2.png" />
     <Content Include="Content\Images\Icon_Account.png" />
@@ -280,6 +282,7 @@
     <Content Include="Content\Images\manga9.png" />
     <Content Include="Content\Images\menu.png" />
     <Content Include="Content\Images\menu1.png" />
+    <Content Include="Content\Images\trash-bin.png" />
     <Content Include="Content\LoginRegister.css" />
     <Content Include="Content\mystyle.css" />
     <Content Include="Content\mywebstyle.css" />
