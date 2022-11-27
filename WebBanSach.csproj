@@ -409,6 +409,8 @@
     <Content Include="Views\Admin\NXBPartial.cshtml" />
     <Content Include="Views\Admin\DSTacGia.cshtml" />
     <Content Include="Views\Admin\Error.cshtml" />
+    <Content Include="Views\Cart\CartEmpty.cshtml" />
+    <Content Include="Views\Cart\CartNotEmpty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

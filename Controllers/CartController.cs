@@ -70,9 +70,31 @@ namespace WebBanSach.Controllers
                 ViewBag.TotalNumber = GetTotalNumber();
                 ViewBag.TotalPrice = GetTotalPrice();
             }
+            else
+            {
+                ViewBag.TotalNumber = 0;
+                ViewBag.TotalPrice = 0;
+            }
 
             return View(myCart); 
         }
+
+        public ActionResult CartEmpty()
+        {
+            return PartialView();
+        }
+
+        public ActionResult CartNotEmpty()
+        {
+            List<CartItem> myCart = GetCart();
+            if (myCart != null || myCart.Count > 0)
+            {
+                ViewBag.TotalNumber = GetTotalNumber();
+                ViewBag.TotalPrice = GetTotalPrice();
+            }
+            return PartialView(myCart);
+        }
+
 
         public ActionResult CartPartial()
         {

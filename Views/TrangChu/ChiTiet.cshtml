@@ -19,7 +19,7 @@
                 <h4>@Model.Tensach</h4>
                 <p class="price">
                     <span style="color:red; font-size:24px;">
-                        @Html.DisplayFor(modelItem => @Model.Dongia)0đ
+                        @String.Format("{0:0,0}", Model.Dongia),000đ
                     </span>
                 </p>
                 <a class="btn btn-primary" style="width: 25%; border-radius: 8px; border: none" href="@Url.Action("AddToCart", "Cart", new {id = Model.Masach})">ĐẶT MUA</a>

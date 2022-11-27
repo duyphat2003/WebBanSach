@@ -1,0 +1,190 @@
+﻿@using WebBanSach.Models
+@model List<CartItem>
+<div class="Order-Board">
+    <main>
+        @using (Html.BeginForm("PaySection", "Cart"))
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="fix-table">
+                        <th>Mã sách</th>
+                        <th>Tên sách</th>
+                        <th>Ảnh sách</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+
+                <tbody id="list1" ata-current-page="1" aria-live="polite">
+
+                    @foreach (var sach in Model)
+                    {
+
+                        <tr>
+                            <td>ATF @Html.DisplayFor(modelItem => sach.MaSach)</td>
+                            <td>
+                                <a href="@Url.Action("ChiTiet", "TrangChu", new { id = sach.MaSach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: rgb(255 0 172);">
+                                    @sach.TenSach
+                                </a>
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="@Url.Action("ChiTiet", "TrangChu", new { id = sach.MaSach, @class = "btn btn-primary" })" target="_self" style="text-decoration: none; color: rgb(255 0 172);">
+                                    <img src="~/Content/Images/@sach.ImageFile" alt="@sach.ImageFile bị lỗi" style="width: 60%" />
+                                </a>
+                            </td>
+                            <td>@sach.Number</td>
+                            <td>@String.Format("{0:0,0}", sach.Total()),000đ</td>
+                            <td>@String.Format("{0:0,0}", sach.Total()),000đ</td>
+                            <td><a href="@Url.Action("DelProductChosen", "Cart", new {id = sach.MaSach })" target="_self"><img class="Trash-Icon" style="width: 30px; height: 30px;" src="~/Content/Images/trash-bin.png" alt="trash-bin.png bị lỗi"></a></td>
+                        </tr>
+                    }
+                    <tr style="font-weight: bold; text-align: right; color: rgb(255 0 148)">
+                        <td colspan="5">Tổng số lượng: @ViewBag.TotalNumber</td>
+                        <td colspan="2">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TotalPrice),000đ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="text-align: right;">
+                <span>
+                    <select name="HTThanhtoan">
+                        <option value="Online" selected="selected">
+                            Thanh toán trực tuyến
+                        </option>
+                        <option value="Offline">
+                            Thanh toán bằng tiền mặt
+                        </option>
+                    </select>
+                    <select name="HTGiaohang">
+                        <option value="Internet" selected="selected">
+                            Cuốn sách điện tử
+                        </option>
+                        <option value="Paper">
+                            Cuốn sách giấy
+                        </option>
+                    </select>
+                </span>
+                <input class="PayBtn" type="submit" value="THANH TOÁN" />
+            </div>
+        }
+        <nav class="pagination-container">
+            <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+                &lt;
+            </button>
+
+            <div id="pagination-numbers">
+
+            </div>
+
+            <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+                &gt;
+            </button>
+        </nav>
+    </main>
+</div>
+
+<script>
+    /*Pagination */
+
+    const paginationNumbers = document.getElementById("pagination-numbers");
+    const paginatedList = document.getElementById("list1");
+    const listItems = paginatedList.querySelectorAll("tr");
+    const nextButton = document.getElementById("next-button");
+    const prevButton = document.getElementById("prev-button");
+
+    const paginationLimit = 6;
+    const pageCount = Math.ceil(listItems.length / paginationLimit);
+    let currentPage = 1;
+
+    const disableButton = (button) => {
+        button.classList.add("disabled");
+        button.setAttribute("disabled", true);
+    };
+
+    const enableButton = (button) => {
+        button.classList.remove("disabled");
+        button.removeAttribute("disabled");
+    };
+
+    const handlePageButtonsStatus = () => {
+        if (currentPage === 1) {
+            disableButton(prevButton);
+        } else {
+            enableButton(prevButton);
+        }
+
+        if (pageCount === currentPage) {
+            disableButton(nextButton);
+        } else {
+            enableButton(nextButton);
+        }
+    };
+
+    const handleActivePageNumber = () => {
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+            button.classList.remove("active");
+            const pageIndex = Number(button.getAttribute("page-index"));
+            if (pageIndex == currentPage) {
+                button.classList.add("active");
+            }
+        });
+    };
+
+    const appendPageNumber = (index) => {
+        const pageNumber = document.createElement("button");
+        pageNumber.className = "pagination-number";
+        pageNumber.innerHTML = index;
+        pageNumber.setAttribute("page-index", index);
+        pageNumber.setAttribute("aria-label", "Page " + index);
+
+        paginationNumbers.appendChild(pageNumber);
+    };
+
+    const getPaginationNumbers = () => {
+        for (let i = 1; i <= pageCount; i++) {
+            appendPageNumber(i);
+        }
+    };
+
+    const setCurrentPage = (pageNum) => {
+        currentPage = pageNum;
+
+        handleActivePageNumber();
+        handlePageButtonsStatus();
+
+        const prevRange = (pageNum - 1) * paginationLimit;
+        const currRange = pageNum * paginationLimit;
+
+        listItems.forEach((item, index) => {
+            item.classList.add("hidden");
+            if (index >= prevRange && index < currRange) {
+                item.classList.remove("hidden");
+            }
+        });
+    };
+
+    window.addEventListener("load", () => {
+        getPaginationNumbers();
+        setCurrentPage(1);
+
+        prevButton.addEventListener("click", () => {
+            setCurrentPage(currentPage - 1);
+        });
+
+        nextButton.addEventListener("click", () => {
+            setCurrentPage(currentPage + 1);
+        });
+
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+            const pageIndex = Number(button.getAttribute("page-index"));
+
+            if (pageIndex) {
+                button.addEventListener("click", () => {
+                    setCurrentPage(pageIndex);
+                });
+            }
+        });
+    });
+</script>
