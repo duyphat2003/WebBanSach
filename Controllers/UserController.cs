@@ -108,13 +108,6 @@ namespace WebBanSach.Controllers
             return View(myAccount.ToList());
         }
 
-        public ActionResult Delete(int id, int DH)
-        {
-            var myAccount = db.DONDATHANGs.Where(p => p.MaKH == id && p.SoDH == DH).FirstOrDefault();
-            db.DONDATHANGs.Remove(myAccount);
-            db.SaveChanges();
-            return View("UserCart", myAccount);
-        }
 
         public ActionResult UserNofi()
         {
