@@ -28,6 +28,7 @@
         <AssociationConnector Association="QLBANSACHModel.FK_VietSach_TacGia" ManuallyRouted="false" />
         <EntityTypeShape EntityType="QLBANSACHModel.QUANLY" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="QLBANSACHModel.THONGBAO" Width="1.5" PointX="10.375" PointY="3.75" />
+        <AssociationConnector Association="QLBANSACHModel.FK_CTDatHang_Sach1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

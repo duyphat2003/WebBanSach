@@ -22,5 +22,6 @@ namespace WebBanSach.Models
     
         public virtual DONDATHANG DONDATHANG { get; set; }
         public virtual SACH SACH { get; set; }
+        public virtual SACH SACH1 { get; set; }
     }
 }

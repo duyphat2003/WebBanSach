@@ -174,7 +174,7 @@
               <PropertyRef Name="Masach" />
             </Principal>
             <Dependent Role="CTDATHANG">
-              <PropertyRef Name="SoDH" />
+              <PropertyRef Name="Masach" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -338,6 +338,7 @@
           <Property Name="Thanhtien" Type="Decimal" Precision="20" Scale="2" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="DONDATHANG" Relationship="Self.FK_CTDatHang_DonDatHang" FromRole="CTDATHANG" ToRole="DONDATHANG" />
           <NavigationProperty Name="SACH" Relationship="Self.FK_CTDatHang_Sach" FromRole="CTDATHANG" ToRole="SACH" />
+          <NavigationProperty Name="SACH1" Relationship="QLBANSACHModel.FK_CTDatHang_Sach1" FromRole="CTDATHANG" ToRole="SACH" />
         </EntityType>
         <EntityType Name="CTTHAMDO">
           <Key>
@@ -426,6 +427,7 @@
           <NavigationProperty Name="NHAXUATBAN" Relationship="Self.FK_Sach_NhaXuatBan" FromRole="SACH" ToRole="NHAXUATBAN" />
           <NavigationProperty Name="VIETSACHes" Relationship="Self.FK_VietSach_Sach" FromRole="SACH" ToRole="VIETSACH" />
           <NavigationProperty Name="TACGIA" Relationship="Self.FKMaTG" FromRole="SACH" ToRole="TACGIA" />
+          <NavigationProperty Name="CTDATHANGs1" Relationship="QLBANSACHModel.FK_CTDatHang_Sach1" FromRole="SACH" ToRole="CTDATHANG" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -628,6 +630,10 @@
           </AssociationSet>
           <EntitySet Name="QUANLies" EntityType="QLBANSACHModel.QUANLY" />
           <EntitySet Name="THONGBAOs" EntityType="QLBANSACHModel.THONGBAO" />
+          <AssociationSet Name="FK_CTDatHang_Sach1" Association="QLBANSACHModel.FK_CTDatHang_Sach1">
+            <End Role="SACH" EntitySet="SACHes" />
+            <End Role="CTDATHANG" EntitySet="CTDATHANGs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="QUANLY">
           <Key>
@@ -645,6 +651,18 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <Association Name="FK_CTDatHang_Sach1">
+          <End Type="QLBANSACHModel.SACH" Role="SACH" Multiplicity="1" />
+          <End Type="QLBANSACHModel.CTDATHANG" Role="CTDATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="Masach" />
+            </Principal>
+            <Dependent Role="CTDATHANG">
+              <PropertyRef Name="Masach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

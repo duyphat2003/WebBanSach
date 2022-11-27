@@ -19,6 +19,7 @@ namespace WebBanSach.Models
         {
             this.CTDATHANGs = new HashSet<CTDATHANG>();
             this.VIETSACHes = new HashSet<VIETSACH>();
+            this.CTDATHANGs1 = new HashSet<CTDATHANG>();
         }
     
         public int Masach { get; set; }
@@ -41,5 +42,7 @@ namespace WebBanSach.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VIETSACH> VIETSACHes { get; set; }
         public virtual TACGIA TACGIA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTDATHANG> CTDATHANGs1 { get; set; }
     }
 }

@@ -112,59 +112,65 @@ namespace WebBanSach.Controllers
         {
             if (Session["Taikhoan"] != null)
             {
-                KHACHHANG newUser = (KHACHHANG)Session["Taikhoan"];
-                int index = 0;
-                while (true)
-                {
-                    var soDH = db.CTDATHANGs.FirstOrDefault(p => p.SoDH == index);
-                    if (soDH != null)
-                    {
-                        index++;
-                    }
-                    else
-                    {                 
-                        break;
-                    }
-                }
                 List<CartItem> myCart = GetCart();
-                foreach (CartItem item in myCart)
+                if (myCart == null || myCart.Count == 0)
                 {
-                    CTDATHANG cTDATHANG = new CTDATHANG();
-                    cTDATHANG.Masach = item.MaSach;
-                    cTDATHANG.Soluong = item.Number;
-                    cTDATHANG.Dongia = item.Price;
-                    cTDATHANG.Thanhtien = item.Total();
-                    cTDATHANG.SoDH = index;
-                    db.CTDATHANGs.Add(cTDATHANG);
+                    return RedirectToAction("GetCartInfo", "Cart");
                 }
-                var dathang = db.CTDATHANGs.Where(p => p.SoDH == index);
-                DONDATHANG dONDATHANG = new DONDATHANG();
-                dONDATHANG.SoDH = index;
-                dONDATHANG.MaKH = newUser.MaKH;
-                dONDATHANG.NgayDH = DateTime.Now;
-                dONDATHANG.Trigia = GetTotalPrice();
-                dONDATHANG.Dagiao = false;
-                DateTime dateTime = DateTime.Now;
-                TimeSpan _newTime = new System.TimeSpan(15, 0, 0, 0);
-                DateTime newTime = dateTime.Add(_newTime);
-                dONDATHANG.Ngaygiaohang = newTime;
-                KHACHHANG cus = db.KHACHHANGs.Find(newUser.MaKH);
-                dONDATHANG.Tennguoinhan = cus.HoTenKH;
-                dONDATHANG.Diachinhan = cus.DiachiKH;
-                dONDATHANG.Dienthoainhan = cus.DienthoaiKH;
-                if (HTGiaohang == "Internet")
-                    dONDATHANG.HTGiaohang = true;
                 else
-                    dONDATHANG.HTGiaohang = false;
+                {
+                    KHACHHANG newUser = (KHACHHANG)Session["Taikhoan"];
+                    int index = 0;
+                    while (true)
+                    {
+                        var soDH = db.CTDATHANGs.FirstOrDefault(p => p.SoDH == index);
+                        if (soDH != null)
+                        {
+                            index++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    foreach (CartItem item in myCart)
+                    {
+                        CTDATHANG cTDATHANG = new CTDATHANG();
+                        cTDATHANG.SoDH = index;
+                        cTDATHANG.Masach = item.MaSach;
+                        cTDATHANG.Soluong = item.Number;
+                        cTDATHANG.Dongia = item.Price;
+                        cTDATHANG.Thanhtien = item.Total();
+                        db.CTDATHANGs.Add(cTDATHANG);
+                    }
+                    DONDATHANG dONDATHANG = new DONDATHANG();
+                    dONDATHANG.SoDH = index;
+                    dONDATHANG.MaKH = newUser.MaKH;
+                    dONDATHANG.NgayDH = DateTime.Now;
+                    dONDATHANG.Trigia = GetTotalPrice();
+                    dONDATHANG.Dagiao = false;
+                    DateTime dateTime = DateTime.Now;
+                    TimeSpan _newTime = new System.TimeSpan(15, 0, 0, 0);
+                    DateTime newTime = dateTime.Add(_newTime);
+                    dONDATHANG.Ngaygiaohang = newTime;
+                    KHACHHANG cus = db.KHACHHANGs.Find(newUser.MaKH);
+                    dONDATHANG.Tennguoinhan = cus.HoTenKH;
+                    dONDATHANG.Diachinhan = cus.DiachiKH;
+                    dONDATHANG.Dienthoainhan = cus.DienthoaiKH;
+                    if (HTGiaohang == "Internet")
+                        dONDATHANG.HTGiaohang = true;
+                    else
+                        dONDATHANG.HTGiaohang = false;
 
-                if (HTThanhtoan == "Online")
-                    dONDATHANG.HTThanhtoan = true;
-                else
-                    dONDATHANG.HTThanhtoan = false;
-                db.DONDATHANGs.Add(dONDATHANG);
-                db.SaveChanges();
-                Session["GioHang"] = null;
-                return RedirectToAction("UserCart", "User", new { id = cus.MaKH });
+                    if (HTThanhtoan == "Online")
+                        dONDATHANG.HTThanhtoan = true;
+                    else
+                        dONDATHANG.HTThanhtoan = false;
+                    db.DONDATHANGs.Add(dONDATHANG);
+                    db.SaveChanges();
+                    Session["GioHang"] = null;
+                    return RedirectToAction("UserCart", "User", new { id = cus.MaKH });
+                }
             }
             Session["GioHang"] = null;
             return RedirectToAction("LoginRegister", "User", new { topic = "AcountInfo" });
