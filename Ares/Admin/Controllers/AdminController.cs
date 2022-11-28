@@ -189,6 +189,8 @@ namespace WebBanSach.Areas.Admin.Controllers
             {
                 try
                 {
+                    if (string.IsNullOrEmpty(chude.TenChuDe) || chude.TenChuDe.Length > 50)
+                        ModelState.AddModelError(string.Empty, "Vui lòng nhập tên thể loại của sách");
                     int id = 0;
                     while (true)
                     {
@@ -236,17 +238,28 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                CHUDE cHUDE = db.CHUDEs.Find(id);
-                var topic = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
-                if (topic != null)
+                try
                 {
-                    db.CHUDEs.Remove(cHUDE);
+                    CHUDE cHUDE = db.CHUDEs.Find(id);
+                    if (string.IsNullOrEmpty(cHUDE.TenChuDe) || cHUDE.TenChuDe.Length > 50)
+                        ModelState.AddModelError(string.Empty, "Vui lòng nhập tên thể loại của sách");
+                    var topic = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
+                    if (topic != null)
+                    {
+                        db.CHUDEs.Remove(cHUDE);
+                    }
+                    else
+                        cHUDE.TenChuDe = tenChuDe;
+                    db.SaveChanges();
+                    return RedirectToAction("DSTheloai");
                 }
-                else
-                    cHUDE.TenChuDe = tenChuDe;
-                db.SaveChanges();
-                return RedirectToAction("DSTheloai");
+
+                 catch
+                {
+                    return Content("ERROR !!!");
+                }
             }
+
         }
 
         public ActionResult DetailCD(int id)
@@ -356,10 +369,10 @@ namespace WebBanSach.Areas.Admin.Controllers
                 try
                 {
                     //Xét có dữ liệu nào để null hoặc để trống hay không
-                    if (string.IsNullOrEmpty(sACH.Tensach))
+                    if (string.IsNullOrEmpty(sACH.Tensach) || sACH.Tensach.Length > 100)
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập tên sách");
 
-                    if (string.IsNullOrEmpty(sACH.Donvitinh))
+                    if (string.IsNullOrEmpty(sACH.Donvitinh) || sACH.Donvitinh.Length > 50)
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập đơn vị tính");
 
                     if (string.IsNullOrEmpty(sACH.Dongia.ToString()) && sACH.Dongia > 0)
@@ -368,19 +381,19 @@ namespace WebBanSach.Areas.Admin.Controllers
                     if (string.IsNullOrEmpty(content))
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập nội dung");
 
-                    if (string.IsNullOrEmpty(sACH.Hinhminhhoa))
+                    if (string.IsNullOrEmpty(sACH.Hinhminhhoa) || sACH.Hinhminhhoa.Length > 50)
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập tên ảnh của sách");
 
-                    if (string.IsNullOrEmpty(tenChuDe))
+                    if (string.IsNullOrEmpty(tenChuDe) || tenChuDe.Length > 50)
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập tên thể loại của sách");
 
                     if (string.IsNullOrEmpty(sACH.Soluongban.ToString()) && sACH.Soluongban > 0)
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập giá sách");
 
-                    if (string.IsNullOrEmpty(tenTG))
+                    if (string.IsNullOrEmpty(tenTG) || tenTG.Length > 50)
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập tên tác giả");
 
-                    if (string.IsNullOrEmpty(tenNXB))
+                    if (string.IsNullOrEmpty(tenNXB) || tenNXB.Length > 100)
                         ModelState.AddModelError(string.Empty, "Vui lòng nhập tên nhà xuất bản");
 
                     if (string.IsNullOrEmpty(time.ToString()))
@@ -524,118 +537,131 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                SACH sACH = db.SACHes.Find(id);
-                var nameSach = db.SACHes.FirstOrDefault(k => k.Tensach.ToUpper() == tenSach.ToUpper() && k.Masach != sACH.Masach);
-                if (nameSach != null)
+                try
                 {
-                    db.SACHes.Remove(sACH);
-                    db.SaveChanges();
-                }
-                else
-                {
-                    sACH.Tensach = tenSach;
-                    sACH.Donvitinh = DonViTinh;
-                    sACH.Dongia = Gia;
-                    sACH.Mota = NDSach;
-                    sACH.Hinhminhhoa = hinhMinhHoa;
-
-                    int idTopic = 0;
-                    int idNXB = 0;
-                    while (true)
+                    SACH sACH = db.SACHes.Find(id);
+                    if (string.IsNullOrEmpty(tenSach) || tenSach.Length > 100)
+                        ModelState.AddModelError(string.Empty, "Trống hoặc vượt quá số lượng");
+                    if (string.IsNullOrEmpty(DonViTinh) || DonViTinh.Length > 50)
+                        ModelState.AddModelError(string.Empty, "Trống hoặc vượt quá số lượng");
+                    if (string.IsNullOrEmpty(hinhMinhHoa) || hinhMinhHoa.Length > 50)
+                        ModelState.AddModelError(string.Empty, "Trống hoặc vượt quá số lượng");
+                    var nameSach = db.SACHes.FirstOrDefault(k => k.Tensach.ToUpper() == tenSach.ToUpper() && k.Masach != sACH.Masach);
+                    if (nameSach != null)
                     {
-                        var topicID = db.CHUDEs.FirstOrDefault(k => k.MaCD == idTopic);
-                        var nxbID = db.NHAXUATBANs.FirstOrDefault(k => k.MaNXB == idNXB);
-                        if (nxbID == null && topicID == null)
-                        {
-                            break;
-                        }
-                        if (topicID != null)
-                        {
-                            idTopic++;
-                        }
-                        if (nxbID != null)
-                        {
-                            idNXB++;
-                        }
-                    }
-                    if (tenChuDeOption == "Other")
-                    {
-                        CHUDE topic = new CHUDE();
-                        topic.MaCD = idTopic;
-                        var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
-                        if (topics == null)
-                        {
-                            topic.TenChuDe = tenChuDe;
-                            sACH.MaCD = idTopic;
-                            db.CHUDEs.Add(topic);
-                            db.SaveChanges();
-                        }
-                        else
-                        {
-                            sACH.MaCD = topics.MaCD;
-                        }
-                    }
-                    else
-                    {
-                        var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDeOption.ToUpper());
-                        sACH.MaCD = topics.MaCD;
-                    }
-
-                    if (tenNXBOption == "Other")
-                    {
-                        NHAXUATBAN Provider = new NHAXUATBAN();
-                        Provider.MaNXB = idNXB;
-                        var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXB.ToUpper());
-                        if (NXB == null)
-                        {
-                            Provider.TenNXB = tenNXB;
-                            sACH.MaNXB = idNXB;
-                            db.NHAXUATBANs.Add(Provider);
-                            db.SaveChanges();
-                        }
-                        else
-                        {
-                            sACH.MaNXB = NXB.MaNXB;
-                        }
-                    }
-                    else
-                    {
-                        var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXBOption.ToUpper());
-                        sACH.MaNXB = NXB.MaNXB;
-                    }
-
-                    sACH.Ngaycapnhat = ngayCapNhap;
-                    sACH.Soluongban = SLBan;
-                    sACH.solanxem = SLXem;
-
-                    var author = db.TACGIAs.FirstOrDefault(k => k.TenTG.ToUpper() == tenTG.ToUpper());
-                    if (author == null)
-                    {
-                        int idAuthor = 0;
-                        while (true)
-                        {
-                            var AuthorID = db.TACGIAs.FirstOrDefault(k => k.MaTG == idAuthor);
-                            if (AuthorID == null)
-                            {
-                                break;
-                            }
-                            else idAuthor++;
-
-                        }
-                        TACGIA _Author = new TACGIA();
-                        _Author.TenTG = tenNXB;
-                        _Author.MaTG = idAuthor;
-                        sACH.MaNXB = idAuthor;
-                        db.TACGIAs.Add(_Author);
+                        db.SACHes.Remove(sACH);
                         db.SaveChanges();
                     }
                     else
                     {
-                        sACH.MaTG = author.MaTG;
+                        sACH.Tensach = tenSach;
+                        sACH.Donvitinh = DonViTinh;
+                        sACH.Dongia = Gia;
+                        sACH.Mota = NDSach;
+                        sACH.Hinhminhhoa = hinhMinhHoa;
+
+                        int idTopic = 0;
+                        int idNXB = 0;
+                        while (true)
+                        {
+                            var topicID = db.CHUDEs.FirstOrDefault(k => k.MaCD == idTopic);
+                            var nxbID = db.NHAXUATBANs.FirstOrDefault(k => k.MaNXB == idNXB);
+                            if (nxbID == null && topicID == null)
+                            {
+                                break;
+                            }
+                            if (topicID != null)
+                            {
+                                idTopic++;
+                            }
+                            if (nxbID != null)
+                            {
+                                idNXB++;
+                            }
+                        }
+                        if (tenChuDeOption == "Other")
+                        {
+                            CHUDE topic = new CHUDE();
+                            topic.MaCD = idTopic;
+                            var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDe.ToUpper());
+                            if (topics == null)
+                            {
+                                topic.TenChuDe = tenChuDe;
+                                sACH.MaCD = idTopic;
+                                db.CHUDEs.Add(topic);
+                                db.SaveChanges();
+                            }
+                            else
+                            {
+                                sACH.MaCD = topics.MaCD;
+                            }
+                        }
+                        else
+                        {
+                            var topics = db.CHUDEs.FirstOrDefault(k => k.TenChuDe.ToUpper() == tenChuDeOption.ToUpper());
+                            sACH.MaCD = topics.MaCD;
+                        }
+
+                        if (tenNXBOption == "Other")
+                        {
+                            NHAXUATBAN Provider = new NHAXUATBAN();
+                            Provider.MaNXB = idNXB;
+                            var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXB.ToUpper());
+                            if (NXB == null)
+                            {
+                                Provider.TenNXB = tenNXB;
+                                sACH.MaNXB = idNXB;
+                                db.NHAXUATBANs.Add(Provider);
+                                db.SaveChanges();
+                            }
+                            else
+                            {
+                                sACH.MaNXB = NXB.MaNXB;
+                            }
+                        }
+                        else
+                        {
+                            var NXB = db.NHAXUATBANs.FirstOrDefault(k => k.TenNXB.ToUpper() == tenNXBOption.ToUpper());
+                            sACH.MaNXB = NXB.MaNXB;
+                        }
+
+                        sACH.Ngaycapnhat = ngayCapNhap;
+                        sACH.Soluongban = SLBan;
+                        sACH.solanxem = SLXem;
+
+                        var author = db.TACGIAs.FirstOrDefault(k => k.TenTG.ToUpper() == tenTG.ToUpper());
+                        if (author == null)
+                        {
+                            int idAuthor = 0;
+                            while (true)
+                            {
+                                var AuthorID = db.TACGIAs.FirstOrDefault(k => k.MaTG == idAuthor);
+                                if (AuthorID == null)
+                                {
+                                    break;
+                                }
+                                else idAuthor++;
+
+                            }
+                            TACGIA _Author = new TACGIA();
+                            _Author.TenTG = tenNXB;
+                            _Author.MaTG = idAuthor;
+                            sACH.MaNXB = idAuthor;
+                            db.TACGIAs.Add(_Author);
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            sACH.MaTG = author.MaTG;
+                        }
                     }
+                    db.SaveChanges();
+                    return RedirectToAction("DSSach");
                 }
-                db.SaveChanges();
-                return RedirectToAction("DSSach");
+                catch
+                {
+                    return Content("ERROR !!!");
+                }
             }
         }
 
@@ -751,7 +777,7 @@ namespace WebBanSach.Areas.Admin.Controllers
                     user.ID = id;
                     db.QUANLies.Add(user);
                     db.SaveChanges();
-                   return View("Login");
+                   return RedirectToAction("DSTheloai", "Admin");
                 }
 
             }
@@ -815,6 +841,10 @@ namespace WebBanSach.Areas.Admin.Controllers
             {
                 try
                 {
+                    if (string.IsNullOrEmpty(qUANGCAO.TenCty) || qUANGCAO.TenCty.Length > 200)
+                        ModelState.AddModelError(string.Empty, "Trống hoặc vượt quá số lượng");
+                    if (string.IsNullOrEmpty(qUANGCAO.Hinhminhhoa) || qUANGCAO.Hinhminhhoa.Length > 20)
+                        ModelState.AddModelError(string.Empty, "Trống hoặc vượt quá số lượng");
                     if (String.IsNullOrEmpty(qUANGCAO.Href))
                         qUANGCAO.Href = "#";
                     qUANGCAO.Ngaybatdau = dayStart;
@@ -873,16 +903,28 @@ namespace WebBanSach.Areas.Admin.Controllers
             }
             else
             {
-                QUANGCAO qc = db.QUANGCAOs.Find(id);
-                qc.TenCty = tenCT;
-                qc.Hinhminhhoa = hinhMinhHoa;
-                if (String.IsNullOrEmpty(qc.Href))
-                    href = "#";
-                qc.Href = href;
-                qc.Ngaybatdau = dayStart;
-                qc.Ngayhethan = dayEnd;
-                db.SaveChanges();
-                return RedirectToAction("AdsList");
+                try
+                {
+                    QUANGCAO qc = db.QUANGCAOs.Find(id);
+                    if (string.IsNullOrEmpty(tenCT) || tenCT.Length > 200)
+                        ModelState.AddModelError(string.Empty, "Trống hoặc vượt quá số lượng");
+                    if (string.IsNullOrEmpty(hinhMinhHoa) || hinhMinhHoa.Length > 20)
+                        ModelState.AddModelError(string.Empty, "Trống hoặc vượt quá số lượng");
+                    qc.TenCty = tenCT;
+                    qc.Hinhminhhoa = hinhMinhHoa;
+
+                    if (String.IsNullOrEmpty(qc.Href))
+                        href = "#";
+                    qc.Href = href;
+                    qc.Ngaybatdau = dayStart;
+                    qc.Ngayhethan = dayEnd;
+                    db.SaveChanges();
+                    return RedirectToAction("AdsList");
+                }
+                catch
+                {
+                    return Content("ERROR !!!");
+                }
             }
         }
 

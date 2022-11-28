@@ -133,7 +133,7 @@ namespace WebBanSach.Controllers
             Session["GioHang"] = null;
             if (ModelState.IsValid)
             {
-                if (string.IsNullOrEmpty(khachhang.HoTenKH))
+                if (string.IsNullOrEmpty(khachhang.HoTenKH) )
                     ModelState.AddModelError(string.Empty, "Họ tên không được để trống");
 
                 if (string.IsNullOrEmpty(khachhang.DiachiKH))
@@ -160,8 +160,6 @@ namespace WebBanSach.Controllers
                 var mail = db.KHACHHANGs.FirstOrDefault(k => k.Email == khachhang.Email);
                 if (mail != null)
                     ModelState.AddModelError(string.Empty, "Đã có người đăng kí mail này");
-
-
 
                 if (ModelState.IsValid)
                 {

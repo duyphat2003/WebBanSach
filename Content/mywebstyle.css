@@ -529,12 +529,47 @@ td.TitleChoice {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
     .ADs-col-2-row-2, .ADs-col-2-row-1, .div-center-ADs-2{
         display: none
     }
     .ADs-col1{
         width:100%;
+    }
+    .frst-Upper {
+        display: none !important;
+    }
+
+    #logo {
+        width: 30%;
+        height: 100%;
+        position: absolute
+    }
+
+    .wp-inner, .wp-element {
+        display: flex !important;
+        flex-direction: row-reverse !important;
+    }
+
+    .TitleChoice {
+        display: none;
+    }
+
+    .form-search {
+        margin-top: 10px;
+    }
+
+    .bllp-btn-search {
+        display: none;
+    }
+
+    #SearchBar {
+        width: 100% !important;
+    }
+
+    .main-menu a {
+        margin-left: calc(70%/2);
+        margin-top: calc(100%2)
     }
 }
 

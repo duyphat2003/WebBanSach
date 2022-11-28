@@ -288,6 +288,7 @@
     <Content Include="Content\Images\minus-sign.png" />
     <Content Include="Content\Images\plus.png" />
     <Content Include="Content\Images\trash-bin.png" />
+    <Content Include="Content\Images\TSHK1.jpg" />
     <Content Include="Content\LoginRegister.css" />
     <Content Include="Content\mystyle.css" />
     <Content Include="Content\mywebstyle.css" />
