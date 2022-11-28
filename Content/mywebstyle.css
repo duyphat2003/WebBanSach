@@ -485,6 +485,20 @@ td.TitleChoice {
     background-color: #ccc;
 }
 
+.nav-item > a{
+    text-decoration:none;
+    padding:29px 15px;
+    color:darkred;
+    font-weight:600;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.nav-item:hover > a{
+    opacity:0,5;
+    color:#ccc;
+    background-color:#1ba88e;
+}
+
 @media only screen and (max-width: 1024px) {
     .div-center-Page {
         width: 100%;
