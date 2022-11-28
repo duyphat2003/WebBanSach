@@ -251,6 +251,7 @@
     <Content Include="Content\Images\book9.png" />
     <Content Include="Content\Images\BookStoreLogon.jpg" />
     <Content Include="Content\Images\delete.png" />
+    <Content Include="Content\Images\GoShoppingIcon.jpg" />
     <Content Include="Content\Images\IconLogo.jpg" />
     <Content Include="Content\Images\Icon_Account 2.png" />
     <Content Include="Content\Images\Icon_Account.png" />
@@ -270,6 +271,7 @@
     <Content Include="Content\Images\lap7.jpg" />
     <Content Include="Content\Images\lap8.jpg" />
     <Content Include="Content\Images\lap9.jpg" />
+    <Content Include="Content\Images\LetShoppingIcon.jpg" />
     <Content Include="Content\Images\logobookstore.png" />
     <Content Include="Content\Images\manga1.png" />
     <Content Include="Content\Images\manga10.png" />
