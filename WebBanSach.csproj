@@ -285,6 +285,8 @@
     <Content Include="Content\Images\manga9.png" />
     <Content Include="Content\Images\menu.png" />
     <Content Include="Content\Images\menu1.png" />
+    <Content Include="Content\Images\minus-sign.png" />
+    <Content Include="Content\Images\plus.png" />
     <Content Include="Content\Images\trash-bin.png" />
     <Content Include="Content\LoginRegister.css" />
     <Content Include="Content\mystyle.css" />

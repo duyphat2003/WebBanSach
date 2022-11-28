@@ -22,7 +22,13 @@
                         @String.Format("{0:0,0}", Model.Dongia),000đ
                     </span>
                 </p>
-                <a class="btn btn-primary" style="width: 25%; border-radius: 8px; border: none" href="@Url.Action("AddToCart", "Cart", new {id = Model.Masach})">ĐẶT MUA</a>
+                @using (Html.BeginForm("AddToCart", "Cart", new { id = Model.Masach }))
+                {
+                    <button class="btn btn-primary ThemSanPham" type="submit" name="request" value="Thêm">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn btn-primary MuaSanPham" type="submit" name="request" value="Mua">MUA NGAY</button>
+                    <p style="margin-top: 35px; color: rgb(66 199 172); font-weight: bold">Số lượng: <input style="width: 30%; margin-left: 30px; color: rgb(255 0 172); background-color: rgb(201 255 139); border-color:rgb(110 255 53)" type="number" min="1" max="50" value="1" name="Quanlity" /></p>
+                }
+
             </div>
         </div>
     </div>

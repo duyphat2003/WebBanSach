@@ -26,15 +26,34 @@
     margin-bottom: 10px;
     background-color: white;
 }
-    .Describe-Box a {
+    .Describe-Box button {
         background-color: rgb(189, 33, 36);
         color: white;
+        width: 25%;
+        border-radius: 8px;
     }
-        .Describe-Box a:hover {
-            background-color: rgb(255, 211, 0);
-            color: orange;
-            opacity: 0.8;
-        }
+    .Describe-Box .ThemSanPham {
+        border-color: rgb(189, 33, 36);
+        background-color: white;
+        color: rgb(189, 33, 36);
+    }
+
+    .Describe-Box .MuaSanPham {
+        border: none;
+        margin-left: 20px;
+    }
+
+    .Describe-Box .ThemSanPham:hover {
+        background-color: rgb(255, 211, 0);
+        color: white;
+        opacity: 0.8;
+    }
+
+    .Describe-Box .MuaSanPham:hover {
+        background-color: rgb(255, 211, 0);
+        color: orange;
+        opacity: 0.8;
+    }
 .Content-Box {
     width: 100%;
     margin-top: 20px;

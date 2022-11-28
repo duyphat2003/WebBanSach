@@ -22,7 +22,7 @@ namespace WebBanSach.Controllers
             return myCart;
         }
 
-        public ActionResult AddToCart(int id)
+        public ActionResult AddToCart(int id, string request, int Quanlity)
         {
             //Lấy giỏ hàng hiện tại
             List<CartItem> myCart = GetCart();
@@ -30,13 +30,20 @@ namespace WebBanSach.Controllers
             if (currentProduct == null)
             {
                 currentProduct = new CartItem(id);
+                currentProduct.Number = Quanlity;
                 myCart.Add(currentProduct);
             }
             else
             {
-                currentProduct.Number++; 
+                currentProduct.Number += Quanlity; 
             }
-            
+            if(request == "Thêm")
+            {
+                return RedirectToAction("ChiTiet", "TrangChu", new
+                {
+                    id = id
+                });
+            }
             return RedirectToAction("GetCartInfo", "Cart", new
             {
                 id = id
@@ -105,23 +112,29 @@ namespace WebBanSach.Controllers
         }
 
 
-        public ActionResult DelProductChosen(int id)
+        public ActionResult DelProductChosen(int id, int Quanlity, string delete)
         {
             List<CartItem> myCart = GetCart();
             foreach (CartItem item in myCart)
             {
-                if (item.MaSach == id)
+                if(delete == "Delete")
                 {
-                    if (item.Number > 1)
-                    {
-                        item.Number--;
-                        break;
-                    }
+                    item.Number = 0;
+                    myCart.Remove(item);
+                    break;
+                }
+                else
+                {
                     if (item.Number == 1)
                     {
-                        myCart.Remove(item);
-                        break;
+                        item.Number -= 0;
+                
                     }
+                    else
+                    {
+                        item.Number -= Quanlity;
+                    }
+                    break;
                 }
             }
             ViewBag.TotalNumber = GetTotalNumber();

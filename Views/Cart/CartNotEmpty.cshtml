@@ -21,7 +21,6 @@
 
                     @foreach (var sach in Model)
                     {
-
                         <tr>
                             <td>ATF @Html.DisplayFor(modelItem => sach.MaSach)</td>
                             <td>
@@ -34,10 +33,19 @@
                                     <img src="~/Content/Images/@sach.ImageFile" alt="@sach.ImageFile bị lỗi" style="width: 60%" />
                                 </a>
                             </td>
-                            <td>@sach.Number</td>
+                            <td style="text-align: center">
+
+                                <a href="@Url.Action("DelProductChosen", "Cart", new {id = sach.MaSach, Quanlity = 1, delete = "minus" })" target="_self" style="text-decoration:none; margin: 5px;">
+                                    <img class="Trash-Icon" style="width: 20px; height: 20px;" src="~/Content/Images/minus-sign.png" alt="minus-sign.png bị lỗi">
+                                </a>
+                                @sach.Number
+                                <a href="@Url.Action("AddToCart", "Cart", new { id = sach.MaSach, request = "Mua", Quanlity = 1})" target="_self" style="text-decoration: none; margin: 5px;">
+                                    <img class="Trash-Icon" style="width: 20px; height: 20px; " src="~/Content/Images/plus.png" alt="plus.png bị lỗi">
+                                </a>
+                            </td>
+                            <td>@String.Format("{0:0,0}", sach.Price),000đ</td>
                             <td>@String.Format("{0:0,0}", sach.Total()),000đ</td>
-                            <td>@String.Format("{0:0,0}", sach.Total()),000đ</td>
-                            <td><a href="@Url.Action("DelProductChosen", "Cart", new {id = sach.MaSach })" target="_self"><img class="Trash-Icon" style="width: 30px; height: 30px;" src="~/Content/Images/trash-bin.png" alt="trash-bin.png bị lỗi"></a></td>
+                            <td><a href="@Url.Action("DelProductChosen", "Cart", new {id = sach.MaSach, Quanlity = sach.Number, delete = "Delete" })" target="_self"><img class="Trash-Icon" style="width: 30px; height: 30px;" src="~/Content/Images/trash-bin.png" alt="trash-bin.png bị lỗi"></a></td>
                         </tr>
                     }
                     <tr style="font-weight: bold; text-align: right; color: rgb(255 0 148)">
