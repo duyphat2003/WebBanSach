@@ -81,7 +81,7 @@
                         @Html.DisplayFor(modelItem => item.NgayDH)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Trigia)
+                        @String.Format("{0:0,0}", item.Trigia),000đ
                     </td>
                     <td>
                         @ViewBag.GiaoInfo

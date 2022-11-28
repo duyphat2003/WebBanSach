@@ -56,7 +56,7 @@
                 @Html.DisplayFor(modelItem => Model.Donvitinh)
             </td>
             <td>
-                @Math.Round((decimal)Model.Dongia, 3)đ
+                @String.Format("{0:0,0}", Model.Dongia),000đ
             </td>
             <td>
                 @Html.DisplayFor(modelItem => Model.Mota)
